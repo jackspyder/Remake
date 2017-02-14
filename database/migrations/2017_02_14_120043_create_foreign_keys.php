@@ -40,7 +40,7 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('permission_role', function(Blueprint $table) {
 			$table->foreign('role_id')->references('id')->on('roles')
-						->onDelete('no action')
+						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
 		Schema::table('role_user', function(Blueprint $table) {
