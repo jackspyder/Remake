@@ -20,6 +20,6 @@ class CreateReceiptsTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('receipts');
+        Schema::dropIfExists('receipts');
 	}
 }

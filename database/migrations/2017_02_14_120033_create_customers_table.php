@@ -11,7 +11,7 @@ class CreateCustomersTable extends Migration {
 			$table->increments('id');
 			$table->string('first_name', 255)->nullable();
 			$table->string('last_name', 255)->nullable();
-			$table->string('email', 1024)->unique();
+			$table->string('email', 255)->unique();
 			$table->string('phone_no', 12)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
@@ -20,6 +20,6 @@ class CreateCustomersTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('customers');
+        Schema::dropIfExists('customers');
 	}
 }

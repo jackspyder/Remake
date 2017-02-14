@@ -18,6 +18,6 @@ class CreateSalesTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('sales');
+        Schema::dropIfExists('sales');
 	}
 }
