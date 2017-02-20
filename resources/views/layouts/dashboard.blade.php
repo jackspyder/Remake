@@ -53,7 +53,7 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-          @yeild('content')
+          @yield('content')
         </div>
         <!-- /#page-content-wrapper -->
 
