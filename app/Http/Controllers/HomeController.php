@@ -21,9 +21,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login()
     {
-        return view('home');
+        return view('auth.login');
     }
 
     public function dashboard()
