@@ -12,7 +12,6 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/sidebar.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -43,37 +42,6 @@
           </div>
 
           <div class="collapse navbar-collapse" id="app-navbar-collapse">
-              <!-- Left Side Of Navbar -->
-              <ul class="nav navbar-nav">
-                  &nbsp;
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                          Member Management <span class="caret"></span>
-                      </a>
-                      <ul class="dropdown-menu" role="menu">
-                          <li>
-                              <a href="{{ url('/addmmember') }}">Add Member</a>
-                          </li>
-                          <li>
-                              <a href="{{ url('/members') }}">View Members</a>
-                          </li>
-                      </ul>
-                  </li>
-
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                          Database <span class="caret"></span>
-                      </a>
-                      <ul class="dropdown-menu" role="menu">
-                          <li>
-                              <a href="{{ url('/items') }}">view database</a>
-                          </li>
-                          <li>
-                              <a href="{{ url('/entry') }}">Add Items</a>
-                          </li>
-                      </ul>
-                  </li>
-              </ul>
 
               <!-- Right Side Of Navbar -->
               <ul class="nav navbar-nav navbar-right">
@@ -107,48 +75,9 @@
                           </ul>
                       </li>
                   @endif
-              </ul
+              </ul>
           </div>
       </div>
   </nav>
 
-<div id="wrapper">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-      @yield('content')
-    </div>
-
-</div>
-
-<!-- Scripts -->
-<script src="/js/app.js"></script>
-</body>
-</html>
+  @yield('content')
