@@ -15,10 +15,8 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/dashboard', 'HomeController@dashboard');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-Auth::routes();
-
-Route::get('/test', 'HomeController@test');
