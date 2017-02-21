@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', 'HomeController@dashboard');
