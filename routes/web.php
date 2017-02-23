@@ -17,4 +17,4 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@dashboard');
 Route::get('/', 'HomeController@dashboard');
-Route::get('/items', 'DataController@items');
+Route::get('/items', 'ItemsController@index');
