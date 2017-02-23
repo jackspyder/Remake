@@ -11,12 +11,6 @@ class ItemsTableSeeder extends Seeder
      */
      public function run()
      {
-         DB::table('items')->insert([
-           'category' => 'Cat1',
-           'weight' => '12',
-           'condition' => 'Good',
-           'status' => 'status1',
-           'notes' => 'some notes!'
-         ]);
+       $users = factory(App\Item::class, 50)->make();
      }
 }
