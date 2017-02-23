@@ -25,6 +25,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Item::class, function () {
     return [
+        'spec_id' => rand(1, 20),
         'category' => str_random(10),
         'weight' => rand(1, 20),
         'condition' => 'condition',
