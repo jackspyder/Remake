@@ -8,8 +8,8 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
-		Schema::table('specs', function(Blueprint $table) {
-			$table->foreign('item_id')->references('id')->on('items')
+		Schema::table('items', function(Blueprint $table) {
+			$table->foreign('spec_id')->references('id')->on('specs')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
@@ -57,8 +57,8 @@ class CreateForeignKeys extends Migration {
 
 	public function down()
 	{
-		Schema::table('specs', function(Blueprint $table) {
-			$table->dropForeign('specs_item_id_foreign');
+		Schema::table('items', function(Blueprint $table) {
+			$table->dropForeign('items_spec_id_foreign');
 		});
 		Schema::table('sales', function(Blueprint $table) {
 			$table->dropForeign('sales_receipt_id_foreign');
