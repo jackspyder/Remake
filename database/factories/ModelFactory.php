@@ -35,3 +35,24 @@ $factory->define(App\Item::class, function () {
         'deleted_at' => null,
     ];
 });
+
+$factory->define(App\Spec::class, function () {
+    return [
+        'cpu' => str_random(10),
+        'ram' => str_random(10),
+        'hdd' => str_random(10),
+        'odd' => str_random(10),
+        'gpu' => str_random(10),
+        'battery' => str_random(10),
+        'usb' => str_random(10),
+        'lan' => str_random(10),
+        'wlan' => str_random(10),
+        'os' => str_random(10),
+        'psu' => str_random(10),
+        'screen_size' => rand(1, 20),
+        'screen_rez' => str_random(10),
+        'created_at' => new DateTime,
+        'updated_at' => new DateTime,
+        'deleted_at' => null,
+    ];
+});

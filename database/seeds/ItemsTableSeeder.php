@@ -11,6 +11,6 @@ class ItemsTableSeeder extends Seeder
      */
      public function run()
      {
-       $users = factory(App\Item::class, 50)->make();
+       $items = factory(App\Item::class, 50)->make();
      }
 }
