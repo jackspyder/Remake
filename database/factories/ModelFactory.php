@@ -23,20 +23,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Item::class, function () {
-    return [
-        'spec_id' => rand(1, 20),
-        'category' => str_random(10),
-        'weight' => rand(1, 20),
-        'condition' => 'condition',
-        'status' => str_random(10),
-        'notes' => str_random(20),
-        'created_at' => new DateTime,
-        'updated_at' => new DateTime,
-        'deleted_at' => null,
-    ];
-});
-
 $factory->define(App\Spec::class, function () {
     return [
         'cpu' => str_random(10),
@@ -50,8 +36,22 @@ $factory->define(App\Spec::class, function () {
         'wlan' => str_random(10),
         'os' => str_random(10),
         'psu' => str_random(10),
-        'screen_size' => rand(1, 20),
+        'screen_size' => 1.1,
         'screen_rez' => str_random(10),
+        'created_at' => new DateTime,
+        'updated_at' => new DateTime,
+        'deleted_at' => null,
+    ];
+});
+
+$factory->define(App\Item::class, function () {
+    return [
+        'spec_id' => rand(1,20),
+        'category' => str_random(10),
+        'weight' => rand(1, 20),
+        'condition' => 'condition',
+        'status' => str_random(10),
+        'notes' => str_random(20),
         'created_at' => new DateTime,
         'updated_at' => new DateTime,
         'deleted_at' => null,
