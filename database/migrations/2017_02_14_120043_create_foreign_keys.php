@@ -57,8 +57,8 @@ class CreateForeignKeys extends Migration {
 
 	public function down()
 	{
-		Schema::table('specs', function(Blueprint $table) {
-			$table->dropForeign('specs_item_id_foreign');
+		Schema::table('items', function(Blueprint $table) {
+			$table->dropForeign('items_spec_id_foreign');
 		});
 		Schema::table('sales', function(Blueprint $table) {
 			$table->dropForeign('sales_receipt_id_foreign');
