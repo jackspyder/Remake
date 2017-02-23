@@ -19,13 +19,16 @@
         </thead>
         <tbody>
           @foreach($items as $item)
-            <tr>
+            <tr data-toggle="collapse" data-target="#{{$item->id}}" class="accordion-toggle">
               <td>{{$item->id}}</td>
               <td>{{$item->category}}</td>
               <td>{{$item->weight}}</td>
               <td>{{$item->condition}}</td>
               <td>{{$item->status}}</td>
               <td>{{$item->notes}}</td>
+            </tr>
+            <tr>
+              <td colspan="6" class="hiddenRow"><div class="accordian-body collapse" id="{{$item->id}}">{{$item->spec}}</div> </td>
             </tr>
           @endforeach
         </tbody>

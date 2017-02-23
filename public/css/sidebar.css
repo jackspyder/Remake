@@ -51,6 +51,10 @@ body {
   margin-bottom: 0
 }
 
+.hiddenRow{
+  padding:0 !important
+}
+
 /* Sidebar Styles */
 
 .sidebar-nav {
