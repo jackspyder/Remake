@@ -12,6 +12,17 @@ use App\Item;
  */
 class ItemsController extends Controller
 {
+
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   public function index()
   {
     $items = Item::all();
