@@ -30,7 +30,7 @@
     @include('includes.sidebar')
 
     <!-- Page Content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" class="container">
       @yield('content')
     </div>
 
