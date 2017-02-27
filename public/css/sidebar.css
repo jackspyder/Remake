@@ -55,6 +55,16 @@ body {
   padding:0 !important
 }
 
+.form-group label{
+  display:block;
+}
+
+input, select, textarea{
+  width: inherit;
+}
+
+
+
 /* Sidebar Styles */
 
 .sidebar-nav {

@@ -2,8 +2,43 @@
 
 @section('content')
 
+
+    <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-target="#itemPanel">Item</div>
+      <div id="itemPanel" class="panel-body">
+        <form>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="form-group col-sm-12 col-md-6">
+                <label for="id" class="control-label">ID</label><input name="id"></input>
+                <label for="category" class="control-label">Category</label><select name="category"></select>
+                <label for="product" class="control-label">Product</label><select name="product"></select>
+                <label for="condition" class="control-label">Condition</label><select name="condition"></select>
+              </div>
+              <div class="form-group col-sm-12 col-md-6">
+                <label for="weight" class="control-label">Weight</label><input name="weight"></input>
+                <label for="price" class="control-label">Price</label><input name="price"></input>
+                <label for="status" class="control-label">Status</label><select name="status"></select>
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="notes" class="control-label">Notes</label><textarea name="notes"></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Product Specification</div>
+      <div class="panel-body">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+
   <div class="panel panel-default">
-    <div class="panel-heading">Items</div>
+    <div class="panel-heading">Inventory</div>
     <div class="panel-body">
     <div class="table-responsive">
       <table class="table table-striped">
