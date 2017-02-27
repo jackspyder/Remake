@@ -60,7 +60,7 @@ body {
 }
 
 input, select, textarea{
-  width: inherit;
+  width: 100%;
 }
 
 
