@@ -1,8 +1,7 @@
-<header class="main-header">
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <i class="fa fa-truck"></i>
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#app-navbar-collapse">
@@ -83,8 +82,7 @@
                             </ul>
                         </li>
                     @endif
-                </ul
+                </ul>
             </div>
         </div>
     </nav>
-</header>
