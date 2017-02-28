@@ -1,7 +1,7 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li>
-            <a href="#">Dashboard</a>
+            <a href="{{ url('/') }}">Dashboard</a>
         </li>
         <li>
             <a href="#">Shortcuts</a>

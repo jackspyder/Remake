@@ -13,7 +13,7 @@
                         @foreach($users as $user)
                             <div>
                                 <ul class="list-group">
-                                    <a href="#" class="list-group-item">
+                                    <a href="/members/{{ $user->id }}" class="list-group-item">
                                         <h4 class="list-group-item-heading">
                                             {{ $user->username }}</h4>
                                     </a>

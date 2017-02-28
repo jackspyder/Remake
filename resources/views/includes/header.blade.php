@@ -45,7 +45,7 @@
                                 <a href="{{ url('/items') }}">View Database</a>
                             </li>
                             <li>
-                                <a href="{{ url('/entry') }}">Add Items</a>
+                                <a href="#">Add Items</a>
                             </li>
                         </ul>
                     </li>
