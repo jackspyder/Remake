@@ -9,8 +9,8 @@ class CreateReceiptsTable extends Migration {
 	{
 		Schema::create('receipts', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('customer_id')->unsigned()->index();
-			$table->integer('sale_id')->unsigned()->index();
+			$table->unsignedInteger('customer_id')->nullable();
+			$table->unsignedInteger('sale_id')->nullable();
 			$table->string('warranty');
 			$table->string('coa');
 			$table->timestamps();

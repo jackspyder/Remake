@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Spec::class, function () {
+$factory->define(App\Models\Spec::class, function () {
     return [
         'cpu' => str_random(10),
         'ram' => str_random(10),
@@ -44,7 +44,7 @@ $factory->define(App\Spec::class, function () {
     ];
 });
 
-$factory->define(App\Item::class, function () {
+$factory->define(App\Models\Item::class, function () {
     return [
         'spec_id' => rand(1,20),
         'category' => str_random(10),

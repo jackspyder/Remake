@@ -19,9 +19,9 @@
                                     <li><b>User ID: </b>{{ $user->id }}</li>
                                     <li><b>Username: </b> {{ $user->username }}</li>
                                     <li><b>Name: </b> {{ $user->name }}</li>
-                                    {{--<li>--}}
-                                        {{--<b>Roles:</b> @foreach($user->roles as $role) {{ $role->role_label }} @endforeach--}}
-                                    {{--</li>--}}
+                                    <li>
+                                        <b>Roles:</b> @foreach($user->roles as $role) {{ $role->role_label }} @endforeach
+                                    </li>
                                 </ul>
                             </div>
                         </div>
