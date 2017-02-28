@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
      public function run()
      {
-         \App\User::create(
+         \App\Models\User::create(
              array(
                  'name' => 'Admin',
                  'username' => 'Admin',

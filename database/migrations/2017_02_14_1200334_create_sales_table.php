@@ -9,8 +9,8 @@ class CreateSalesTable extends Migration {
 	{
 		Schema::create('sales', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('receipt_id')->unsigned()->index();
-			$table->integer('item_id')->unsigned()->index();
+			$table->unsignedInteger('receipt_id')->nullable();
+			$table->unsignedInteger('item_id')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

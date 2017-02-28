@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Models\Item;
+use App\Models\User;
 
 /**
  *
  */
-class ItemsController extends Controller
+class UserController extends Controller
 {
 
   /**
@@ -18,6 +18,7 @@ class ItemsController extends Controller
    *
    * @return void
    */
+
   public function __construct()
   {
       $this->middleware('auth');
@@ -25,7 +26,14 @@ class ItemsController extends Controller
 
   public function index()
   {
-    $items = Item::all();
-    return view('items.index', compact('items'));
+    $users = User::all();
+    return view('users.index', compact('users'));
   }
+
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('users.show', compact('user'));
+    }
 }

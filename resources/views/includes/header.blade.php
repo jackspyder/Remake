@@ -1,8 +1,7 @@
-<header class="main-header">
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <i class="fa fa-truck"></i>
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#app-navbar-collapse">
@@ -28,7 +27,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/addmmember') }}">Add Member</a>
+                                <a href="#">Add Member</a>
                             </li>
                             <li>
                                 <a href="{{ url('/members') }}">View Members</a>
@@ -42,10 +41,10 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/items') }}">view database</a>
+                                <a href="{{ url('/items') }}">View Database</a>
                             </li>
                             <li>
-                                <a href="{{ url('/entry') }}">Add Items</a>
+                                <a href="#">Add Items</a>
                             </li>
                         </ul>
                     </li>
@@ -61,12 +60,12 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/profile') }}">Profile</a>
+                                    <a href="#">Profile</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/logout') }}"
@@ -83,8 +82,7 @@
                             </ul>
                         </li>
                     @endif
-                </ul
+                </ul>
             </div>
         </div>
     </nav>
-</header>

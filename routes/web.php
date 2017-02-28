@@ -12,9 +12,24 @@
 */
 
 Route::get('/', 'HomeController@login');
-
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@dashboard');
-Route::get('/', 'HomeController@dashboard');
-Route::get('/items', 'ItemsController@index');
+/////////Home&Ungrouped///////////
+Route::group(['middleware' => ['web', 'auth']], function () {
+    Route::get('/dashboard', 'HomeController@dashboard');
+    Route::get('/', 'HomeController@dashboard');
+});
+
+//////////////Items///////////////
+Route::group(['middleware' => ['web', 'auth']], function () {
+    Route::get('/items', 'ItemsController@index');
+});
+
+////////////////Users//////////////
+Route::group(['middleware' => ['web', 'auth']], function () {
+    Route::get('/members', 'UserController@index');
+    Route::get('/members/{user}', 'UserController@show');
+});
+
+
+
