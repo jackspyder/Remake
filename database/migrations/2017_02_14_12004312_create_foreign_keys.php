@@ -46,6 +46,8 @@ class CreateForeignKeys extends Migration {
 		});
 	}
 
+
+	//These were causing issues, not sure why.
 //	public function down()
 //	{
 //		Schema::table('items', function(Blueprint $table) {
