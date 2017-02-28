@@ -6,40 +6,34 @@
 
         <ul id="menu-content" class="menu-content collapse out">
             <li>
-                <a href="#">
+                <a href="{{ url('/dashboard') }}">
                     <i class="fa fa-dashboard fa-lg"></i> Dashboard
                 </a>
             </li>
 
             <li data-toggle="collapse" data-target="#products" class="collapsed active">
-                <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-users fa-lg"></i> Member Management <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="products">
-                <li class="active"><a href="#">CSS3 Animation</a></li>
-                <li><a href="#">General</a></li>
-                <li><a href="#">Buttons</a></li>
-                <li><a href="#">Tabs & Accordions</a></li>
-                <li><a href="#">Typography</a></li>
-                <li><a href="#">FontAwesome</a></li>
-                <li><a href="#">Slider</a></li>
-                <li><a href="#">Panels</a></li>
-                <li><a href="#">Widgets</a></li>
-                <li><a href="#">Bootstrap Model</a></li>
+
+                <li><a href="#">Add Members</a></li>
+                <li><a href="{{ url('/members') }}">View Members</a></li>
+                <li><a href="#">Member Activity</a></li>
+
             </ul>
 
 
             <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Database <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="service">
-                <li>New Service 1</li>
-                <li>New Service 2</li>
-                <li>New Service 3</li>
+                <li><a href="#">Add Items</a></li>
+                <li><a href="{{ url('/items') }}">View Items</a></li>
             </ul>
 
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-car fa-lg"></i> Reporting <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="new">
                 <li>New New 1</li>
@@ -53,12 +47,20 @@
                     <i class="fa fa-user fa-lg"></i> Profile
                 </a>
             </li>
-
             <li>
-                <a href="#">
-                    <i class="fa fa-users fa-lg"></i> Users
+                <a href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                    <i class="fa fa-sign-out"></i>
+                    Logout
                 </a>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                      style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </li>
+
         </ul>
     </div>
 </div>
