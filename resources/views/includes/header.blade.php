@@ -28,7 +28,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/addmmember') }}">Add Member</a>
+                                <a href="#">Add Member</a>
                             </li>
                             <li>
                                 <a href="{{ url('/members') }}">View Members</a>
@@ -42,7 +42,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/items') }}">view database</a>
+                                <a href="{{ url('/items') }}">View Database</a>
                             </li>
                             <li>
                                 <a href="{{ url('/entry') }}">Add Items</a>
@@ -61,12 +61,12 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/profile') }}">Profile</a>
+                                    <a href="#">Profile</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/logout') }}"

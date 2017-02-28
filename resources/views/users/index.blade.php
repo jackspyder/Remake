@@ -13,7 +13,7 @@
                         @foreach($users as $user)
                             <div>
                                 <ul class="list-group">
-                                    <a href="/users/{{ $user->id }}" class="list-group-item">
+                                    <a href="#" class="list-group-item">
                                         <h4 class="list-group-item-heading">
                                             {{ $user->username }}</h4>
                                     </a>
@@ -23,7 +23,7 @@
 
                     </div>
                 </div>
-                <a href="{{ url('#') }}" class="btn btn-primary pull-right">Create Member</a>
+                <a href="#" class="btn btn-primary pull-right">Create Member</a>
             </div>
         </div>
     </div>
