@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Role;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -16,7 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'password',
+        'name',
+        'username',
+        'password',
     ];
 
     /**
@@ -25,14 +26,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     //Check if a user has a role, passing a string and checking against role name column.
     public function hasRole($role)
     {
-        if (is_string($role))
-        {
+        if (is_string($role)) {
             return $this->roles->contains('role_name', $role);
         }
 
@@ -44,7 +45,7 @@ class User extends Authenticatable
     {
         $this->roles()->detach();
         $this->roles()->save(
-            Role::where('role_name',$role)->firstOrFail()
+            Role::where('role_name', $role)->firstOrFail()
         );
     }
 
