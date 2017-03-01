@@ -9,8 +9,8 @@ class ItemsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        $items = factory(App\Models\Item::class, 50)->create();
-    }
+     public function run()
+     {
+       $items = factory(App\Models\Item::class, 50)->create();
+     }
 }

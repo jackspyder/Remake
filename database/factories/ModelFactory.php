@@ -46,7 +46,7 @@ $factory->define(App\Models\Spec::class, function () {
 
 $factory->define(App\Models\Item::class, function () {
     return [
-        'spec_id' => rand(1, 20),
+        'spec_id' => rand(1,20),
         'category' => str_random(10),
         'weight' => rand(1, 20),
         'condition' => 'condition',
