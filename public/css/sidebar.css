@@ -144,3 +144,11 @@ body {
     padding: 0px;
     overflow-x: hidden;
 }
+
+.search-button{
+  float: right;
+}
+
+.tall-header{
+  padding-bottom: 20px;
+}
