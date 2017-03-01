@@ -28,4 +28,23 @@ class ItemsController extends Controller
     $items = Item::all();
     return view('items.index', compact('items'));
   }
+
+  public function search(Request $request)
+  {
+    $query = DB::table('items');
+    $toMatch = array();
+
+    foreach($request->all() as $key => $value)
+    {
+      if(!empty(trim($value)) && $key != '_token')
+      {
+        $toMatch[$key] = $value;
+      }
+    }
+
+    //$items = Item::where('id', '=', $request['id'])->get();
+
+    $items = Item::where($toMatch)->get();
+    return view('items.index', compact('items'));
+  }
 }

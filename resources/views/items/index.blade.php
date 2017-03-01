@@ -2,6 +2,7 @@
 
 @section('content')
 
+@include('includes.searchModal')
 
     <div class="panel panel-default">
         <div class="panel-heading" data-toggle="collapse" data-target="#itemPanel">Item</div>
@@ -76,7 +77,11 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Inventory</div>
+        <div class="panel-heading tall-header">Inventory
+          <button type="button" class="btn btn-default search-button" data-toggle="modal" data-target="#searchModal">
+            <span class="fa fa-search" aria-hidden="true"></span>
+          </button>
+        </div>
         <div class="panel-body">
             <div class="table-responsive">
                 <table class="table table-striped">

@@ -23,6 +23,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 //////////////Items///////////////
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/items', 'ItemsController@index');
+    Route::post('/items', 'ItemsController@search');
 });
 
 ////////////////Users//////////////
@@ -30,6 +31,3 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/members', 'UserController@index');
     Route::get('/members/{user}', 'UserController@show');
 });
-
-
-
