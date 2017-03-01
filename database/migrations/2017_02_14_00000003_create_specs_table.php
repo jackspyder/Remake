@@ -28,6 +28,7 @@ class CreateSpecsTable extends Migration
         });
     }
 
+
     public function down()
     {
         Schema::dropIfExists('specs');

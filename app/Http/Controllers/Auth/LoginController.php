@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -20,6 +21,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
     /**
      * Get the login username to be used by the controller.
      * Override of username method from AuthenticatesUsers.php
@@ -31,12 +33,14 @@ class LoginController extends Controller
         return 'username';
     }
 
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = '/dashboard';
+
 
     /**
      * Create a new controller instance.
@@ -45,6 +49,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', [ 'except' => 'logout' ]);
     }
 }

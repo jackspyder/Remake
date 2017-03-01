@@ -12,10 +12,11 @@ class CreatePermissionRoleTable extends Migration
             $table->unsignedInteger('permission_id')->nullable();
             $table->unsignedInteger('role_id')->nullable();
 
-            $table->primary(['permission_id', 'role_id']);
+            $table->primary([ 'permission_id', 'role_id' ]);
 
         });
     }
+
 
     public function down()
     {

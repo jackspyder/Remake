@@ -12,9 +12,10 @@ class CreateRoleUserTable extends Migration
             $table->unsignedInteger('role_id')->nullable();
             $table->unsignedInteger('user_id')->nullable();
 
-            $table->primary(['role_id', 'user_id']);
+            $table->primary([ 'role_id', 'user_id' ]);
         });
     }
+
 
     public function down()
     {

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+
     protected $fillable = [
         'id',
         'spec_id',
@@ -15,6 +16,7 @@ class Item extends Model
         'status',
         'notes'
     ];
+
 
     public function spec()
     {

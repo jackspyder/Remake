@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
@@ -11,12 +12,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create(
-            array(
-                'name' => 'Admin',
-                'username' => 'Admin',
-                'password' => bcrypt('secret')
-            )
-        );
+        \App\Models\User::create([
+            'name'     => 'Admin',
+            'username' => 'Admin',
+            'password' => bcrypt('secret')
+        ]);
     }
 }

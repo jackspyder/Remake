@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+
     use Notifiable;
 
     /**
@@ -30,6 +31,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
     //Check if a user has a role, passing a string and checking against role name column.
     public function hasRole($role)
     {
@@ -37,17 +39,17 @@ class User extends Authenticatable
             return $this->roles->contains('role_name', $role);
         }
 
-        return !!$role->intersect($this->roles)->count();
+        return ! ! $role->intersect($this->roles)->count();
     }
+
 
     //Assign a role to a user after wiping existing roles.
     public function assignRole($role)
     {
         $this->roles()->detach();
-        $this->roles()->save(
-            Role::where('role_name', $role)->firstOrFail()
-        );
+        $this->roles()->save(Role::where('role_name', $role)->firstOrFail());
     }
+
 
     public function roles()
     {
