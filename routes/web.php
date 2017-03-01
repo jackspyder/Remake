@@ -24,6 +24,7 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/items', 'ItemsController@index');
     Route::post('/items', 'ItemsController@search');
+    Route::post('/items/add', 'ItemsController@store');
 });
 
 ////////////////Users//////////////

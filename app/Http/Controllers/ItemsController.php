@@ -36,9 +36,11 @@ class ItemsController extends Controller
         $query = DB::table('items');
         $toMatch = [];
 
-        foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
-                $toMatch[$key] = $value;
+        foreach ($request->all() as $key => $value)
+        {
+            if ( ! empty(trim($value)) && $key != '_token')
+            {
+                $toMatch[$key] = trim($value);
             }
         }
 
@@ -47,5 +49,20 @@ class ItemsController extends Controller
         $items = Item::where($toMatch)->get();
 
         return view('items.index', compact('items'));
+    }
+
+    public function store(Request $request)
+    {
+      $item = new Item;
+
+      foreach ($request->all() as $key => $value)
+      {
+          if ( !empty(trim($value)) && $key != '_token')
+          {
+              $item->$key = trim($value);
+          }
+      }
+
+      $item->save();
     }
 }

@@ -11,7 +11,7 @@
             </button>
         </div>
         <div id="itemPanel" class="panel-body in">
-            <form>
+            <form role="form" method="POST" action="{{ url('/items/add') }}">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-sm-12 col-md-6">
@@ -27,11 +27,11 @@
                                 <option value="three">Three</option>
                             </select>
 
-                            <label for="product" class="control-label">Product</label>
-                            <select name="product" class="form-control">
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
+                            <label for="spec_id" class="control-label">Product</label>
+                            <select name="spec_id" class="form-control">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
                             </select>
 
                             <label for="condition" class="control-label">Condition</label>
@@ -66,8 +66,12 @@
                             <textarea name="notes" class="form-control"></textarea>
 
                         </div>
+
+                        <button class="btn btn-primary form-btn pull-right" type="submit">Add Item</button>
+
                     </div>
                 </div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
             </form>
         </div>
     </div>
@@ -188,6 +192,7 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Condition</th>
+                        <th>Price</th>
                         <th>Status</th>
                         <th>Notes</th>
                     </tr>
@@ -199,6 +204,7 @@
                             <td>{{$item->category}}</td>
                             <td>{{$item->weight}}</td>
                             <td>{{$item->condition}}</td>
+                            <td>{{$item->price}}</td>
                             <td>{{$item->status}}</td>
                             <td>{{$item->notes}}</td>
                         </tr>
