@@ -51,17 +51,17 @@ class CreateForeignKeys extends Migration
 		Schema::table('receipts', function(Blueprint $table) {
 			$table->dropForeign('receipts_sale_id_foreign');
 		});
-		Schema::table('permission_role', function(Blueprint $table) {
-			$table->dropForeign('permission_role_permission_id_foreign');
-		});
-		Schema::table('permission_role', function(Blueprint $table) {
-			$table->dropForeign('permission_role_role_id_foreign');
-		});
-		Schema::table('role_user', function(Blueprint $table) {
-			$table->dropForeign('role_user_role_id_foreign');
-		});
-		Schema::table('role_user', function(Blueprint $table) {
-			$table->dropForeign('role_user_user_id_foreign');
-		});
+		// Schema::table('permission_role', function(Blueprint $table) {
+		// 	$table->dropForeign('permission_role_permission_id_foreign');
+		// });
+		// Schema::table('permission_role', function(Blueprint $table) {
+		// 	$table->dropForeign('permission_role_role_id_foreign');
+		// });
+		// Schema::table('role_user', function(Blueprint $table) {
+		// 	$table->dropForeign('role_user_role_id_foreign');
+		// });
+		// Schema::table('role_user', function(Blueprint $table) {
+		// 	$table->dropForeign('role_user_user_id_foreign');
+		// });
 	}
 }

@@ -22,9 +22,26 @@
 
                             <label for="category" class="control-label">Category</label>
                             <select name="category" class="form-control">
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
+                                <option value="one">Laptops</option>
+                                <option value="two">Desktop PCs</option>
+                                <option value="three">Printers</option>
+                                <option value="three">All in ones</option>
+                                <option value="three">Monitors</option>
+                                <option value="three">Projectors</option>
+                                <option value="three">Smartboards</option>
+                                <option value="three">Replacement parts</option>
+                                <option value="three">Keyboards</option>
+                                <option value="three">Mice</option>
+                                <option value="three">Speakers</option>
+                                <option value="three">Scanners</option>
+                                <option value="three">Peripherals</option>
+                                <option value="three">Smartphones</option>
+                                <option value="three">Tablets</option>
+                                <option value="three">Networks</option>
+                                <option value="three">Games Consoles</option>
+                                <option value="three">IT Misc</option>
+                                <option value="three">Servers</option>
+                                <option value="three">Electricals</option>
                             </select>
 
                             <label for="spec_id" class="control-label">Product</label>
@@ -36,9 +53,9 @@
 
                             <label for="condition" class="control-label">Condition</label>
                             <select name="condition" class="form-control">
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
+                                <option value="Very Good">Very Good</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
                             </select>
                         </div>
 
@@ -190,6 +207,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Category</th>
+                        <th>Brand</th>
+                        <th>Model</th>
                         <th>Weight</th>
                         <th>Condition</th>
                         <th>Price</th>
@@ -202,6 +221,8 @@
                         <tr data-toggle="collapse" data-target="#{{$item->id}}" class="accordion-toggle">
                             <td>{{$item->id}}</td>
                             <td>{{$item->category}}</td>
+                            <td>{{$item->spec->brand}}</td>
+                            <td>{{$item->spec->model}}</td>
                             <td>{{$item->weight}}</td>
                             <td>{{$item->condition}}</td>
                             <td>{{$item->price}}</td>

@@ -25,6 +25,8 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Spec::class, function () {
     return [
+        'brand'       => str_random(10),
+        'model'       => str_random(10),
         'cpu'         => str_random(10),
         'ram'         => str_random(10),
         'hdd'         => str_random(10),
