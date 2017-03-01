@@ -28,4 +28,15 @@ class ItemsController extends Controller
     $items = Item::all();
     return view('items.index', compact('items'));
   }
+
+  public function search(Request $request)
+  {
+    if(empty($request))
+    {
+      index();
+    }
+
+    $items = Item::where('id', '=', $request['id'])->get();
+    return view('items.index', compact('items'));
+  }
 }

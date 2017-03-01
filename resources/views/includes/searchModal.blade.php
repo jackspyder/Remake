@@ -5,13 +5,13 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Search Inventory</h4>
       </div>
-      <form>
+      <form role="form" method="POST" action="{{ url('/items') }}">
           <div class="container-fluid">
               <div class="row">
                   <div class="form-group col-sm-12 col-md-6">
                       <label for="id" class="control-label">ID</label>
                       <input name="id" class="form-control">
-
+                      
                       </input>
 
                       <label for="category" class="control-label">Category</label>
@@ -60,6 +60,10 @@
                       <textarea name="notes" class="form-control"></textarea>
 
                   </div>
+                  <div class="form-group col-sm-12">
+                    <button class="btn btn-primary" type="submit"></button>
+                  </div>
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
               </div>
           </div>
       </form>
