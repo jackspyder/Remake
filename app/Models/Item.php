@@ -6,16 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    protected $fillable = [ 'id',
-                            'spec_id',
-                            'category',
-                            'weight',
-                            'condition',
-                            'status',
-                            'notes'];
+
+    protected $fillable = [
+        'id',
+        'spec_id',
+        'category',
+        'weight',
+        'condition',
+        'status',
+        'notes'
+    ];
+
 
     public function spec()
     {
-      return $this->belongsTo(Spec::class);
+        return $this->belongsTo(Spec::class);
     }
 }

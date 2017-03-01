@@ -15,19 +15,19 @@ Route::get('/', 'HomeController@login');
 Auth::routes();
 
 /////////Home&Ungrouped///////////
-Route::group(['middleware' => ['web', 'auth']], function () {
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/dashboard', 'HomeController@dashboard');
     Route::get('/', 'HomeController@dashboard');
 });
 
 //////////////Items///////////////
-Route::group(['middleware' => ['web', 'auth']], function () {
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/items', 'ItemsController@index');
     Route::post('/items', 'ItemsController@search');
 });
 
 ////////////////Users//////////////
-Route::group(['middleware' => ['web', 'auth']], function () {
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/members', 'UserController@index');
     Route::get('/members/{user}', 'UserController@show');
 });

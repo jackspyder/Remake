@@ -9,13 +9,13 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Role extends Model {
+class Role extends Model
+{
 
     protected $table = 'roles';
+
     public $timestamps = true;
 
     //declare protected properties.
@@ -31,11 +31,13 @@ class Role extends Model {
         'role_label',
     ];
 
+
     //Method to save passed in permission.
     public function givePermissionTo(Permission $permission)
     {
         return $this->permissions()->save($permission);
     }
+
 
     //Declare model relationships.
     public function permissions()
@@ -43,10 +45,11 @@ class Role extends Model {
         return $this->belongsToMany(Permission::class);
     }
 
+
     public function user()
     {
         return $this->hasMany(User::class);
     }
-    
+
 }
 

@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 class SpecsTableSeeder extends Seeder
 {
+
     /**
      * Run the database seeds.
      *
