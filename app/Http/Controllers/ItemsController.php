@@ -31,24 +31,20 @@ class ItemsController extends Controller
 
   public function search(Request $request)
   {
-    if(empty($request))
-    {
-      index();
-    }
-
     $query = DB::table('items');
+    $toMatch = array();
 
     foreach($request->all() as $key => $value)
     {
       if(!empty(trim($value)) && $key != '_token')
       {
-        $query->where($key, $value);
+        $toMatch[$key] = $value;
       }
     }
 
     //$items = Item::where('id', '=', $request['id'])->get();
 
-    $items = $query->get();
+    $items = Item::where($toMatch)->get();
     return view('items.index', compact('items'));
   }
 }
