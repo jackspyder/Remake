@@ -11,18 +11,20 @@
                   <div class="form-group col-sm-12 col-md-6">
                       <label for="id" class="control-label">ID</label>
                       <input name="id" class="form-control">
-                      
+
                       </input>
 
                       <label for="category" class="control-label">Category</label>
                       <select name="category" class="form-control">
+                          <option value=""></option>
                           <option value="one">One</option>
                           <option value="two">Two</option>
                           <option value="three">Three</option>
                       </select>
 
-                      <label for="product" class="control-label">Product</label>
-                      <select name="product" class="form-control">
+                      <label for="spec_id" class="control-label">Product</label>
+                      <select name="spec_id" class="form-control">
+                          <option value=""></option>
                           <option value="one">One</option>
                           <option value="two">Two</option>
                           <option value="three">Three</option>
@@ -30,9 +32,11 @@
 
                       <label for="condition" class="control-label">Condition</label>
                       <select name="condition" class="form-control">
+                          <option value=""></option>
                           <option value="one">One</option>
                           <option value="two">Two</option>
                           <option value="three">Three</option>
+                          <option value="condition">condition</option>
                       </select>
                   </div>
 
@@ -49,9 +53,11 @@
 
                       <label for="status" class="control-label">Status</label>
                       <select name="status" class="form-control">
+                          <option value=""></option>
                           <option value="one">One</option>
                           <option value="two">Two</option>
                           <option value="three">Three</option>
+                          <option value="xj9TyyFrWX">	xj9TyyFrWX </option>
                       </select>
 
                   </div>

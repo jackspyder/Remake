@@ -107,7 +107,7 @@
                         </tr>
                         <tr>
                             <td colspan="6" class="hiddenRow">
-                                <div class="accordian-body collapse" id="{{$item->id}}">{{$item->spec}}</div>
+                                <div class="accordian-body collapse" id="{{$item->id}}">{{$item->spec_id}}</div>
                             </td>
                         </tr>
                     @endforeach
