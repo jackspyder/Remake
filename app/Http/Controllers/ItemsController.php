@@ -36,7 +36,19 @@ class ItemsController extends Controller
       index();
     }
 
-    $items = Item::where('id', '=', $request['id'])->get();
+    $query = DB::table('items');
+
+    foreach($request->all() as $key => $value)
+    {
+      if(!empty(trim($value)) && $key != '_token')
+      {
+        $query->where($key, $value);
+      }
+    }
+
+    //$items = Item::where('id', '=', $request['id'])->get();
+
+    $items = $query->get();
     return view('items.index', compact('items'));
   }
 }
