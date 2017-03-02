@@ -10,6 +10,8 @@ class CreateSpecsTable extends Migration
     {
         Schema::create('specs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('brand', 255);
+            $table->string('model', 255);
             $table->string('cpu', 255)->nullable();
             $table->string('ram', 255)->nullable();
             $table->string('hdd', 255)->nullable();

@@ -60,15 +60,9 @@
                                 <option value="xj9TyyFrWX"> xj9TyyFrWX</option>
                             </select>
 
+                            <button class="btn btn-primary form-control form-btn" type="submit">Search</button>
                         </div>
-                        <div class="form-group col-sm-12">
-                            <label for="notes" class="control-label">Notes</label>
-                            <textarea name="notes" class="form-control"></textarea>
 
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <button class="btn btn-primary" type="submit"></button>
-                        </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </div>
                 </div>
