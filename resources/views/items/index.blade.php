@@ -46,9 +46,9 @@
 
                             <label for="spec_id" class="control-label">Product</label>
                             <select name="spec_id" class="form-control">
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                              @foreach($specs as $spec)
+                                <option value="{{$spec->id}}">{{$spec->brand}} - {{$spec->model}}</option>
+                              @endforeach
                             </select>
 
                             <label for="condition" class="control-label">Condition</label>
@@ -100,7 +100,7 @@
         </div>
         <div id="specPanel" class="panel-body in">
             <div class="row">
-              <form>
+              <form role="form" method="POST" action="{{ url('/items/spec') }}">
                   <div class="container-fluid">
                       <div class="row">
                           <div class="form-group col-sm-12 col-md-6">
@@ -183,6 +183,7 @@
                             </input>
 
                             <button class="btn btn-primary form-control form-btn" type="submit">Add Specification</button>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           </div>
                       </div>
                   </div>
@@ -225,7 +226,7 @@
                             <td>{{$item->spec->model}}</td>
                             <td>{{$item->weight}}</td>
                             <td>{{$item->condition}}</td>
-                            <td>{{$item->price}}</td>
+                            <td>£{{$item->price}}</td>
                             <td>{{$item->status}}</td>
                             <td>{{$item->notes}}</td>
                         </tr>

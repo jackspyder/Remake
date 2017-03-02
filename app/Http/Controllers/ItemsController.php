@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Spec;
 use DB;
 use Illuminate\Http\Request;
 
@@ -26,14 +27,15 @@ class ItemsController extends Controller
     public function index()
     {
         $items = Item::all();
+        $specs = Spec::all();
 
-        return view('items.index', compact('items'));
+        return view('items.index', compact('items'), compact('specs'));
     }
 
 
     public function search(Request $request)
     {
-        $query = DB::table('items');
+        $specs = Specs::all();
         $toMatch = [];
 
         foreach ($request->all() as $key => $value)
@@ -44,11 +46,9 @@ class ItemsController extends Controller
             }
         }
 
-        //$items = Item::where('id', '=', $request['id'])->get();
-
         $items = Item::where($toMatch)->get();
 
-        return view('items.index', compact('items'));
+        return view('items.index', compact('items'), compact('specs'));
     }
 
     public function store(Request $request)
@@ -64,5 +64,6 @@ class ItemsController extends Controller
       }
 
       $item->save();
+      return back();
     }
 }
