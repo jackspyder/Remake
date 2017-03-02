@@ -15,7 +15,7 @@ class CreateItemsTable extends Migration
             $table->integer('weight')->default(0);
             $table->string('condition', 255);
             $table->string('status', 255);
-            $table->decimal('price', 4, 2)->default(0.00);
+            $table->decimal('price', 6, 2)->default(0.00);
             $table->text('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();

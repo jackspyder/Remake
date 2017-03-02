@@ -4,6 +4,16 @@
 
     @include('includes.searchModal')
 
+    @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Item
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#itemPanel">
@@ -105,12 +115,12 @@
                       <div class="row">
                           <div class="form-group col-sm-12 col-md-6">
                               <label for="brand" class="control-label">Brand</label>
-                              <input name="brand" class="form-control">
+                              <input name="brand" class="form-control" required>
 
                               </input>
 
                               <label for="model" class="control-label">Model</label>
-                              <input name="model" class="form-control">
+                              <input name="model" class="form-control" required>
 
                               </input>
 

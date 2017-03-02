@@ -53,6 +53,28 @@ class ItemsController extends Controller
 
     public function store(Request $request)
     {
+      $rules = [
+        'id'        => 'unique:users|min:0',
+        'spec_id'   => 'required|min:0',
+        'category'  => 'required',
+        'price'     => 'between:0,9999.99|nullable',
+        'weight'    => 'min:0|nullable',
+        'condition' => 'required',
+        'status'    => 'required',
+      ];
+
+      if(trim($request['price']) != "")
+      {
+        $rules['price'] .= '|numeric';
+      }
+
+      if(trim($request['weight']) != "")
+      {
+        $rules['weight'] .= '|numeric';
+      }
+
+      $this->validate($request, $rules);
+
       $item = new Item;
 
       foreach ($request->all() as $key => $value)
