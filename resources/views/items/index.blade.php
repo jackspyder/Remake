@@ -82,9 +82,9 @@
 
                             <label for="status" class="control-label">Status</label>
                             <select name="status" class="form-control">
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
+                                <option value="For Sale">For Sale</option>
+                                <option value="For Parts">For Parts</option>
+                                <option value="Storage">Storage</option>
                             </select>
 
                         </div>
@@ -213,7 +213,7 @@
         </div>
         <div id="invPanel" class="panel-body in">
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -229,7 +229,7 @@
                     </thead>
                     <tbody>
                     @foreach($items as $item)
-                        <tr data-toggle="collapse" data-target="#{{$item->id}}" class="accordion-toggle">
+                        <tr data-toggle="collapse" data-target="#{{$item->id}}" class="accordion-toggle clickable">
                             <td>{{$item->id}}</td>
                             <td>{{$item->category}}</td>
                             <td>{{$item->spec->brand}}</td>
@@ -241,11 +241,13 @@
                             <td>{{$item->notes}}</td>
                         </tr>
                         <tr>
-                            <td colspan="6" class="hiddenRow">
-                                <div class="accordian-body collapse" id="{{$item->id}}">{{$item->spec}}</div>
+                            <td colspan="9" class="hiddenRow">
+                              <div id="{{$item->id}}" class="collapse">
+                                @include('includes.specTable')
+                              </div>
                             </td>
-                        </tr>
-                    @endforeach
+                          </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
