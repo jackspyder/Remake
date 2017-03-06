@@ -11,14 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@login');
+Auth::routes();
+
+/////////Home&Ungrouped///////////
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::get('/dashboard', 'HomeController@dashboard');
+    Route::get('/', 'HomeController@dashboard');
 });
 
-Auth::routes();
+//////////////Items///////////////
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::get('/items', 'ItemsController@index');
+    Route::get('/additems', 'ItemsController@add');
+    Route::post('/items', 'ItemsController@search');
+    Route::post('/items/add', 'ItemsController@store');
+    Route::post('/items/spec', 'SpecsController@store');
+});
 
-Route::get('/home', 'HomeController@index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+////////////////Users//////////////
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::get('/members', 'UserController@index');
+    Route::get('/members/{user}', 'UserController@show');
+});
