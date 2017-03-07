@@ -34,3 +34,8 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/members', 'UserController@index');
     Route::get('/members/{user}', 'UserController@show');
 });
+
+////////////////Sales//////////////
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::get('/sales', 'SalesController@index');
+});
