@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 /**
  *
@@ -40,18 +41,24 @@ class UserController extends Controller
     }
 
 
+    public function add()
+    {
+        return view('users.add');
+    }
+
     protected function store(Request $request)
     {
         $rules = [
-            'name'     => 'max:255',
-            'username' => 'unique:users|min:4',
-            'password' => 'min:6'
+            'name'     => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
+            'password' => 'required|min:6|confirmed'
         ];
 
         $this->validate($request, $rules);
         $user = new User;
         $user->save();
-        $user->assignRole('user');
+
+        //$user->assignRole('user');
 
         return back();
 

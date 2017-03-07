@@ -26,7 +26,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="#">Add Member</a>
+                            <a href="{{ url('/members/add') }}">Add Member</a>
                         </li>
                         <li>
                             <a href="{{ url('/members') }}">View Members</a>
@@ -39,11 +39,12 @@
                         Database <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
+
                         <li>
-                            <a href="{{ url('/items') }}">View Database</a>
+                            <a href="{{ url('/additems') }}">Add Items</a>
                         </li>
                         <li>
-                            <a href="#">Add Items</a>
+                            <a href="{{ url('/items') }}">View Database</a>
                         </li>
                     </ul>
                 </li>
