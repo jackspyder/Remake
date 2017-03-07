@@ -37,3 +37,13 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 
     Route::post('/members/add', 'UserController@store');
 });
+
+////////////////Sales//////////////
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::get('/sales', 'SalesController@index');
+});
+
+////////////////Customers//////////////
+Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+    Route::get('/customers', 'CustomersController@index');
+});
