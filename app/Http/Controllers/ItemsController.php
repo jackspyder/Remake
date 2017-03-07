@@ -33,15 +33,22 @@ class ItemsController extends Controller
     }
 
 
+    public function add()
+    {
+        $items = Item::all();
+        $specs = Spec::all();
+
+        return view('items.add', compact('items'), compact('specs'));
+    }
+
+
     public function search(Request $request)
     {
         $specs = Specs::all();
         $toMatch = [];
 
-        foreach ($request->all() as $key => $value)
-        {
-            if ( ! empty(trim($value)) && $key != '_token')
-            {
+        foreach ($request->all() as $key => $value) {
+            if ( ! empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }
@@ -51,19 +58,39 @@ class ItemsController extends Controller
         return view('items.index', compact('items'), compact('specs'));
     }
 
+
     public function store(Request $request)
     {
-      $item = new Item;
+        $rules = [
+            'id'        => 'unique:users|min:0',
+            'spec_id'   => 'required|min:0',
+            'category'  => 'required',
+            'price'     => 'between:0,9999.99|nullable',
+            'weight'    => 'min:0|nullable',
+            'condition' => 'required',
+            'status'    => 'required',
+        ];
 
-      foreach ($request->all() as $key => $value)
-      {
-          if ( !empty(trim($value)) && $key != '_token')
-          {
-              $item->$key = trim($value);
-          }
-      }
+        if (trim($request['price']) != "") {
+            $rules['price'] .= '|numeric';
+        }
 
-      $item->save();
-      return back();
+        if (trim($request['weight']) != "") {
+            $rules['weight'] .= '|numeric';
+        }
+
+        $this->validate($request, $rules);
+
+        $item = new Item;
+
+        foreach ($request->all() as $key => $value) {
+            if ( ! empty(trim($value)) && $key != '_token') {
+                $item->$key = trim($value);
+            }
+        }
+
+        $item->save();
+
+        return back();
     }
 }

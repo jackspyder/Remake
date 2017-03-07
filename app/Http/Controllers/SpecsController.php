@@ -9,6 +9,13 @@ class SpecsController extends Controller
 {
   public function store(Request $request)
   {
+    $rules = [
+      'brand'     => 'required',
+      'model'     => 'required',
+    ];
+
+    $this->validate($request, $rules);
+
     $spec = new Spec;
 
     foreach ($request->all() as $key => $value)

@@ -175,3 +175,19 @@ body {
 .form-btn{
   margin-top: 27px;
 }
+
+.fit{
+  white-space: nowrap;
+  width: 1%;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: white !important;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.clickable:hover{
+   background-color: #DDD;
+ }
