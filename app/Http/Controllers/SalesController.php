@@ -19,13 +19,30 @@ class SalesController extends Controller
   public function index()
   {
       $receipts = Receipt::all();
-      return view('sales.index', compact('receipts'));
+      $items    = Item::all();
+      return view('sales.index', compact('receipts'), compact('items'));
   }
 
   public function add()
   {
       $items = Item::all();
       return view('sales.add', compact('items'));
+  }
+
+  public function search(Request $request)
+  {
+      $toMatch = [];
+
+      foreach ($request->all() as $key => $value) {
+          if ( ! empty(trim($value)) && $key != '_token' ) {
+              $toMatch[$key] = trim($value);
+          }
+      }
+
+      $receipts = Receipt::where($toMatch)->get();
+      $items = Item::all();
+
+      return view('sales.index', compact('receipts'), compact('items'), compact('specs'));
   }
 
   public function store(Request $request)

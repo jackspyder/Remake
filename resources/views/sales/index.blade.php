@@ -2,6 +2,8 @@
 
 @section('content')
 
+  @include('includes.salesModal')
+
   <div class="panel panel-default">
       <div class="panel-heading tall-header">Sales
           <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#salesPanel">
@@ -22,6 +24,7 @@
                       <th>Payment type</th>
                       <th>Warranty</th>
                       <th>COA</th>
+                      <th>Date</th>
                   </tr>
 
                   @foreach($receipts as $receipt)
@@ -36,6 +39,7 @@
                       <td>{{$receipt->payment}}</td>
                       <td>{{$receipt->warranty}}</td>
                       <td>{{$receipt->coa}}</td>
+                      <td>{{$receipt->created_at}}</td>
                     </tr>
                   @endforeach
 

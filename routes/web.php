@@ -41,6 +41,8 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/sales', 'SalesController@index');
     Route::get('/addsales', 'SalesController@add');
     Route::post('/sales/add', 'SalesController@store');
+    Route::post('/sales/search', 'SalesController@search');
+
 });
 
 ////////////////Customers//////////////
