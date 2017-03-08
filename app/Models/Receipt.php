@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Receipt extends Model
 {
 
+  protected $fillable = [
+      'id',
+      'warranty',
+      'served_by',
+      'payment',
+  ];
+
   public function sales()
   {
-      return $this->hasMany(Sale::class);
+      return $this->hasMany(Sale::class, 'receipt_id', 'id');
   }
 
 }

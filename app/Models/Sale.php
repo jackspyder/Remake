@@ -11,4 +11,9 @@ class Sale extends Model
   {
       return $this->belongsTo(Receipt::class);
   }
+
+  public function item()
+  {
+    return $this->belongsTo(Item::class);
+  }
 }
