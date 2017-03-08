@@ -32,7 +32,6 @@ class SalesController extends Controller
   {
     $rules = [
         'id'        => 'unique:receipts|min:0',
-        'warranty'  => 'required',
         'payment'   => 'required',
         'served_by' => 'required',
     ];

@@ -31,17 +31,17 @@
 
                           <label for="warranty" class="control-label">Warranty</label>
                           <select name="warranty" class="form-control">
-                            <option value="">None</option>
-                            <option value="1m">1 month</option>
-                            <option value="3m">3 months</option>
-                            <option value="1y">1 year</option>
+                            <option value="None">None</option>
+                            <option value="1 Month">1 Month</option>
+                            <option value="3 Months">3 Months</option>
+                            <option value="1 Year">1 Year</option>
                           </select>
 
                           <label for="payment" class="control-label">Payment type</label>
                           <select name="payment" class="form-control">
+                            <option>Cash</option>
                             <option>Debit card</option>
                             <option>Credit card</option>
-                            <option>Cash</option>
                           </select>
 
                         </input>
