@@ -44,7 +44,7 @@ class ItemsController extends Controller
 
     public function searchitems(Request $request)
     {
-        $specs = Specs::all();
+        $specs = Spec::all();
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {

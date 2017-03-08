@@ -61,6 +61,7 @@
                             </select>
 
                             <button class="btn btn-primary form-control form-btn" type="submit">Search Items</button>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         </div>
 
