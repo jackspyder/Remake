@@ -42,13 +42,13 @@ class ItemsController extends Controller
     }
 
 
-    public function search(Request $request)
+    public function searchitems(Request $request)
     {
         $specs = Specs::all();
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if ( ! empty(trim($value)) && $key != '_token' ) {
                 $toMatch[$key] = trim($value);
             }
         }
@@ -58,6 +58,29 @@ class ItemsController extends Controller
         return view('items.index', compact('items'), compact('specs'));
     }
 
+    public function searchspecs(Request $request)
+    {
+        $specs = Spec::all();
+        $toMatch = [];
+
+        foreach ($request->all() as $key => $value) {
+            if ( ! empty(trim($value)) && $key != '_token' ) {
+                $toMatch[$key] = trim($value);
+            }
+        }
+
+        $gotspecs = Spec::where($toMatch)->get();
+        $items = array();
+        foreach($gotspecs as $spec)
+        {
+          foreach($spec->items as $itemgot)
+          {
+            $items[] = $itemgot;
+          }
+        }
+
+        return view('items.index', compact('items'), compact('specs'));
+    }
 
     public function store(Request $request)
     {
