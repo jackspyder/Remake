@@ -12,6 +12,8 @@ class CreateReceiptsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('customer_id')->nullable();
             $table->string('warranty');
+            $table->string('served_by');
+            $table->string('payment');
             $table->string('coa')->nullable();
             $table->timestamps();
             $table->softDeletes();
