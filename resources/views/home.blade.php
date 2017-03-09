@@ -13,8 +13,6 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
-                    {{$counts['forsale']}}
                     <canvas id="mycanvas"></canvas>
                 </div>
             </div>
