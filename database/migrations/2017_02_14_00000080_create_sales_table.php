@@ -9,13 +9,13 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            //$table->increments('id');
+            $table->increments('id');
             $table->unsignedInteger('receipt_id')->nullable();
             $table->unsignedInteger('item_id')->nullable();
-            //$table->timestamps();
-            //$table->softDeletes();
+            $table->timestamps();
+            $table->softDeletes();
 
-            $table->primary([ 'item_id', 'receipt_id' ]);
+            //$table->primary([ 'item_id', 'receipt_id' ]);
         });
     }
 
