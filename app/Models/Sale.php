@@ -9,11 +9,11 @@ class Sale extends Model
 
   public function receipt()
   {
-      return $this->belongsTo(Receipt::class);
+      return $this->belongsToMany(Receipt::class);
   }
 
   public function item()
   {
-    return $this->belongsTo(Item::class);
+    return $this->belongsToMany(Item::class);
   }
 }
