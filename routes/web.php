@@ -30,7 +30,7 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 });
 
 ////////////////Users//////////////
-Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
+Route::group([ 'middleware' => [ 'web', 'acl:view_items' ] ], function () {
     Route::get('/members', 'UserController@index');
     Route::get('/members/add', 'UserController@add');
     Route::get('/members/{user}', 'UserController@show');

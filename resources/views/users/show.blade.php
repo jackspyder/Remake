@@ -22,6 +22,7 @@
                                     <b>Roles:</b> @foreach($user->roles as $role) {{ $role->role_label }} @endforeach
                                 </li>
                             </ul>
+
                             <a href="/members/{{ $user->id }}/edit" class="btn btn-primary" role="form" method="POST">Edit
                                 Member</a>
                         </div>

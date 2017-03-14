@@ -9,9 +9,9 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         DB::table('roles')->insert([
-            [ 'role_name' => 'admin', 'role_label' => 'Administrator' ], //role 1
-            [ 'role_name' => 'moderator', 'role_label' => 'Moderator' ], //role 2
-            [ 'role_name' => 'user', 'role_label' => 'User' ] //role 3
+            [ 'role_slug' => 'admin', 'role_title' => 'Administrator' ], //role 1
+            [ 'role_slug' => 'moderator', 'role_title' => 'Moderator' ], //role 2
+            [ 'role_slug' => 'user', 'role_title' => 'User' ] //role 3
         ]);
     }
 }
