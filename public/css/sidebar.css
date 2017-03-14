@@ -191,3 +191,8 @@ body {
 .clickable:hover{
    background-color: #DDD;
  }
+
+ #mycanvas{
+   max-width: 300px;
+   max-height: 300px;
+ }

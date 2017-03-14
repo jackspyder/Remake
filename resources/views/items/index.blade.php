@@ -89,7 +89,7 @@
                             </select>
 
                             <label for="furniture" class="control-label">Furniture Type</label>
-                            <select name="furniture" class="form-control">
+                            <select name="" class="form-control">
                                 <option value="null">N/A</option>
                                 <option value="Chairs">Chairs</option>
                                 <option value="Set of Chairs">Set of Chairs</option>
