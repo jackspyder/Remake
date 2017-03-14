@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Item;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -16,13 +17,31 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login()
     {
-        return view('home');
+        return view('auth.login');
+    }
+
+
+    public function dashboard()
+    {
+
+        $forsale = Item::where('status', 'For Sale')->get()->count();
+        $forparts = Item::where('status', 'For Parts')->get()->count();
+        $storage = Item::where('status', 'Storage')->get()->count();
+
+        $counts = [
+          "forsale" => $forsale,
+          "forparts" => $forparts,
+          "storage" => $storage
+        ];
+
+        return view('home', compact('counts'));
     }
 }
