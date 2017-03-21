@@ -45,6 +45,11 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 
 });
 
+/////////////Receipts/////////
+Route::group(['middleware' => ['web', 'auth']], function(){
+    Route::resource('receipts', 'ReceiptsController');
+});
+
 ////////////////Customers//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/customers', 'CustomersController@index');
