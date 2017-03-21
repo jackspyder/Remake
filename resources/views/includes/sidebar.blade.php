@@ -36,8 +36,8 @@
             </li>
             <ul class="sub-menu collapse" id="sales">
 
-                <li><a href="{{ url('/sales') }}">View Sales</a></li>
-                <li><a href="{{ url('/addsales') }}">Add Sales</a></li>
+                <li><a href="{{ url('/receipts') }}">View Sales</a></li>
+                <li><a href="{{ url('/receipts/create') }}">Add Sales</a></li>
             </ul>
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">
