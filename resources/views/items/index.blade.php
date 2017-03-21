@@ -42,7 +42,8 @@
                     </thead>
                     <tbody>
                     @foreach($items as $item)
-                        <tr data-toggle="collapse" data-target="#{{$item->id}}" class="accordion-toggle clickable">
+
+                        <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
                             <td>{{$item->id}}</td>
                             <td>{{$item->category}}</td>
                             <td>{{$item->spec->brand}}</td>
