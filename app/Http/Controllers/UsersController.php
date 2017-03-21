@@ -96,7 +96,18 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //if statement to determine name change.
+        $this->validate(request(), [
+            'name'     => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        User::find($id)->update($request->all());
+
+
+        return redirect('/users');
+
     }
 
 
