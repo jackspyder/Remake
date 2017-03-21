@@ -33,30 +33,27 @@ class UserController extends Controller
     }
 
 
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
-
         return view('users.show', compact('user'));
     }
 
 
-    public function add()
+    public function create()
     {
-        return view('users.add');
+        return view('users.create');
     }
 
-    protected function store(Request $request)
+
+    protected function store()
     {
-        $rules = [
+        $this->validate(request(), [
             'name'     => 'required|max:255',
             'username' => 'required|max:255|unique:users',
             'password' => 'required|min:6|confirmed'
-        ];
+        ]);
 
-        $this->validate($request, $rules);
-        $user = new User;
-        $user->save();
+        User::create(request([ 'name', 'username', bcrypt('password') ]));
 
         //$user->assignRole('user');
 
