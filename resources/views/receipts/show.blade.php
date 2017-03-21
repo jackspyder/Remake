@@ -27,10 +27,6 @@
 
                         </div>
 
-                        {{--<div id="{{$item->id}}">--}}
-                            {{--@include('includes.specTable')--}}
-                        {{--</div>--}}
-
                     </div>
                 </div>
             </div>

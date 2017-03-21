@@ -54,14 +54,14 @@
                             <td>{{$item->status}}</td>
                             <td>{{$item->notes}}</td>
                         </tr>
-                        <tr>
-                            <td colspan="9" class="hiddenRow">
-                                <div id="{{$item->id}}" class="collapse">
-                                    @include('includes.specTable')
-                                    <a href="/items/{{ $item->id }}" class=" btn btn-primary">View Item</a>
-                                </div>
-                            </td>
-                        </tr>
+                        {{--<tr>--}}
+                            {{--<td colspan="9" class="hiddenRow">--}}
+                                {{--<div id="{{$item->id}}" class="collapse">--}}
+                                    {{--@include('includes.specTable')--}}
+                                    {{--<a href="/items/{{ $item->id }}" class=" btn btn-primary">View Item</a>--}}
+                                {{--</div>--}}
+                            {{--</td>--}}
+                        {{--</tr>--}}
 
                     @endforeach
                     </tbody>
