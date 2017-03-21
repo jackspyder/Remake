@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Spec;
-use DB;
 
 class ItemsController extends Controller
 {
@@ -18,9 +17,9 @@ class ItemsController extends Controller
     public function index()
     {
         $items = Item::all();
-        $specs = Spec::all();
 
-        return view('items.index', compact('items'), compact('specs'));
+
+        return view('items.index', compact('items'));
     }
 
 
@@ -34,7 +33,7 @@ class ItemsController extends Controller
         $items = Item::all();
         $specs = Spec::all();
 
-        return view('items.create', compact('items'), compact('specs'));
+        return view('items.create', compact('items', 'specs'));
     }
 
 
@@ -105,7 +104,8 @@ class ItemsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::findOrFail($id);
+        return view('items.edit', compact('item'));
     }
 
 
@@ -119,7 +119,39 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'id'        => 'unique:users|min:0',
+            'spec_id'   => 'required|min:0',
+            'category'  => 'required',
+            'price'     => 'between:0,9999.99|nullable',
+            'weight'    => 'min:0|nullable',
+            'condition' => 'required',
+            'status'    => 'required',
+        ];
+
+
+
+        if (trim($request['price']) != "") {
+            $rules['price'] .= '|numeric';
+        }
+
+        if (trim($request['weight']) != "") {
+            $rules['weight'] .= '|numeric';
+        }
+
+        $this->validate($request, $rules);
+
+        $item = Item::find($id);
+
+        foreach ($request->all() as $key => $value) {
+            if ( ! empty(trim($value)) && $key != '_token') {
+                $item->$key = trim($value);
+            }
+        }
+
+        $item->save();
+
+        return back();
     }
 
 

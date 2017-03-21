@@ -26,6 +26,7 @@
                         <th>COA</th>
                         <th>Date</th>
                     </tr>
+                    </thead>
                     <tbody>
                     @foreach($receipts as $receipt)
                         <tr class="clickable" onclick="location.href='/receipts/{{ $receipt->id }}'">

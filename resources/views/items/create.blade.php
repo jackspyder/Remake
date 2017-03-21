@@ -114,7 +114,7 @@
         </div>
         <div id="specPanel" class="panel-body in">
             <div class="row">
-                <form role="form" method="POST" action="{{ url('/items/spec') }}">
+                <form role="form" method="POST" action="{{ url('/specs') }}">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="form-group col-sm-12 col-md-6">

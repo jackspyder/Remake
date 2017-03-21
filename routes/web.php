@@ -28,7 +28,7 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     //Route::post('/items/searchitems', 'ItemsController@searchitems');
     //Route::post('/items/searchspecs', 'ItemsController@searchspecs');
     //Route::post('/items/add', 'ItemsController@store');
-    //Route::post('/items/spec', 'SpecsController@store');
+    Route::post('/specs', 'SpecsController@store');
 });
 
 ////////////////Users//////////////
