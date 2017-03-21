@@ -23,7 +23,7 @@
                                 </li>
                             </ul>
 
-                            <a href="/members/{{ $user->id }}/edit" class="btn btn-primary" role="form" method="POST">Edit
+                            <a href="{{ route('users.edit', $user) }}" class="btn btn-primary">Edit
                                 Member</a>
                         </div>
                     </div>
