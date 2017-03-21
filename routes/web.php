@@ -22,22 +22,18 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 
 //////////////Items///////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
-    Route::get('/items', 'ItemsController@index');
-    Route::get('/additems', 'ItemsController@add');
-    Route::post('/items/searchitems', 'ItemsController@searchitems');
-    Route::post('/items/searchspecs', 'ItemsController@searchspecs');
-    Route::post('/items/add', 'ItemsController@store');
-    Route::post('/items/spec', 'SpecsController@store');
+    Route::resource('items', 'ItemsController');
+    //Route::get('/items', 'ItemsController@index');
+    //Route::get('/additems', 'ItemsController@add');
+    //Route::post('/items/searchitems', 'ItemsController@searchitems');
+    //Route::post('/items/searchspecs', 'ItemsController@searchspecs');
+    //Route::post('/items/add', 'ItemsController@store');
+    //Route::post('/items/spec', 'SpecsController@store');
 });
 
 ////////////////Users//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::resource('users', 'UsersController');
-    //Route::get('/users', 'UserController@index');
-    //Route::get('/users/create', 'UserController@create');
-    //Route::get('/users/{user}', 'UserController@show');
-    //Route::get('/users/{user}/edit', 'UserController@edit');
-    //Route::post('/users', 'UserController@store');
 });
 
 ////////////////Sales//////////////
@@ -53,3 +49,41 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::get('/customers', 'CustomersController@index');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@
                 <a href="#"><i class="fa fa-globe fa-lg"></i> Database <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="service">
-                <li><a href="#">Add Items</a></li>
+                <li><a href="{{ url('/items/create') }}">Add Items</a></li>
                 <li><a href="{{ url('/items') }}">View Items</a></li>
             </ul>
 
