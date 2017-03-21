@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
+
 class User extends Authenticatable
 {
 
@@ -15,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'username',
@@ -31,28 +34,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-
-    //Check if a user has a role, passing a string and checking against role name column.
-    public function hasRole($role)
-    {
-        if (is_string($role)) {
-            return $this->roles->contains('role_name', $role);
-        }
-
-        return ! ! $role->intersect($this->roles)->count();
-    }
-
-
-    //Assign a role to a user after wiping existing roles.
-    public function assignRole($role)
-    {
-        $this->roles()->detach();
-        $this->roles()->save(Role::where('role_name', $role)->firstOrFail());
-    }
-
-
     public function roles()
     {
-        return $this->belongsToMany(Role::Class);
+        return $this->belongsToMany(Role::class);
     }
+
 }

@@ -16,8 +16,8 @@
             </li>
             <ul class="sub-menu collapse" id="products">
 
-                <li><a href="#">Add Members</a></li>
-                <li><a href="{{ url('/members') }}">View Members</a></li>
+                <li><a href="{{ url('/users/create') }}">Add Users</a></li>
+                <li><a href="{{ url('/users') }}">View Users</a></li>
                 <li><a href="#">Member Activity</a></li>
 
             </ul>
@@ -31,13 +31,20 @@
                 <li><a href="{{ url('/items') }}">View Items</a></li>
             </ul>
 
+            <li data-toggle="collapse" data-target="#sales" class="collapsed">
+                <a href="#"><i class="fa fa-globe fa-lg"></i> Sales <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="sales">
+
+                <li><a href="{{ url('/sales') }}">View Sales</a></li>
+                <li><a href="{{ url('/addsales') }}">Add Sales</a></li>
+            </ul>
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> Reporting <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-car fa-lg"></i> Customers <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="new">
-                <li>New New 1</li>
-                <li>New New 2</li>
+                <li><a href="{{ url('/customers') }}">Customers</a></li>
                 <li>New New 3</li>
             </ul>
 

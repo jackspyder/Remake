@@ -12,6 +12,6 @@ class SpecsTableSeeder extends Seeder
      */
     public function run()
     {
-        $specs = factory(App\Models\Spec::class, 20)->create();
+        $specs = factory(App\Models\Spec::class, 2)->create();
     }
 }

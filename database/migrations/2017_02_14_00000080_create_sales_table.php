@@ -14,6 +14,8 @@ class CreateSalesTable extends Migration
             $table->unsignedInteger('item_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            //$table->primary([ 'item_id', 'receipt_id' ]);
         });
     }
 

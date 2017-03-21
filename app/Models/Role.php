@@ -28,16 +28,13 @@ class Role extends Model
 
     //declare mass assignable properties.
     protected $fillable = [
-        'role_name',
-        'role_label',
+        'role_slug',
+        'role_title',
     ];
 
 
     //Method to save passed in permission.
-    public function givePermissionTo(Permission $permission)
-    {
-        return $this->permissions()->save($permission);
-    }
+
 
 
     //Declare model relationships.
@@ -49,7 +46,7 @@ class Role extends Model
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 
 }

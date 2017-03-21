@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
+
 class HomeController extends Controller
 {
 
@@ -29,6 +31,17 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('home');
+
+        $forsale = Item::where('status', 'For Sale')->get()->count();
+        $forparts = Item::where('status', 'For Parts')->get()->count();
+        $storage = Item::where('status', 'Storage')->get()->count();
+
+        $counts = [
+          "forsale" => $forsale,
+          "forparts" => $forparts,
+          "storage" => $storage
+        ];
+
+        return view('home', compact('counts'));
     }
 }

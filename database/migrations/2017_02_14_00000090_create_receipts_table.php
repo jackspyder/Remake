@@ -11,9 +11,10 @@ class CreateReceiptsTable extends Migration
         Schema::create('receipts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('customer_id')->nullable();
-            $table->unsignedInteger('sale_id')->nullable();
             $table->string('warranty');
-            $table->string('coa');
+            $table->string('served_by');
+            $table->string('payment');
+            $table->string('coa')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
