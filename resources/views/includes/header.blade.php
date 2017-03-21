@@ -41,7 +41,7 @@
                     <ul class="dropdown-menu" role="menu">
 
                         <li>
-                            <a href="{{ url('/additems') }}">Add Items</a>
+                            <a href="{{ url('/items/create') }}">Add Items</a>
                         </li>
                         <li>
                             <a href="{{ url('/items') }}">View Database</a>

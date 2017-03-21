@@ -2,18 +2,6 @@
 
 @section('content')
 
-    @include('includes.searchModal')
-
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Item
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#itemPanel">
@@ -21,7 +9,7 @@
             </button>
         </div>
         <div id="itemPanel" class="panel-body in">
-            <form role="form" method="POST" action="{{ url('/items/add') }}">
+            <form role="form" method="POST" action="{{ url('/items') }}">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-sm-12 col-md-6">
@@ -89,7 +77,7 @@
                             </select>
 
                             <label for="furniture" class="control-label">Furniture Type</label>
-                            <select name="furniture" class="form-control">
+                            <select name="" class="form-control">
                                 <option value="null">N/A</option>
                                 <option value="Chairs">Chairs</option>
                                 <option value="Set of Chairs">Set of Chairs</option>

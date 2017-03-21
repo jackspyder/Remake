@@ -19,7 +19,7 @@
           </button>
       </div>
       <div id="addPanel" class="panel-body in">
-          <form role="form" method="POST" action="{{ url('/items/add') }}">
+          <form role="form" method="POST" action="{{ url('/customers') }}">
               <div class="container-fluid">
                   <div class="row">
                       <div class="form-group col-sm-12 col-md-6">
