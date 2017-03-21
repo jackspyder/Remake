@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 
 ////////////////Customers//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
-    Route::get('/customers', 'CustomersController@index');
+    Route::resource('customers', 'CustomersController');
 });
 
 
