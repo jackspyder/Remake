@@ -42,7 +42,6 @@
                     </thead>
                     <tbody>
                     @foreach($items as $item)
-
                         <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
                             <td>{{$item->id}}</td>
                             <td>{{$item->category}}</td>
@@ -54,15 +53,6 @@
                             <td>{{$item->status}}</td>
                             <td>{{$item->notes}}</td>
                         </tr>
-                        {{--<tr>--}}
-                            {{--<td colspan="9" class="hiddenRow">--}}
-                                {{--<div id="{{$item->id}}" class="collapse">--}}
-                                    {{--@include('includes.specTable')--}}
-                                    {{--<a href="/items/{{ $item->id }}" class=" btn btn-primary">View Item</a>--}}
-                                {{--</div>--}}
-                            {{--</td>--}}
-                        {{--</tr>--}}
-
                     @endforeach
                     </tbody>
                 </table>

@@ -19,7 +19,7 @@ class ReceiptsController extends Controller
     {
         $receipts = Receipt::all();
         $items    = Item::all();
-        return view('sales.index', compact('receipts'), compact('items'));
+        return view('receipts.index', compact('receipts', 'items'));
     }
 
     /**

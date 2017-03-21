@@ -21,10 +21,17 @@
                                 <li><b>Status: </b>{{$item->status}}</li>
                                 <li><b>Notes: </b>{{$item->notes}}</li>
                             </ul>
+
+                            <div id="{{$item->id}}">
+                                @include('includes.specTable')
+                            </div>
+
+                            <div>
+                                <a href="{{ route('items.edit', $item) }}" class="btn btn-primary" >Edit
+                                    Item</a>
+                            </div>
                         </div>
-                        <div id="{{$item->id}}">
-                            @include('includes.specTable')
-                        </div>
+
 
                     </div>
                 </div>
