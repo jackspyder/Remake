@@ -16,8 +16,8 @@
             </li>
             <ul class="sub-menu collapse" id="products">
 
-                <li><a href="#">Add Members</a></li>
-                <li><a href="{{ url('/members') }}">View Members</a></li>
+                <li><a href="{{ url('/users/create') }}">Add Users</a></li>
+                <li><a href="{{ url('/users') }}">View Users</a></li>
                 <li><a href="#">Member Activity</a></li>
 
             </ul>

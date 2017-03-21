@@ -26,10 +26,10 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="{{ url('/members/add') }}">Add Member</a>
+                            <a href="{{ url('/users/create') }}">Add Member</a>
                         </li>
                         <li>
-                            <a href="{{ url('/members') }}">View Members</a>
+                            <a href="{{ url('/users') }}">View Members</a>
                         </li>
                     </ul>
                 </li>

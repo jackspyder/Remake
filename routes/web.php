@@ -32,12 +32,10 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 
 ////////////////Users//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
-    Route::get('/members', 'UserController@index');
-    Route::get('/members/{user}', 'UserController@show');
-
-    Route::get('/members/create', 'UserController@create');
-
-    Route::post('/members', 'UserController@store');
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/create', 'UserController@create');
+    Route::get('/users/{user}', 'UserController@show');
+    Route::post('/users', 'UserController@store');
 });
 
 ////////////////Sales//////////////

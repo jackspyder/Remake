@@ -47,17 +47,24 @@ class UserController extends Controller
 
     protected function store()
     {
-        $this->validate(request(), [
-            'name'     => 'required|max:255',
-            'username' => 'required|max:255|unique:users',
-            'password' => 'required|min:6|confirmed'
-        ]);
+        $user = new User;
 
-        User::create(request([ 'name', 'username', bcrypt('password') ]));
+        $user->name = request('name');
+        $user->username = request('username');
+        $user->password = bcrypt(request('password'));
 
-        //$user->assignRole('user');
+        $user->save();
 
-        return back();
-
+        return redirect('/users');
     }
+
+    //protected function validator(array $data)
+    //{
+    //    return Validator::make($data, [
+    //        'name'     => 'required|max:255',
+    //        'username' => 'required|max:255|unique:users',
+    //        'password' => 'required|min:6|confirmed',
+    //    ]);
+    //}
+
 }
