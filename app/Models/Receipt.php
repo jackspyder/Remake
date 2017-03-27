@@ -19,4 +19,8 @@ class Receipt extends Model
       return $this->hasMany(Sale::class, 'receipt_id', 'id');
   }
 
+  public function receipts()
+  {
+      return $this->belongsToMany(Item::class);
+  }
 }

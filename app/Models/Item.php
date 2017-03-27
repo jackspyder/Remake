@@ -23,4 +23,9 @@ class Item extends Model
     {
         return $this->belongsTo(Spec::class);
     }
+
+    public function receipts()
+    {
+        $this->belongsToMany(Receipt::class);
+    }
 }
