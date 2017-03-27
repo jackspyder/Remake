@@ -14,6 +14,6 @@ class Dimension extends Model
 
     public function items()
     {
-        $this->hasOne(Item::class);
+        return $this->hasOne(Item::class);
     }
 }

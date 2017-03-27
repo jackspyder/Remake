@@ -26,8 +26,9 @@ class Item extends Model
 
     public function receipts()
     {
-        $this->belongsToMany(Receipt::class);
+        return $this->belongsToMany(Receipt::class);
     }
+
     public function dimensions(){
         return $this->belongsTo(Dimension::class);
     }
