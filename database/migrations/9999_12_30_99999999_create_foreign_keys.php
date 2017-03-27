@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateForeignKeys extends Migration
 {
@@ -10,6 +11,7 @@ class CreateForeignKeys extends Migration
     {
         Schema::table('items', function (Blueprint $table) {
             $table->foreign('spec_id')->references('id')->on('specs')->onDelete('cascade');
+            $table->foreign('dimension_id')->references('id')_>on('dimensions')->onDelete('cascade');
         });
         Schema::table('sales', function (Blueprint $table) {
             $table->foreign('receipt_id')->references('id')->on('receipts')->onDelete('cascade');
