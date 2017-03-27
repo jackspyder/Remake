@@ -6,7 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dimension extends Model
 {
-    public function items(){
+    protected $fillable = [
+        'height',
+        'width',
+        'depth',
+    ];
+
+    public function items()
+    {
         $this->hasOne(Item::class);
     }
 }
