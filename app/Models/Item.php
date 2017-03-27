@@ -23,4 +23,13 @@ class Item extends Model
     {
         return $this->belongsTo(Spec::class);
     }
+
+    public function receipts()
+    {
+        return $this->belongsToMany(Receipt::class);
+    }
+
+    public function dimensions(){
+        return $this->belongsTo(Dimension::class);
+    }
 }
