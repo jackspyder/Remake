@@ -48,6 +48,7 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 /////////////Receipts/////////
 Route::group(['middleware' => ['web', 'auth']], function(){
     Route::resource('receipts', 'ReceiptsController');
+    Route::post('/receipts/search', 'ReceiptsController@search');
 });
 
 ////////////////Customers//////////////

@@ -13,9 +13,9 @@
                             <ul class="list">
                                 <li><b>Receipt ID: </b>{{$receipt->id}}</li>
                                 <li><b>Item List: </b>
-                                    @foreach($receipt->sales as $sale)
-                                        <div>{{$sale->item->id}}
-                                            - {{$sale->item->spec->brand}} {{$sale->item->spec->model}}</div>
+                                    @foreach($receipt->items as $item)
+                                        <div>{{$item->id}}
+                                            - {{$item->spec->brand}} {{$item->spec->model}}</div>
                                     @endforeach
                                 </li>
                                 <li><b>Served by: </b>{{$receipt->served_by}}</li>

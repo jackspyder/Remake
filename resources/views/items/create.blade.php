@@ -45,7 +45,6 @@
 
                             <label for="spec_id" class="control-label">Product</label>
                             <select name="spec_id" class="form-control">
-                                <option value="">N/A</option>
                                 @foreach($specs as $spec)
                                     <option value="{{$spec->id}}">{{$spec->brand}} - {{$spec->model}}</option>
                                 @endforeach

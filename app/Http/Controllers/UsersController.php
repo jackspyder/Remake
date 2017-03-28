@@ -41,8 +41,8 @@ class UsersController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'name'     => 'required|max:255',
-            'username' => 'required|max:255|unique:users',
+            'name'     => 'required|max:20',
+            'username' => 'required|max:20|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
 
@@ -98,8 +98,8 @@ class UsersController extends Controller
     {
         //if statement to determine name change.
         $this->validate(request(), [
-            'name'     => 'required|max:255',
-            'username' => 'required|max:255|unique:users',
+            'name'     => 'required|max:20',
+            'username' => 'required|max:20|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
 

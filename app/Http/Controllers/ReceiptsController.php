@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
-use App\Models\Sale;
 use App\Models\Receipt;
 use DB;
 
@@ -30,7 +29,8 @@ class ReceiptsController extends Controller
     public function create()
     {
         $items = Item::all();
-        return view('sales.add', compact('items'));
+
+        return view('receipts.create', compact('items'));
     }
 
     /**
@@ -64,14 +64,9 @@ class ReceiptsController extends Controller
 
         foreach($request['list'] as $item)
         {
-            $sale = new Sale;
-
-            //Get last entry into the receipt table i.e the one we just added up there ^^^
-            $sale->receipt_id = Receipt::orderby('created_at', 'desc')->first()->id;
-            $sale->item_id = $item;
-
-            $sale->save();
+            $receipt->items()->attach($item);
         }
+
 
         return back();
     }
@@ -112,6 +107,23 @@ class ReceiptsController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+
+    public function search(Request $request)
+    {
+        $toMatch = [];
+
+        foreach ($request->all() as $key => $value) {
+            if ( ! empty(trim($value)) && $key != '_token') {
+                $toMatch[$key] = trim($value);
+            }
+        }
+
+        $receipts = Receipt::where($toMatch)->get();
+        $items = Item::all();
+
+        return view('receipts.index', compact('receipts', 'items', 'specs'));
     }
 
     /**

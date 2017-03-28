@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Search Sales</h4>
             </div>
-            <form role="form" method="POST" action="{{ url('/sales/search') }}">
+            <form role="form" method="POST" action="{{ url('/receipts/search') }}">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-sm-12 col-md-6">

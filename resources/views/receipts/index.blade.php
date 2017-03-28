@@ -32,9 +32,9 @@
                         <tr class="clickable" onclick="location.href='/receipts/{{ $receipt->id }}'">
                             <td>{{$receipt->id}}</td>
                             <td>
-                                @foreach($receipt->sales as $sale)
-                                    <div>{{$sale->item->id}}
-                                        - {{$sale->item->spec->brand}} {{$sale->item->spec->model}}</div>
+                                @foreach($receipt->items as $item)
+                                    <div>{{$item->id}}
+                                        - {{$item->spec->brand}} {{$item->spec->model}}</div>
                                 @endforeach
                             </td>
                             <td>{{$receipt->served_by}}</td>
