@@ -5,6 +5,8 @@ $(document).ready(function() {
     var forsale = $('#forsale').val().trim();;
     var forparts = $('#forparts').val().trim();
     var storage = $('#storage').val().trim();
+    var sold = $('#sold').val().trim();
+    var refurbishment = $('#refurbishment').val().trim();
 
     var ctx = document.getElementById("mycanvas");
 
@@ -14,20 +16,26 @@ $(document).ready(function() {
       labels: [
           "For Sale",
           "For Parts",
-          "Storage"
+          "Storage",
+          "Sold",
+          "refurbishment"
       ],
       datasets: [
           {
-              data: [forsale, forparts, storage],
+              data: [forsale, forparts, storage, sold, refurbishment],
               backgroundColor: [
                   "#36A2EB",
                   "#FF6384",
-                  "#DDDDDD"
+                  "#DDDDDD",
+                  "#16A623",
+                  "#E8B10C"
               ],
               hoverBackgroundColor: [
                   "#36A2EB",
                   "#FF6384",
-                  "#EEEEEE"
+                  "#EEEEEE",
+                  "#22FF35",
+                  "#FFC20D"
               ]
           }]
         }

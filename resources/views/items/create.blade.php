@@ -74,6 +74,8 @@
                                 <option value="For Sale">For Sale</option>
                                 <option value="For Parts">For Parts</option>
                                 <option value="Storage">Storage</option>
+                                <option value="Sold">Sold</option>
+                                <option value="For Refurbishment">For Refurbishment</option>
                             </select>
 
                             <label for="furniture" class="control-label">Furniture Type</label>
