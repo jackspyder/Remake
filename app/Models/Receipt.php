@@ -12,6 +12,9 @@ class Receipt extends Model
       'warranty',
       'served_by',
       'payment',
+      //sales value->count()
+      //IN STOCK MONETARY VALUES
+
   ];
 
   public function sales()

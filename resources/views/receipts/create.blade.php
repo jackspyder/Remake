@@ -50,7 +50,12 @@
                         <div class="form-group col-sm-12 col-md-6">
 
                             <label for="served_by" class="control-label">Served By</label>
-                            <input name="served_by" class="form-control">
+                            <select name="served_by" class="form-control">
+                                <option>Admin</option>
+                                <option>User</option>
+                                <option>Moderator</option>
+                                 {{--pull user list--}}
+                            </select>
 
                             </input>
 
