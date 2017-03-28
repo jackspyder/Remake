@@ -13,10 +13,6 @@ class CreateForeignKeys extends Migration
             $table->foreign('spec_id')->references('id')->on('specs')->onDelete('cascade');
             //$table->foreign('dimension_id')->references('id')->on('dimensions')->onDelete('cascade');
         });
-        Schema::table('sales', function (Blueprint $table) {
-            $table->foreign('receipt_id')->references('id')->on('receipts')->onDelete('cascade');
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
-        });
 
 
     }
@@ -28,12 +24,7 @@ class CreateForeignKeys extends Migration
         Schema::table('items', function (Blueprint $table) {
             $table->dropForeign([ 'spec_id' ]);
         });
-        Schema::table('sales', function (Blueprint $table) {
-            $table->dropForeign('sales_receipt_id_foreign');
-        });
-        Schema::table('sales', function (Blueprint $table) {
-            $table->dropForeign('sales_item_id_foreign');
-        });
+
 
     }
 }
