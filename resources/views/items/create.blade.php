@@ -45,6 +45,7 @@
 
                             <label for="spec_id" class="control-label">Product</label>
                             <select name="spec_id" class="form-control">
+                                <option value="">N/A</option>
                                 @foreach($specs as $spec)
                                     <option value="{{$spec->id}}">{{$spec->brand}} - {{$spec->model}}</option>
                                 @endforeach
@@ -84,7 +85,7 @@
                                 <option value="Chairs">Chairs</option>
                                 <option value="Set of Chairs">Set of Chairs</option>
                                 <option value="Tables">Tables</option>
-                                <option value="Drawers/Cabinates">Drawers/Cabinates</option>
+                                <option value="Drawers/Cabinets">Drawers/Cabinets</option>
                                 <option value="Shelves">Shelves</option>
                                 <option value="Accessories">Accessories</option>
                                 <option value="Mirrors">Mirrors</option>

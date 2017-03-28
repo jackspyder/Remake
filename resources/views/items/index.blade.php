@@ -31,8 +31,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Category</th>
-                        <th>Brand</th>
-                        <th>Model</th>
+                        {{--<th>Brand</th>--}}
+                        {{--<th>Model</th>--}}
                         <th>Weight</th>
                         <th>Condition</th>
                         <th>Price</th>
@@ -45,8 +45,8 @@
                         <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
                             <td>{{$item->id}}</td>
                             <td>{{$item->category}}</td>
-                            <td>{{$item->spec->brand}}</td>
-                            <td>{{$item->spec->model}}</td>
+                            {{--<td>{{$item->spec->brand}}</td>--}}
+                            {{--<td>{{$item->spec->model}}</td>--}}
                             <td>{{$item->weight}}</td>
                             <td>{{$item->condition}}</td>
                             <td>£{{$item->price}}</td>

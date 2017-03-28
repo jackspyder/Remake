@@ -17,8 +17,8 @@ $(document).ready(function() {
           "For Sale",
           "For Parts",
           "Storage",
-          "Sold",
-          "refurbishment"
+          'Sold',
+          'For Refurbishment'
       ],
       datasets: [
           {

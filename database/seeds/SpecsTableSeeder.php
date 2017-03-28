@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Spec;
 use Illuminate\Database\Seeder;
 
 class SpecsTableSeeder extends Seeder
@@ -12,6 +13,9 @@ class SpecsTableSeeder extends Seeder
      */
     public function run()
     {
-        $specs = factory(App\Models\Spec::class, 2)->create();
+        Spec::create([
+            'brand' => 'N/A',
+            'model' => 'N/A',
+        ]);
     }
 }
