@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Receipt;
 use DB;
+use Illuminate\Http\Request;
 
 class ReceiptsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +18,11 @@ class ReceiptsController extends Controller
     public function index()
     {
         $receipts = Receipt::all();
-        $items    = Item::all();
+        $items = Item::all();
+
         return view('receipts.index', compact('receipts', 'items'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,10 +36,12 @@ class ReceiptsController extends Controller
         return view('receipts.create', compact('items'));
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,8 +56,7 @@ class ReceiptsController extends Controller
 
         $receipt = new Receipt;
 
-        if(trim($request['id']) != "")
-        {
+        if (trim($request['id']) != "") {
             $receipt->id = trim($request['id']);
         }
 
@@ -62,19 +66,25 @@ class ReceiptsController extends Controller
 
         $receipt->save();
 
-        foreach($request['list'] as $item)
-        {
+        foreach ($request['list'] as $item) {
+            //mark the listed items as sold.
+            $sold = Item::findOrFail($item);
+            $sold->status = 'Sold';
+            $sold->save();
+
+            //attack the items to the receipt.
             $receipt->items()->attach($item);
         }
-
 
         return back();
     }
 
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -84,10 +94,12 @@ class ReceiptsController extends Controller
         return view('receipts.show', compact('receipt'));
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -97,11 +109,13 @@ class ReceiptsController extends Controller
         return view('receipts.edit', compact('receipt'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -126,10 +140,12 @@ class ReceiptsController extends Controller
         return view('receipts.index', compact('receipts', 'items', 'specs'));
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
