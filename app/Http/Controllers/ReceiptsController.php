@@ -31,7 +31,7 @@ class ReceiptsController extends Controller
      */
     public function create()
     {
-        $items = Item::all();
+        $items = Item::where('status', 'For Sale')->get();
 
         return view('receipts.create', compact('items'));
     }

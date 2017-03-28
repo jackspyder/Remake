@@ -23,26 +23,13 @@ Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
 //////////////Items///////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::resource('items', 'ItemsController');
-    //Route::get('/items', 'ItemsController@index');
-    //Route::get('/additems', 'ItemsController@add');
-    //Route::post('/items/searchitems', 'ItemsController@searchitems');
-    //Route::post('/items/searchspecs', 'ItemsController@searchspecs');
-    //Route::post('/items/add', 'ItemsController@store');
     Route::post('/specs', 'SpecsController@store');
+
 });
 
 ////////////////Users//////////////
 Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
     Route::resource('users', 'UsersController');
-});
-
-////////////////Sales//////////////
-Route::group([ 'middleware' => [ 'web', 'auth' ] ], function () {
-    Route::get('/sales', 'SalesController@index');
-    Route::get('/addsales', 'SalesController@add');
-    Route::post('/sales/add', 'SalesController@store');
-    Route::post('/sales/search', 'SalesController@search');
-
 });
 
 /////////////Receipts/////////
