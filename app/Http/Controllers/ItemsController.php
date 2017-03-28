@@ -46,14 +46,14 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id'           => 'unique:users|min:0',
-            'spec_id'      => 'min:0',
+            'id' => 'unique:users|min:0',
+            'spec_id' => 'min:0',
             'dimension_id' => 'min:0',
-            'category'     => 'required',
-            'price'        => 'between:0,9999.99|nullable',
-            'weight'       => 'min:0|nullable',
-            'condition'    => 'required',
-            'status'       => 'required',
+            'category' => 'required',
+            'price' => 'between:0,9999.99|nullable',
+            'weight' => 'min:0|nullable',
+            'condition' => 'required',
+            'status' => 'required',
         ];
 
         if (trim($request['price']) != "") {
@@ -69,7 +69,7 @@ class ItemsController extends Controller
         $item = new Item;
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if (!empty(trim($value)) && $key != '_token') {
                 $item->$key = trim($value);
             }
         }
@@ -105,40 +105,31 @@ class ItemsController extends Controller
     public function edit($id)
     {
         $item = Item::findOrFail($id);
+        $spec = Spec::all();
 
-        return view('items.edit', compact('item'));
+        return view('items.edit', compact('item', 'spec'));
     }
-
-    //public function sold($id){
-    //
-    //    $item = Item::findOrFail($id);
-    //
-    //    $item->status = 'Sold';
-    //
-    //    $item->save();
-    //
-    //}
-
 
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $rules = [
-            'id'        => 'unique:users|min:0',
-            'spec_id'   => 'required|min:0',
-            'category'  => 'required',
-            'price'     => 'between:0,9999.99|nullable',
-            'weight'    => 'min:0|nullable',
+            'spec_id' => 'min:0',
+            'category' => 'required',
+            'price' => 'between:0,9999.99|nullable',
+            'weight' => 'min:0|nullable',
             'condition' => 'required',
-            'status'    => 'required',
+            'status' => 'required',
+            'furniture' => 'nullable',
+            'coa' => 'nullable',
         ];
 
         if (trim($request['price']) != "") {
@@ -151,15 +142,7 @@ class ItemsController extends Controller
 
         $this->validate($request, $rules);
 
-        $item = Item::find($id);
-
-        foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
-                $item->$key = trim($value);
-            }
-        }
-
-        $item->save();
+        Item::find($id)->update($request->all());
 
         return back();
     }
@@ -174,7 +157,7 @@ class ItemsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 
 
@@ -184,7 +167,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if (!empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }
@@ -201,7 +184,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if (!empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }

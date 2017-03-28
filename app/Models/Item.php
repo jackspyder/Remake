@@ -15,7 +15,9 @@ class Item extends Model
         'condition',
         'price',
         'status',
-        'notes'
+        'notes',
+        'coa',
+        'furniture'
     ];
 
 

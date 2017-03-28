@@ -19,6 +19,8 @@ class CreateItemsTable extends Migration
             $table->string('status', 255);
             $table->decimal('price', 6, 2)->default(0.00);
             $table->text('notes')->nullable();
+            $table->string('furniture')->nullable();
+            $table->string('coa')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
