@@ -6,6 +6,8 @@ use App\Models\Item;
 use App\Models\Receipt;
 use DB;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class ReceiptsController extends Controller
 {
@@ -49,7 +51,6 @@ class ReceiptsController extends Controller
         $rules = [
             'id'        => 'unique:receipts|min:0',
             'payment'   => 'required',
-            'served_by' => 'required',
         ];
 
         $this->validate($request, $rules);
@@ -60,9 +61,10 @@ class ReceiptsController extends Controller
             $receipt->id = trim($request['id']);
         }
 
+
         $receipt->warranty = $request['warranty'];
         $receipt->payment = $request['payment'];
-        $receipt->served_by = $request['served_by'];
+        $receipt->served_by = \Auth::user()->username;
 
         $receipt->save();
 

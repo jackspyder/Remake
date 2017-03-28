@@ -46,14 +46,16 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id' => 'unique:users|min:0',
-            'spec_id' => 'min:0',
+            'id'           => 'unique:users|min:0',
+            'spec_id'      => 'min:0',
             'dimension_id' => 'min:0',
-            'category' => 'required',
-            'price' => 'between:0,9999.99|nullable',
-            'weight' => 'min:0|nullable',
-            'condition' => 'required',
-            'status' => 'required',
+            'category'     => 'required',
+            'price'        => 'between:0,9999.99|nullable',
+            'weight'       => 'min:0|nullable',
+            'condition'    => 'required',
+            'status'       => 'required',
+            'coa'          => 'nullable',
+            'furniture'    => 'nullable',
         ];
 
         if (trim($request['price']) != "") {
