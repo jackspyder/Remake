@@ -121,7 +121,6 @@ class ItemsController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            //'id'        => 'unique:users|min:0',
             'spec_id' => 'min:0',
             'category' => 'required',
             'price' => 'between:0,9999.99|nullable',
@@ -142,15 +141,7 @@ class ItemsController extends Controller
 
         $this->validate($request, $rules);
 
-        $item = Item::find($id);
-
-        foreach ($request->all() as $key => $value) {
-            if (!empty(trim($value)) && $key != '_token') {
-                $item->$key = trim($value);
-            }
-        }
-
-        $item->save();
+        Item::find($id)->update($request->all());
 
         return back();
     }
