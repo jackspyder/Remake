@@ -23,12 +23,10 @@
                                 </li>
                             </ul>
 
-                            <div>
-                                <a href="{{ route('users.edit', $user) }}" class="btn btn-primary">Edit
-                                    Member</a>
-                            </div>
                         </div>
+
                     </div>
+                    <a href="{{ route('users.edit', $user) }}" class="btn btn-primary pull-right">Edit Member</a>
                 </div>
             </div>
         </div>

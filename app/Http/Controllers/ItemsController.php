@@ -109,6 +109,17 @@ class ItemsController extends Controller
         return view('items.edit', compact('item'));
     }
 
+    //public function sold($id){
+    //
+    //    $item = Item::findOrFail($id);
+    //
+    //    $item->status = 'Sold';
+    //
+    //    $item->save();
+    //
+    //}
+
+
 
     /**
      * Update the specified resource in storage.

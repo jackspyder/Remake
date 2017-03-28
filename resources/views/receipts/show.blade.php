@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Item Details</div>
+                <div class="panel-heading">Receipt Details</div>
 
                 <div class="panel-body">
                     <div class="row">
@@ -13,9 +13,9 @@
                             <ul class="list">
                                 <li><b>Receipt ID: </b>{{$receipt->id}}</li>
                                 <li><b>Item List: </b>
-                                    @foreach($receipt->sales as $sale)
-                                        <div>{{$sale->item->id}}
-                                            - {{$sale->item->spec->brand}} {{$sale->item->spec->model}}</div>
+                                    @foreach($receipt->items as $item)
+                                        <div>{{$item->id}}
+                                            - {{$item->spec->brand}} {{$item->spec->model}}</div>
                                     @endforeach
                                 </li>
                                 <li><b>Served by: </b>{{$receipt->served_by}}</li>
@@ -28,7 +28,10 @@
                         </div>
 
                     </div>
+                    <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-primary pull-right">Edit
+                        Receipt</a>
                 </div>
+
             </div>
         </div>
     </div>

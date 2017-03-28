@@ -32,6 +32,6 @@ class Spec extends Model
 
     public function items()
     {
-        return $this->hasMany(Item::class, 'spec_id', 'id');
+        return $this->hasMany(Item::class);
     }
 }
