@@ -13,7 +13,7 @@ class CreateItemReceiptTable extends Migration
      */
     public function up()
     {
-        Scheme::create('item_receipt', function(Blueprint $table){
+        Schema::create('item_receipt', function (Blueprint $table) {
             $table->unsignedInteger('item_id')->nullable();
             $table->unsignedInteger('receipt_id')->nullable();
 

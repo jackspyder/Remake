@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Spec;
+use Illuminate\Http\Request;
 
 class ItemsController extends Controller
 {
@@ -17,7 +17,6 @@ class ItemsController extends Controller
     public function index()
     {
         $items = Item::all();
-
 
         return view('items.index', compact('items'));
     }
@@ -47,13 +46,14 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'id'        => 'unique:users|min:0',
-            'spec_id'   => 'required|min:0',
-            'category'  => 'required',
-            'price'     => 'between:0,9999.99|nullable',
-            'weight'    => 'min:0|nullable',
-            'condition' => 'required',
-            'status'    => 'required',
+            'id'           => 'unique:users|min:0',
+            'spec_id'      => 'min:0',
+            'dimension_id' => 'min:0',
+            'category'     => 'required',
+            'price'        => 'between:0,9999.99|nullable',
+            'weight'       => 'min:0|nullable',
+            'condition'    => 'required',
+            'status'       => 'required',
         ];
 
         if (trim($request['price']) != "") {
@@ -105,6 +105,7 @@ class ItemsController extends Controller
     public function edit($id)
     {
         $item = Item::findOrFail($id);
+
         return view('items.edit', compact('item'));
     }
 
@@ -128,8 +129,6 @@ class ItemsController extends Controller
             'condition' => 'required',
             'status'    => 'required',
         ];
-
-
 
         if (trim($request['price']) != "") {
             $rules['price'] .= '|numeric';
