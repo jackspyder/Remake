@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateForeignKeys extends Migration
 {
@@ -24,12 +24,13 @@ class CreateForeignKeys extends Migration
     public function down()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->dropForeign('spec_id'); //
+            $table->dropForeign([ 'spec_id' ]);
         });
-
         Schema::table('sales', function (Blueprint $table) {
-            $table->dropForeign('receipt_id');
-            $table->dropForeign('item_id');
+            $table->dropForeign('sales_receipt_id_foreign');
+        });
+        Schema::table('sales', function (Blueprint $table) {
+            $table->dropForeign('sales_item_id_foreign');
         });
     }
 }
