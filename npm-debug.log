@@ -1,8 +1,13 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'dev' ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 2 info using npm@3.10.10
 3 info using node@v6.10.0
+=======
+2 info using npm@4.1.2
+3 info using node@v7.7.3
+>>>>>>> live
 =======
 2 info using npm@4.1.2
 3 info using node@v7.7.3
@@ -16,6 +21,7 @@
 10 verbose lifecycle @~dev: CWD: /home/vagrant/Remake
 11 silly lifecycle @~dev: Args: [ '-c',
 11 silly lifecycle   'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js' ]
+<<<<<<< HEAD
 <<<<<<< HEAD
 12 info lifecycle @~dev: Failed to exec dev script
 13 verbose stack Error: @ dev: `cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js`
@@ -50,6 +56,8 @@
 25 error There is likely additional logging output above.
 26 verbose exit [ 1, true ]
 =======
+=======
+>>>>>>> live
 12 silly lifecycle @~dev: Returned: code: 2  signal: null
 13 info lifecycle @~dev: Failed to exec dev script
 14 verbose stack Error: @ dev: `cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js`
@@ -83,4 +91,7 @@
 23 error     npm owner ls
 23 error There is likely additional logging output above.
 24 verbose exit [ 1, true ]
+<<<<<<< HEAD
+>>>>>>> live
+=======
 >>>>>>> live
