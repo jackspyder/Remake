@@ -122,12 +122,14 @@ class ItemsController extends Controller
     {
         $rules = [
             //'id'        => 'unique:users|min:0',
-            'spec_id' => 'required|min:0',
+            'spec_id' => 'min:0',
             'category' => 'required',
             'price' => 'between:0,9999.99|nullable',
             'weight' => 'min:0|nullable',
             'condition' => 'required',
             'status' => 'required',
+            'furniture' => 'nullable',
+            'coa' => 'nullable',
         ];
 
         if (trim($request['price']) != "") {

@@ -15,7 +15,6 @@ class CreateReceiptsTable extends Migration
             $table->string('warranty');
             $table->string('served_by');
             $table->string('payment');
-            $table->string('coa')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
