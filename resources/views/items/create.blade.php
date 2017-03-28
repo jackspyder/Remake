@@ -2,18 +2,6 @@
 
 @section('content')
 
-    @include('includes.searchModal')
-
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Item
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#itemPanel">
@@ -21,7 +9,7 @@
             </button>
         </div>
         <div id="itemPanel" class="panel-body in">
-            <form role="form" method="POST" action="{{ url('/items/add') }}">
+            <form role="form" method="POST" action="{{ url('/items') }}">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-sm-12 col-md-6">
@@ -86,15 +74,17 @@
                                 <option value="For Sale">For Sale</option>
                                 <option value="For Parts">For Parts</option>
                                 <option value="Storage">Storage</option>
+                                <option value="Sold">Sold</option>
+                                <option value="For Refurbishment">For Refurbishment</option>
                             </select>
 
                             <label for="furniture" class="control-label">Furniture Type</label>
-                            <select name="furniture" class="form-control">
+                            <select name="" class="form-control">
                                 <option value="null">N/A</option>
                                 <option value="Chairs">Chairs</option>
                                 <option value="Set of Chairs">Set of Chairs</option>
                                 <option value="Tables">Tables</option>
-                                <option value="Drawers/Cabinates">Drawers/Cabinates</option>
+                                <option value="Drawers/Cabinets">Drawers/Cabinets</option>
                                 <option value="Shelves">Shelves</option>
                                 <option value="Accessories">Accessories</option>
                                 <option value="Mirrors">Mirrors</option>
@@ -126,7 +116,7 @@
         </div>
         <div id="specPanel" class="panel-body in">
             <div class="row">
-                <form role="form" method="POST" action="{{ url('/items/spec') }}">
+                <form role="form" method="POST" action="{{ url('/specs') }}">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="form-group col-sm-12 col-md-6">

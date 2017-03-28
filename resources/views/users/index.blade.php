@@ -19,10 +19,11 @@
                                 </ul>
                             </div>
                         @endforeach
-
+                        <a href="{{ url('/users/create') }}" class="btn btn-primary pull-right">Create Member</a>
                     </div>
+
                 </div>
-                <a href="{{ url('/users/create') }}" class="btn btn-primary pull-right">Create Member</a>
+
             </div>
         </div>
 @endsection

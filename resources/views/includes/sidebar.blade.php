@@ -27,7 +27,7 @@
                 <a href="#"><i class="fa fa-globe fa-lg"></i> Database <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse" id="service">
-                <li><a href="#">Add Items</a></li>
+                <li><a href="{{ url('/items/create') }}">Add Items</a></li>
                 <li><a href="{{ url('/items') }}">View Items</a></li>
             </ul>
 
@@ -36,8 +36,8 @@
             </li>
             <ul class="sub-menu collapse" id="sales">
 
-                <li><a href="{{ url('/sales') }}">View Sales</a></li>
-                <li><a href="{{ url('/addsales') }}">Add Sales</a></li>
+                <li><a href="{{ url('/receipts') }}">View Sales</a></li>
+                <li><a href="{{ url('/receipts/create') }}">Add Sales</a></li>
             </ul>
 
             <li data-toggle="collapse" data-target="#new" class="collapsed">

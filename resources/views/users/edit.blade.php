@@ -6,70 +6,45 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Member</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="PUT" action="{{ url('/users') }}">
-                        {{ csrf_field() }}
+                    <h1>Edit {{ $user->name }}</h1>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name"
-                                       value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                    <!-- if there are creation errors, they will show here -->
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
+                    @endif
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label">Username</label>
+                    {{ Form::model($user, array('route' => array('users.update', $user->id), 'method' => 'PATCH')) }}
 
-                            <div class="col-md-6">
-                                <input id="username" class="form-control" name="username"
-                                       value="{{ old('username') }}" required>
+                    <div class="form-group">
+                        {{ Form::label('name', 'Name') }}
+                        {{ Form::text('name', null, array('class' => 'form-control')) }}
+                    </div>
 
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        {{ Form::label('username', 'Username') }}
+                        {{ Form::text('username', null, array('class' => 'form-control')) }}
+                    </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                    <div class="form-group">
+                        {{ Form::label('password', 'Password') }}
+                        {{ Form::password('password', array('class' => 'form-control')) }}
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                    <div class="form-group">
+                        {{ Form::label('password_confirmation', 'Confirm Password') }}
+                        {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
+                    </div>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    {{ Form::submit('Edit Member', array('class' => 'btn btn-primary')) }}
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                       name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Edit Member
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>

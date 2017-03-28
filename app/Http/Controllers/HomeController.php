@@ -35,11 +35,15 @@ class HomeController extends Controller
         $forsale = Item::where('status', 'For Sale')->get()->count();
         $forparts = Item::where('status', 'For Parts')->get()->count();
         $storage = Item::where('status', 'Storage')->get()->count();
+        $sold = Item::where('status', 'Sold')->get()->count();
+        $refurbishment = Item::where('status', 'For Refurbishment')->get()->count();
 
         $counts = [
-          "forsale" => $forsale,
-          "forparts" => $forparts,
-          "storage" => $storage
+            "forsale" => $forsale,
+            "forparts" => $forparts,
+            "storage" => $storage,
+            'sold' => $sold,
+            'refurbishment' => $refurbishment
         ];
 
         return view('home', compact('counts'));

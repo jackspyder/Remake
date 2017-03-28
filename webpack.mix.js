@@ -11,5 +11,12 @@ const {mix} = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+
+mix.js([
+    'resources/assets/js/app.js',
+    'resources/assets/js/autocomplete.js',
+    'resources/assets/js/bootstrap.js',
+    'resources/assets/js/charts.js'
+], 'public/js/mixed.js')
+
     .sass('resources/assets/sass/app.scss', 'public/css');
