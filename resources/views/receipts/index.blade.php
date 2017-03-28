@@ -47,7 +47,9 @@
                     </tbody>
                 </table>
             </div>
+            <a href="{{ url('/receipts/create') }}" class="btn btn-primary pull-right">Add Receipt</a>
         </div>
+
     </div>
 
 @endsection

@@ -56,6 +56,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                <a href="{{ url('/items/create') }}" class="btn btn-primary pull-right">Add Item</a>
             </div>
         </div>
     </div>

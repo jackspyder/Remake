@@ -25,15 +25,12 @@
                             <div id="{{$item->id}}">
                                 @include('includes.specTable')
                             </div>
-
-                            <div>
-                                <a href="{{ route('items.edit', $item) }}" class="btn btn-primary" >Edit
-                                    Item</a>
-                            </div>
                         </div>
 
 
                     </div>
+                    <a href="{{ route('items.edit', $item) }}" class="btn btn-primary pull-right">Edit
+                        Item</a>
                 </div>
             </div>
         </div>

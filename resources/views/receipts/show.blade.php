@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Item Details</div>
+                <div class="panel-heading">Receipt Details</div>
 
                 <div class="panel-body">
                     <div class="row">
@@ -28,7 +28,10 @@
                         </div>
 
                     </div>
+                    <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-primary pull-right">Edit
+                        Receipt</a>
                 </div>
+
             </div>
         </div>
     </div>
