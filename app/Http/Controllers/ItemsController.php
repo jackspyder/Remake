@@ -105,8 +105,9 @@ class ItemsController extends Controller
     public function edit($id)
     {
         $item = Item::findOrFail($id);
+        $spec = Spec::all();
 
-        return view('items.edit', compact('item'));
+        return view('items.edit', compact('item', 'spec'));
     }
 
 

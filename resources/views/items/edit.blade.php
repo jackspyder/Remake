@@ -49,6 +49,16 @@
                         ], null, array('class' => 'form-control')) }}
                     </div>
 
+                    {{--<div class="form-group">--}}
+                        {{--{{ Form::label('spec_id', 'Specification Mask') }}--}}
+                        {{--{{ Form::select('spec_id', [--}}
+                         {{--@foreach($specs as $spec)--}}
+                        {{--'{{ $spec->id }}' => '{{$spec->brand}} - {{$spec->model}}'--}}
+                        {{--@endforeach--}}
+                        {{--], null, array('class' => 'form-control')) }}--}}
+
+                    {{--</div>--}}
+
                     <div class="form-group">
                         {{ Form::label('condition', 'Condition') }}
                         {{ Form::select('condition', [
