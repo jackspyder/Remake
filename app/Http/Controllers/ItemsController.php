@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dimension;
 use App\Models\Item;
 use App\Models\Spec;
 use Illuminate\Http\Request;
@@ -45,38 +46,28 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
-            'id' => 'unique:users|min:0',
-            'spec_id' => 'min:0',
-            'dimension_id' => 'min:0',
-            'category' => 'required',
-            'price' => 'between:0,9999.99|nullable',
-            'weight' => 'min:0|nullable',
+
+        $this->validate(request(), [
+            'id'        => 'unique:items|min:0',
+            'category'  => 'required',
+            'price'     => 'between:0,9999.99|nullable',
+            'weight'    => 'min:0|nullable',
             'condition' => 'required',
-            'status' => 'required',
-        ];
+            'status'    => 'required',
+        ]);
 
-        if (trim($request['price']) != "") {
-            $rules['price'] .= '|numeric';
-        }
+        $item = Item::create($request->only('id', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
+            'coa', 'notes'));
 
-        if (trim($request['weight']) != "") {
-            $rules['weight'] .= '|numeric';
-        }
+        $spec = Spec::create($request->only('brand', 'model', 'cpu', 'ram', 'hdd', 'odd', 'gpu', 'battery', 'usb',
+            'lan', 'wlan', 'os', 'psu', 'screen_size', 'screen rez'));
 
-        $this->validate($request, $rules);
+        $dim = Dimension::create($request->only('height', 'width', 'depth'));
 
-        $item = new Item;
+        $item->specs()->save($spec);
+        $item->dimensions()->save($dim);
 
-        foreach ($request->all() as $key => $value) {
-            if (!empty(trim($value)) && $key != '_token') {
-                $item->$key = trim($value);
-            }
-        }
-
-        $item->save();
-
-        return back();
+        return redirect('/items');
     }
 
 
@@ -115,36 +106,31 @@ class ItemsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  int                      $id
      *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'spec_id' => 'min:0',
-            'category' => 'required',
-            'price' => 'between:0,9999.99|nullable',
-            'weight' => 'min:0|nullable',
+        $this->validate(request(), [
+            'category'  => 'required',
+            'price'     => 'between:0,9999.99|nullable',
+            'weight'    => 'min:0|nullable',
             'condition' => 'required',
-            'status' => 'required',
-            'furniture' => 'nullable',
-            'coa' => 'nullable',
-        ];
+            'status'    => 'required',
+        ]);
 
-        if (trim($request['price']) != "") {
-            $rules['price'] .= '|numeric';
-        }
+        $item = Item::findOrFail($id);
 
-        if (trim($request['weight']) != "") {
-            $rules['weight'] .= '|numeric';
-        }
+        $item->update($request->only('id', 'category', 'price', 'weight', 'condition', 'status', 'furniture', 'coa',
+            'notes'));
 
-        $this->validate($request, $rules);
+        $item->specs->update($request->only('brand', 'model', 'cpu', 'ram', 'hdd', 'odd', 'gpu', 'battery', 'usb',
+            'lan', 'wlan', 'os', 'psu', 'screen_size', 'screen rez'));
 
-        Item::find($id)->update($request->all());
+        $item->dimensions->update($request->only('height', 'width', 'depth'));
 
-        return back();
+        return redirect('/items');
     }
 
 
@@ -167,7 +153,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if (!empty(trim($value)) && $key != '_token') {
+            if ( ! empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }
@@ -184,7 +170,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if (!empty(trim($value)) && $key != '_token') {
+            if ( ! empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }

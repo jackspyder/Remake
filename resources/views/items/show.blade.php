@@ -13,8 +13,7 @@
                             <ul class="list">
                                 <li><b>Item ID: </b>{{$item->id}}</li>
                                 <li><b>Category: </b>{{$item->category}}</li>
-                                <li><b>Brand: </b>{{$item->spec->brand}}</li>
-                                <li><b>Model: </b>{{$item->spec->model}}</li>
+                                <li><b>Brand: </b>{{$item->specs->brand}}</li>
                                 <li><b>Weight: </b>{{$item->weight}}</li>
                                 <li><b>Condition: </b>{{$item->condition}}</li>
                                 <li><b>Price: £</b>{{$item->price}}</li>
