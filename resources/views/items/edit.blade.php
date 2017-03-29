@@ -2,6 +2,8 @@
 
 @section('content')
 
+    {{ Form::model($item, array('route' => array('items.update', $item->id), 'method' => 'PATCH')) }}
+
     <div class="panel panel-default">
         {{--Panel head--}}
         <div class="panel-heading tall-header">Edit Item
@@ -29,7 +31,7 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    {{ Form::model($item, array('route' => array('items.update', $item->id), 'method' => 'PATCH')) }}
+
 
                     {{--Row left--}}
                     <div class="form-group col-sm-12 col-md-6">
@@ -129,12 +131,12 @@
                         {{ Form::textarea('notes', null, array('class' => 'form-control')) }}
                     </div>
 
-                    {{ Form::close() }}
-
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <div class="panel panel-default">
         {{--Panel head--}}
@@ -150,7 +152,7 @@
             {{--Main Panel Content--}}
             <div class="container-fluid">
                 <div class="row">
-
+                    {{  Form::setModel($item->specs)  }}
                     {{--Row Left--}}
                     <div class="form-group col-sm-12 col-md-6">
 
@@ -253,7 +255,7 @@
             {{--Main Panel Content--}}
             <div class="container-fluid">
                 <div class="row">
-
+                    {{  Form::setModel($item->dimensions)  }}
                     {{--Row Left--}}
                     <div class="form-group col-sm-12 col-md-6">
 
