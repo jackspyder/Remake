@@ -16,9 +16,9 @@ class CreateDimensionsTable extends Migration
         Schema::create('dimensions', function(Blueprint $table){
            $table->increments('id');
             $table->unsignedInteger('item_id');
-            $table->decimal('height');
-            $table->decimal('width');
-            $table->decimal('depth');
+            $table->decimal('height')->nullable();
+            $table->decimal('width')->nullable();
+            $table->decimal('depth')->nullable();
         });
     }
 

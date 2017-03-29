@@ -4,7 +4,7 @@
 
     <div class="panel panel-default">
         {{--Panel head--}}
-        <div class="panel-heading tall-header">Edit Item
+        <div class="panel-heading tall-header">Add New Item
             {{--Panel minimise button--}}
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#itemPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
@@ -129,8 +129,6 @@
                         {{ Form::textarea('notes', null, array('class' => 'form-control')) }}
                     </div>
 
-                    {{ Form::submit('Edit Item', array('class' => 'btn btn-primary')) }}
-
                     {{ Form::close() }}
 
                 </div>
@@ -235,13 +233,57 @@
                             {{ Form::text('screen_rez', null, array('class' => 'form-control')) }}
                         </div>
 
-                        <div class="form-group">
-                            {{ Form::submit('Add Spec', array('class' => 'btn btn-primary')) }}
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="panel panel-default">
+        {{--Panel head--}}
+        <div class="panel-heading tall-header">Add Furniture Dimensions
+            {{--Panel minimise button--}}
+            <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#dimPanel">
+                <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <div class="panel-body" id="dimPanel">
+
+            {{--Main Panel Content--}}
+            <div class="container-fluid">
+                <div class="row">
+
+                    {{--Row Left--}}
+                    <div class="form-group col-sm-12 col-md-6">
+
+                        <div class="form-group">
+                            {{ Form::label('height', 'Height') }}
+                            {{ Form::text('height', null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('width', 'Width') }}
+                            {{ Form::text('width', null, array('class' => 'form-control')) }}
+                        </div>
+
+                    </div>
+
+                    {{--Row Right--}}
+                    <div class="form-group col-sm-12 col-md-6">
+
+                        <div class="form-group">
+                            {{ Form::label('depth', 'Depth') }}
+                            {{ Form::text('depth', null, array('class' => 'form-control')) }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ Form::submit('Submit Item', array('class' => 'btn btn-primary')) }}
+
+    {{ Form::close() }}
 @endsection
