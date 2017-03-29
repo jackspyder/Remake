@@ -3,15 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Spec;
-use App\Models\Dimension;
 
 class Item extends Model
 {
 
     protected $fillable = [
         'id',
-        'spec_id',
         'category',
         'weight',
         'condition',
