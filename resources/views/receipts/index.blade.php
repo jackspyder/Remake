@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('includes.salesModal')
+    {{--@include('includes.salesModal')--}}
 
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Receipts
@@ -34,7 +34,7 @@
                             <td>
                                 @foreach($receipt->items as $item)
                                     <div>{{$item->id}}
-                                        - {{$item->spec->brand}} {{$item->spec->model}}</div>
+                                        - {{$item->specs->brand}} {{$item->specs->model}}</div>
                                 @endforeach
                             </td>
                             <td>{{$receipt->served_by}}</td>

@@ -33,7 +33,7 @@
                             <select name="list[]" class="form-control select2" multiple>
                                 @foreach($items as $item)
                                     <option value="{{$item->id}}">{{$item->id}}
-                                        - {{$item->spec->brand}} {{$item->spec->model}}</option>
+                                        - {{$item->specs->brand}} {{$item->specs->model}}</option>
                                 @endforeach
                             </select>
 

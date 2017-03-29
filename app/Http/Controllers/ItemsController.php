@@ -48,7 +48,7 @@ class ItemsController extends Controller
     {
 
         $this->validate(request(), [
-            'id'        => 'unique:users|min:0',
+            'id'        => 'unique:items|min:0',
             'category'  => 'required',
             'price'     => 'between:0,9999.99|nullable',
             'weight'    => 'min:0|nullable',
@@ -112,6 +112,13 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(request(), [
+            'category'  => 'required',
+            'price'     => 'between:0,9999.99|nullable',
+            'weight'    => 'min:0|nullable',
+            'condition' => 'required',
+            'status'    => 'required',
+        ]);
 
         $item = Item::findOrFail($id);
 
