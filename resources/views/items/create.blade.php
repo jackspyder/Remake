@@ -33,6 +33,7 @@
 
                     {{--Row left--}}
                     <div class="form-group col-sm-12 col-md-6">
+
                         <div class="form-group">
                             {{ Form::label('id', 'ID (barcode)') }}
                             {{ Form::number('id', null, array('class' => 'form-control')) }}
@@ -82,6 +83,7 @@
 
                     {{--Row Right--}}
                     <div class="form-group col-sm-12 col-md-6">
+
                         <div class="form-group">
                             {{ Form::label('price', 'Price') }}
                             {{ Form::text('price', null, array('class' => 'form-control')) }}
@@ -153,6 +155,7 @@
 
                     {{--Row Left--}}
                     <div class="form-group col-sm-12 col-md-6">
+
                         <div class="form-group">
                             {{ Form::label('brand', 'Brand') }}
                             {{ Form::text('brand', null, array('class' => 'form-control')) }}
@@ -196,6 +199,7 @@
 
                     {{--Row Right--}}
                     <div class="form-group col-sm-12 col-md-6">
+
                         <div class="form-group">
                             {{ Form::label('usb', 'USB Ports') }}
                             {{ Form::text('usb', null, array('class' => 'form-control')) }}
@@ -230,6 +234,7 @@
                             {{ Form::label('screen_rez', 'Screen Resolution') }}
                             {{ Form::text('screen_rez', null, array('class' => 'form-control')) }}
                         </div>
+
                         <div class="form-group">
                             {{ Form::submit('Add Spec', array('class' => 'btn btn-primary')) }}
                         </div>

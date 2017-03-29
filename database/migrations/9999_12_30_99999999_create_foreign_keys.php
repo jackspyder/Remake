@@ -9,8 +9,12 @@ class CreateForeignKeys extends Migration
 
     public function up()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->foreign('spec_id')->references('id')->on('specs')->onDelete('cascade');
+        Schema::table('specs', function (Blueprint $table) {
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+        });
+
+        Schema::table('dimensions', function (Blueprint $table) {
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
 
 
@@ -21,8 +25,12 @@ class CreateForeignKeys extends Migration
     //These were causing issues, not sure why.
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->dropForeign([ 'spec_id' ]);
+        Schema::table('specs', function (Blueprint $table) {
+            $table->dropForeign([ 'item_id' ]);
+        });
+
+        Schema::table('dimensions', function (Blueprint $table) {
+            $table->dropForeign([ 'item_id' ]);
         });
 
 
