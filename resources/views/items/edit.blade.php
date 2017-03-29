@@ -37,8 +37,8 @@
                     <div class="form-group col-sm-12 col-md-6">
 
                         <div class="form-group">
-                            {{ Form::label('id', 'ID (barcode)') }}
-                            {{ Form::number('id', null, array('class' => 'form-control')) }}
+                            {{ Form::label('barcode', 'Barcode') }}
+                            {{ Form::number('barcode', null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">

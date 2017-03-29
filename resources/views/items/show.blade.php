@@ -11,7 +11,7 @@
 
                         <div class="form-group col-sm-12 col-md-6">
                             <ul class="list">
-                                <li><b>Item ID: </b>{{$item->id}}</li>
+                                <li><b>Barcode: </b>{{$item->barcode}}</li>
                                 <li><b>Category: </b>{{$item->category}}</li>
                                 <li><b>Brand: </b>{{$item->specs->brand}}</li>
                                 <li><b>Weight: </b>{{$item->weight}}</li>

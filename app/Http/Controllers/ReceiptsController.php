@@ -64,6 +64,7 @@ class ReceiptsController extends Controller
 
         $receipt->warranty = $request['warranty'];
         $receipt->payment = $request['payment'];
+        $receipt->discount = $request['discount'];
         $receipt->served_by = \Auth::user()->username;
 
         $receipt->save();
