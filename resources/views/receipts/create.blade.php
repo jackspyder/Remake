@@ -25,9 +25,7 @@
                         <div class="form-group col-sm-12 col-md-6">
 
                             <label for="id" class="control-label">Receipt ID</label>
-                            <input name="id" class="form-control">
-
-                            </input>
+                            <input name="id" class="form-control"> </input>
 
                             <label for="list[]" class="control-label">Items</label>
                             <select name="list[]" class="form-control select2" multiple>
@@ -42,10 +40,10 @@
 
                         <div class="form-group col-sm-12 col-md-6">
 
-                            {{--<label for="served_by" class="control-label">Served By</label>--}}
-                            {{--<input name="served_by" class="form-control">--}}
+                            <label for="discount" class="control-label">Discount</label>
+                            <input name="discount" class="form-control">
 
-                            {{--</input>--}}
+                            </input>
 
                             <label for="warranty" class="control-label">Warranty</label>
                             <select name="warranty" class="form-control">
@@ -61,8 +59,6 @@
                                 <option>Debit card</option>
                                 <option>Credit card</option>
                             </select>
-
-                            </input>
 
                         </div>
 

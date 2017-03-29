@@ -15,12 +15,13 @@
                                 <li><b>Item List: </b>
                                     @foreach($receipt->items as $item)
                                         <div>{{$item->id}}
-                                            - {{$item->specs->brand}} {{$item->specs->model}}</div>
+                                            - {{$item->specs->brand}} {{$item->specs->model}} - £{{ $item->price }}</div>
                                     @endforeach
                                 </li>
                                 <li><b>Served by: </b>{{$receipt->served_by}}</li>
                                 <li><b>Payment Type: </b>{{$receipt->payment}}</li>
                                 <li><b>Warranty: </b>{{$receipt->warranty}}</li>
+                                <li><b>Discount: </b>£{{$receipt->discount}}</li>
                                 <li><b>Created at: </b>{{$receipt->created_at->toDayDateTimeString()}}</li>
                             </ul>
 

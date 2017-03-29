@@ -48,15 +48,15 @@ class ItemsController extends Controller
     {
 
         $this->validate(request(), [
-            'id'        => 'unique:items|min:0',
-            'category'  => 'required',
-            'price'     => 'between:0,9999.99|nullable',
-            'weight'    => 'min:0|nullable',
+            'barcode' => 'unique:items|min:0|required',
+            'category' => 'required',
+            'price' => 'between:0,9999.99|nullable',
+            'weight' => 'min:0|nullable',
             'condition' => 'required',
-            'status'    => 'required',
+            'status' => 'required',
         ]);
 
-        $item = Item::create($request->only('id', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
+        $item = Item::create($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
             'coa', 'notes'));
 
         $spec = Spec::create($request->only('brand', 'model', 'cpu', 'ram', 'hdd', 'odd', 'gpu', 'battery', 'usb',
@@ -106,23 +106,23 @@ class ItemsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate(request(), [
-            'category'  => 'required',
-            'price'     => 'between:0,9999.99|nullable',
-            'weight'    => 'min:0|nullable',
+            'category' => 'required',
+            'price' => 'between:0,9999.99|nullable',
+            'weight' => 'min:0|nullable',
             'condition' => 'required',
-            'status'    => 'required',
+            'status' => 'required',
         ]);
 
         $item = Item::findOrFail($id);
 
-        $item->update($request->only('id', 'category', 'price', 'weight', 'condition', 'status', 'furniture', 'coa',
+        $item->update($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture', 'coa',
             'notes'));
 
         $item->specs->update($request->only('brand', 'model', 'cpu', 'ram', 'hdd', 'odd', 'gpu', 'battery', 'usb',
@@ -153,7 +153,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if (!empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }
@@ -170,7 +170,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if (!empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }

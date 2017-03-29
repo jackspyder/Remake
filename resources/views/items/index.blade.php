@@ -29,7 +29,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Barcode</th>
                         <th>Category</th>
                         {{--<th>Brand</th>--}}
                         {{--<th>Model</th>--}}
@@ -43,7 +43,7 @@
                     <tbody>
                     @foreach($items as $item)
                         <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
-                            <td>{{$item->id}}</td>
+                            <td>{{$item->barcode}}</td>
                             <td>{{$item->category}}</td>
                             {{--<td>{{$item->spec->brand}}</td>--}}
                             {{--<td>{{$item->spec->model}}</td>--}}
