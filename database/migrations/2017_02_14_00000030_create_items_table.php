@@ -11,6 +11,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
+            $table->increments('barcode');
             $table->string('category', 20);
             $table->integer('weight')->default(0);
             $table->string('condition', 20);
