@@ -4,15 +4,21 @@
 
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Item
+            <!-- Minimise button-->
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#itemPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
         </div>
+
         <div id="itemPanel" class="panel-body in">
             <form role="form" method="POST" action="{{ url('/items') }}">
+
                 <div class="container-fluid">
+
                     <div class="row">
+
                         <div class="form-group col-sm-12 col-md-6">
+
                             <label for="id" class="control-label">ID</label>
                             <input name="id" class="form-control">
 
@@ -59,6 +65,7 @@
                         </div>
 
                         <div class="form-group col-sm-12 col-md-6">
+
                             <label for="weight" class="control-label">Weight</label>
                             <input name="weight" class="form-control">
 
