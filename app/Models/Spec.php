@@ -13,25 +13,26 @@ class Spec extends Model
      * @var array
      */
     protected $fillable = [
-      'brand',
-      'model',
-      'cpu',
-      'ram',
-      'hdd',
-      'odd',
-      'gpu',
-      'battery',
-      'usb',
-      'lan',
-      'wlan',
-      'os',
-      'psu',
-      'screen_size',
-      'screen_rez',
+        'brand',
+        'model',
+        'cpu',
+        'ram',
+        'hdd',
+        'odd',
+        'gpu',
+        'battery',
+        'usb',
+        'lan',
+        'wlan',
+        'os',
+        'psu',
+        'screen_size',
+        'screen_rez',
     ];
+
 
     public function items()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Item::class);
     }
 }

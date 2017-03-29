@@ -17,10 +17,10 @@ class Receipt extends Model
 
   ];
 
-  public function sales()
-  {
-      return $this->hasMany(Sale::class, 'receipt_id', 'id');
-  }
+//  public function sales()
+//  {
+//      return $this->hasMany(Sale::class, 'receipt_id', 'id');
+//  }
 
 
     public function items()

@@ -46,10 +46,13 @@ class ReceiptsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate(request(), [
+
+        ]);
         $rules = [
-            'id'        => 'unique:receipts|min:0',
-            'payment'   => 'required',
-            'served_by' => 'required',
+            'id' => 'unique:receipts|min:0',
+            'payment' => 'required',
         ];
 
         $this->validate($request, $rules);
@@ -60,9 +63,11 @@ class ReceiptsController extends Controller
             $receipt->id = trim($request['id']);
         }
 
+
         $receipt->warranty = $request['warranty'];
         $receipt->payment = $request['payment'];
-        $receipt->served_by = $request['served_by'];
+        $receipt->discount = $request['discount'];
+        $receipt->served_by = \Auth::user()->username;
 
         $receipt->save();
 
@@ -72,11 +77,11 @@ class ReceiptsController extends Controller
             $sold->status = 'Sold';
             $sold->save();
 
-            //attack the items to the receipt.
+            //attach the items to the receipt.
             $receipt->items()->attach($item);
         }
 
-        return back();
+        return redirect('/receipts');
     }
 
 
@@ -114,7 +119,7 @@ class ReceiptsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -129,7 +134,7 @@ class ReceiptsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if ( ! empty(trim($value)) && $key != '_token') {
+            if (!empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }

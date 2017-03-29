@@ -23,7 +23,6 @@
                         <th>Served by</th>
                         <th>Payment type</th>
                         <th>Warranty</th>
-                        <th>COA</th>
                         <th>Date</th>
                     </tr>
                     </thead>
@@ -34,13 +33,12 @@
                             <td>
                                 @foreach($receipt->items as $item)
                                     <div>{{$item->id}}
-                                        - {{$item->spec->brand}} {{$item->spec->model}}</div>
+                                        - {{$item->specs->brand}} {{$item->specs->model}}</div>
                                 @endforeach
                             </td>
                             <td>{{$receipt->served_by}}</td>
                             <td>{{$receipt->payment}}</td>
                             <td>{{$receipt->warranty}}</td>
-                            <td>{{$receipt->coa}}</td>
                             <td>{{$receipt->created_at}}</td>
                         </tr>
                     @endforeach

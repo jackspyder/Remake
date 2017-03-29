@@ -2,43 +2,43 @@
   <tbody>
     <tr>
       <td><b>CPU</td>
-      <td>{{$item->spec->cpu}}</td>
+      <td>{{$item->specs->cpu}}</td>
       <td><b>LAN</td>
-      <td>{{$item->spec->lan}}</td>
+      <td>{{$item->specs->lan}}</td>
     </tr>
     <tr>
       <td><b>RAM</td>
-      <td>{{$item->spec->ram}}</td>
+      <td>{{$item->specs->ram}}</td>
       <td><b>WLAN</td>
-      <td>{{$item->spec->wlan}}</td>
+      <td>{{$item->specs->wlan}}</td>
     </tr>
     <tr>
       <td><b>HDD</td>
-      <td>{{$item->spec->hdd}}</td>
+      <td>{{$item->specs->hdd}}</td>
       <td><b>OS</td>
-      <td>{{$item->spec->os}}</td>
+      <td>{{$item->specs->os}}</td>
     </tr>
     <tr>
       <td><b>ODD</td>
-      <td>{{$item->spec->odd}}</td>
+      <td>{{$item->specs->odd}}</td>
       <td><b>PSU</td>
-      <td>{{$item->spec->psu}}</td>
+      <td>{{$item->specs->psu}}</td>
     </tr>
     <tr>
       <td><b>GPU</td>
-      <td>{{$item->spec->gpu}}</td>
+      <td>{{$item->specs->gpu}}</td>
       <td><b>Screen Size</td>
-      <td>{{$item->spec->screen_size}}</td>
+      <td>{{$item->specs->screen_size}}</td>
     </tr>
     <tr>
       <td><b>Battery</td>
-      <td>{{$item->spec->battery}}</td>
+      <td>{{$item->specs->battery}}</td>
       <td><b>Screen Resolution</td>
-      <td>{{$item->spec->screen_rez}}</td>
+      <td>{{$item->specs->screen_rez}}</td>
     </tr>
     <tr>
       <td><b>USB</td>
-      <td>{{$item->spec->usb}}</td>
+      <td>{{$item->specs->usb}}</td>
     </tr>
   </tbody>
 </table>

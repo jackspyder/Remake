@@ -9,7 +9,7 @@ class Item extends Model
 
     protected $fillable = [
         'id',
-        'spec_id',
+        'barcode',
         'category',
         'weight',
         'condition',
@@ -21,17 +21,20 @@ class Item extends Model
     ];
 
 
-    public function spec()
+    public function specs()
     {
-        return $this->belongsTo(Spec::class);
+        return $this->hasOne(Spec::class);
     }
+
 
     public function receipts()
     {
         return $this->belongsToMany(Receipt::class);
     }
 
-    public function dimensions(){
-        return $this->belongsTo(Dimension::class);
+
+    public function dimensions()
+    {
+        return $this->hasOne(Dimension::class);
     }
 }
