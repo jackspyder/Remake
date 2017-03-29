@@ -9,14 +9,14 @@
                 <div class="panel-body">
                     <div class="row">
 
-                        <div class="" col-md-4>
+                        <div class="form-group col-sm-12 col-md-6">
                             <ul class="list">
                                 <li><b>Item ID: </b>{{$item->id}}</li>
                                 <li><b>Category: </b>{{$item->category}}</li>
                                 <li><b>Brand: </b>{{$item->specs->brand}}</li>
                                 <li><b>Weight: </b>{{$item->weight}}</li>
                                 <li><b>Condition: </b>{{$item->condition}}</li>
-                                <li><b>Price: £</b>{{$item->price}}</li>
+                                <li><b>Price: </b>£{{$item->price}}</li>
                                 <li><b>Status: </b>{{$item->status}}</li>
                                 <li><b>Notes: </b>{{$item->notes}}</li>
                             </ul>
@@ -26,7 +26,15 @@
                             </div>
                         </div>
 
-
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-6">
+                                <ul class="list">
+                                    <li><b>Height:</b> {{ $item->dimensions->height }}</li>
+                                    <li><b>Width:</b> {{ $item->dimensions->width }}</li>
+                                    <li><b>Depth:</b> {{ $item->dimensions->depth }}</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <a href="{{ route('items.edit', $item) }}" class="btn btn-primary pull-right">Edit
                         Item</a>

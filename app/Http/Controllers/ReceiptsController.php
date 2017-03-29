@@ -78,7 +78,7 @@ class ReceiptsController extends Controller
             $receipt->items()->attach($item);
         }
 
-        return back();
+        return redirect('/receipts');
     }
 
 

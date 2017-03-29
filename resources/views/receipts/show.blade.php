@@ -15,7 +15,7 @@
                                 <li><b>Item List: </b>
                                     @foreach($receipt->items as $item)
                                         <div>{{$item->id}}
-                                            - {{$item->specs->brand}} {{$item->specs->model}}</div>
+                                            - {{$item->specs->brand}} {{$item->specs->model}} - £{{ $item->price }}</div>
                                     @endforeach
                                 </li>
                                 <li><b>Served by: </b>{{$receipt->served_by}}</li>

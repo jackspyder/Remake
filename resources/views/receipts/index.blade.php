@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {{--@include('includes.salesModal')--}}
+    @include('includes.salesModal')
 
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Receipts
@@ -23,7 +23,6 @@
                         <th>Served by</th>
                         <th>Payment type</th>
                         <th>Warranty</th>
-                        <th>COA</th>
                         <th>Date</th>
                     </tr>
                     </thead>
@@ -40,7 +39,6 @@
                             <td>{{$receipt->served_by}}</td>
                             <td>{{$receipt->payment}}</td>
                             <td>{{$receipt->warranty}}</td>
-                            <td>{{$receipt->coa}}</td>
                             <td>{{$receipt->created_at}}</td>
                         </tr>
                     @endforeach
