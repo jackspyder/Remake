@@ -3,118 +3,139 @@
 @section('content')
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Item
-            <!-- Minimise button-->
+        {{--Panel head--}}
+        <div class="panel-heading tall-header">Edit Item
+            {{--Panel minimise button--}}
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#itemPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
         </div>
+        {{--Panel Body--}}
 
-        <div id="itemPanel" class="panel-body in">
-            <form role="form" method="POST" action="{{ url('/items') }}">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-
-                        <div class="form-group col-sm-12 col-md-6">
-
-                            <label for="id" class="control-label">ID</label>
-                            <input name="id" class="form-control">
-
-                            </input>
-
-                            <label for="category" class="control-label">Category</label>
-                            <select name="category" class="form-control">
-                                <option value="Furniture">Furniture</option>
-                                <option value="Laptops">Laptops</option>
-                                <option value="Desktop PCs">Desktop PCs</option>
-                                <option value="Printers">Printers</option>
-                                <option value="All in ones">All in ones</option>
-                                <option value="Monitors">Monitors</option>
-                                <option value="Projectors">Projectors</option>
-                                <option value="Smartboards">Smartboards</option>
-                                <option value="Replacement parts">Replacement parts</option>
-                                <option value="Keyboards">Keyboards</option>
-                                <option value="Mice">Mice</option>
-                                <option value="Speakers">Speakers</option>
-                                <option value="Scanners">Scanners</option>
-                                <option value="Peripherals">Peripherals</option>
-                                <option value="Smartphones">Smartphones</option>
-                                <option value="Tablets">Tablets</option>
-                                <option value="Networks">Networks</option>
-                                <option value="Games Consoles">Games Consoles</option>
-                                <option value="IT Misc">IT Misc</option>
-                                <option value="Servers">Servers</option>
-                                <option value="Electricals">Electricals</option>
-                            </select>
-
-                            <label for="spec_id" class="control-label">Product</label>
-                            <select name="spec_id" class="form-control">
-                                @foreach($specs as $spec)
-                                    <option value="{{$spec->id}}">{{$spec->brand}} - {{$spec->model}}</option>
-                                @endforeach
-                            </select>
-
-                            <label for="condition" class="control-label">Condition</label>
-                            <select name="condition" class="form-control">
-                                <option value="Very Good">Very Good</option>
-                                <option value="Good">Good</option>
-                                <option value="Fair">Fair</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-sm-12 col-md-6">
-
-                            <label for="weight" class="control-label">Weight</label>
-                            <input name="weight" class="form-control">
-
-                            </input>
-
-                            <label for="price" class="control-label">Price</label>
-                            <input name="price" class="form-control">
-
-                            </input>
-
-                            <label for="status" class="control-label">Status</label>
-                            <select name="status" class="form-control">
-                                <option value="For Sale">For Sale</option>
-                                <option value="For Parts">For Parts</option>
-                                <option value="Storage">Storage</option>
-                                <option value="Sold">Sold</option>
-                                <option value="For Refurbishment">For Refurbishment</option>
-                            </select>
-
-                            <label for="furniture" class="control-label">Furniture Type</label>
-                            <select name="" class="form-control">
-                                <option value="null">N/A</option>
-                                <option value="Chairs">Chairs</option>
-                                <option value="Set of Chairs">Set of Chairs</option>
-                                <option value="Tables">Tables</option>
-                                <option value="Drawers/Cabinets">Drawers/Cabinets</option>
-                                <option value="Shelves">Shelves</option>
-                                <option value="Accessories">Accessories</option>
-                                <option value="Mirrors">Mirrors</option>
-                                <option value="Frames">Frames</option>
-                                <option value="Upcycled">Upcycled</option>
-                                <option value="crafts">Crafts</option>
-                            </select>
-
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <label for="notes" class="control-label">Notes</label>
-                            <textarea name="notes" class="form-control"></textarea>
-
-                        </div>
-
-                        <button class="btn btn-primary form-btn pull-right" type="submit">Add Item</button>
-
-                    </div>
+        <div class="panel-body" id="itemPanel">
+            <!-- if there are creation errors, they will show here -->
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            </form>
+            @endif
+
+            {{--Main Panel content--}}
+            <div class="container-fluid">
+                <div class="row">
+
+                    {{ Form::model(array('route' => array('items.create'), 'method' => 'POST')) }}
+
+                    {{--Row left--}}
+                    <div class="form-group col-sm-12 col-md-6">
+                        <div class="form-group">
+                            {{ Form::label('id', 'ID (barcode)') }}
+                            {{ Form::number('id', null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('category', 'Category') }}
+                            {{ Form::select('category', [
+                            'Furniture' => 'Furniture',
+                            'Laptops' => 'Laptops',
+                            'Desktop PCs' => 'Desktop PCs',
+                            'Printers'=>'Printers',
+                            'All in ones'=>'All in ones',
+                            'Monitors' => 'Monitors',
+                            'For Parts' => 'For Parts',
+                            'Projectors' => 'Projectors',
+                            'Smartboards'=>'Smartboards',
+                            'Keyboards'=>'Keyboards',
+                            'Mice' => 'Mice',
+                            'Speakers' => 'Speakers',
+                            'Scanners' => 'Scanners',
+                            'Peripherals'=>'Peripherals',
+                            'Smartphones'=>'Smartphones',
+                            'Tablets'=>'Tablets',
+                            'Networks' => 'Networks',
+                            'Games Consoles' => 'Games Consoles',
+                            'IT Misc' => 'IT Misc',
+                            'Servers'=>'Servers',
+                            'Electricals'=>'Electricals',
+                            ], null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('condition', 'Condition') }}
+                            {{ Form::select('condition', [
+                            'Very Good' => 'Very Good',
+                            'Good' => 'Good',
+                            'Fair' => 'Fair',
+                            ], null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('weight', 'Weight') }}
+                            {{ Form::text('weight', null, array('class' => 'form-control')) }}
+                        </div>
+                    </div>
+
+                    {{--Row Right--}}
+                    <div class="form-group col-sm-12 col-md-6">
+                        <div class="form-group">
+                            {{ Form::label('price', 'Price') }}
+                            {{ Form::text('price', null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('status', 'Status') }}
+                            {{ Form::select('status', [
+                            'For Sale' => 'For Sale',
+                            'For Parts' => 'For Parts',
+                            'Storage' => 'Storage',
+                            'Sold'=>'Sold',
+                            'For Refurbishment'=>'For Refurbishment',
+                            ], null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('furniture', 'Furniture Type') }}
+                            {{ Form::select('furniture', [
+                            'null' => 'N/A',
+                            'chairs' => 'Chairs',
+                            'setOfChairs' => 'Set of Chairs',
+                            'tables'=>'tables',
+                            'drawersCabinets'=>'Drawers/Cabinets',
+                            'shelves'=>'shelves',
+                            'accessories'=>'accessories',
+                            'mirrors'=>'mirrors',
+                            'frames'=>'frames',
+                            'upcycled'=>'upcycled',
+                            'crafts'=>'crafts',
+                            ], null, array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ Form::label('coa', 'C.O.A') }}
+                            {{ Form::text('coa', null, array('class' => 'form-control')) }}
+                        </div>
+                    </div>
+
+                    {{--outside the columns--}}
+                    <div class="form-group col-sm-12">
+                        {{ Form::label('notes', 'Notes') }}
+                        {{ Form::textarea('notes', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    {{ Form::submit('Edit Item', array('class' => 'btn btn-primary')) }}
+
+                    {{ Form::close() }}
+
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="panel panel-default">
         <div class="panel-heading tall-header">Product Specification
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#specPanel">

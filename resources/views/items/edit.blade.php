@@ -25,7 +25,7 @@
                 </div>
             @endif
 
-            {{--Main content--}}
+            {{--Main Panel Content--}}
             <div class="container-fluid">
                 <div class="row">
 
