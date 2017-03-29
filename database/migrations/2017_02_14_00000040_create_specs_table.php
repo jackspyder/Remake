@@ -11,7 +11,7 @@ class CreateSpecsTable extends Migration
     {
         Schema::create('specs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('item_id');
+            $table->unsignedInteger('item_id')->nullable();
             $table->string('brand', 40)->nullable();
             $table->string('model', 40)->nullable();
             $table->string('cpu', 40)->nullable();

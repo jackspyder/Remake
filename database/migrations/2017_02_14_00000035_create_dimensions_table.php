@@ -15,10 +15,12 @@ class CreateDimensionsTable extends Migration
     {
         Schema::create('dimensions', function(Blueprint $table){
            $table->increments('id');
-            $table->unsignedInteger('item_id');
+            $table->unsignedInteger('item_id')->nullable();
             $table->decimal('height')->nullable();
             $table->decimal('width')->nullable();
             $table->decimal('depth')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
