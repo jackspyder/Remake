@@ -147,9 +147,8 @@ class ItemsController extends Controller
     }
 
 
-    public function searchitems(Request $request)
+    public function search(Request $request)
     {
-        $specs = Spec::all();
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
@@ -157,10 +156,9 @@ class ItemsController extends Controller
                 $toMatch[$key] = trim($value);
             }
         }
-
         $items = Item::where($toMatch)->get();
 
-        return view('items.index', compact('items'), compact('specs'));
+        return view('items.index', compact('items'));
     }
 
 
