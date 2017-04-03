@@ -6,6 +6,7 @@ use App\Models\Dimension;
 use App\Models\Item;
 use App\Models\Spec;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ItemsController extends Controller
 {
@@ -17,7 +18,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::orderBy('barcode')->get();
 
         return view('items.index', compact('items'));
     }
@@ -54,6 +55,21 @@ class ItemsController extends Controller
             'weight' => 'min:0|nullable',
             'condition' => 'required',
             'status' => 'required',
+            'brand' => 'max:20',
+            'model' => 'max:20',
+            'cpu' => 'max:20',
+            'ram' => 'max:20',
+            'hdd' => 'max:20',
+            'odd' => 'max:20',
+            'gpu' => 'max:20',
+            'battery' => 'max:20',
+            'usb' => 'max:20',
+            'lan' => 'max:20',
+            'wlan' => 'max:20',
+            'os' => 'max:20',
+            'psu' => 'max:20',
+            'screen_size' => 'max:20',
+            'screen rez' => 'max:20',
         ]);
 
         $item = Item::create($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
@@ -112,15 +128,35 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $item = Item::findOrFail($id);
         $this->validate(request(), [
+            'barcode' => [
+                'required',
+                Rule::unique('items')->ignore($item->id),
+            ],
             'category' => 'required',
             'price' => 'between:0,9999.99|nullable',
             'weight' => 'min:0|nullable',
             'condition' => 'required',
             'status' => 'required',
+            'brand' => 'max:20',
+            'model' => 'max:20',
+            'cpu' => 'max:20',
+            'ram' => 'max:20',
+            'hdd' => 'max:20',
+            'odd' => 'max:20',
+            'gpu' => 'max:20',
+            'battery' => 'max:20',
+            'usb' => 'max:20',
+            'lan' => 'max:20',
+            'wlan' => 'max:20',
+            'os' => 'max:20',
+            'psu' => 'max:20',
+            'screen_size' => 'max:20',
+            'screen rez' => 'max:20',
         ]);
 
-        $item = Item::findOrFail($id);
+
 
         $item->update($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture', 'coa',
             'notes'));
