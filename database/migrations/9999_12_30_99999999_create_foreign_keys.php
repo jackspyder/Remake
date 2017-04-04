@@ -33,6 +33,5 @@ class CreateForeignKeys extends Migration
             $table->dropForeign([ 'item_id' ]);
         });
 
-
     }
 }
