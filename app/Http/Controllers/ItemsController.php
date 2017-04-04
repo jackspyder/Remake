@@ -49,27 +49,27 @@ class ItemsController extends Controller
     {
 
         $this->validate(request(), [
-            'barcode' => 'unique:items|min:0|required',
-            'category' => 'required',
-            'price' => 'between:0,9999.99|nullable',
-            'weight' => 'min:0|nullable',
-            'condition' => 'required',
-            'status' => 'required',
-            'brand' => 'max:20',
-            'model' => 'max:20',
-            'cpu' => 'max:20',
-            'ram' => 'max:20',
-            'hdd' => 'max:20',
-            'odd' => 'max:20',
-            'gpu' => 'max:20',
-            'battery' => 'max:20',
-            'usb' => 'max:20',
-            'lan' => 'max:20',
-            'wlan' => 'max:20',
-            'os' => 'max:20',
-            'psu' => 'max:20',
-            'screen_size' => 'max:20',
-            'screen rez' => 'max:20',
+            'barcode'     => 'unique:items|min:0|required',
+            'category'    => 'required',
+            'price'       => 'between:0,9999.99|nullable',
+            'weight'      => 'min:0|nullable',
+            'condition'   => 'required',
+            'status'      => 'required',
+            'brand'       => 'max:40',
+            'model'       => 'max:40',
+            'cpu'         => 'max:40',
+            'ram'         => 'max:40',
+            'hdd'         => 'max:40',
+            'odd'         => 'max:40',
+            'gpu'         => 'max:40',
+            'battery'     => 'max:40',
+            'usb'         => 'max:100',
+            'lan'         => 'max:40',
+            'wlan'        => 'max:40',
+            'os'          => 'max:40',
+            'psu'         => 'max:40',
+            'screen_size' => 'max:40',
+            'screen rez'  => 'max:40',
         ]);
 
         $item = Item::create($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
@@ -130,30 +130,30 @@ class ItemsController extends Controller
     {
         $item = Item::findOrFail($id);
         $this->validate(request(), [
-            'barcode' => [
+            'barcode'     => [
                 'required',
                 Rule::unique('items')->ignore($item->id),
             ],
-            'category' => 'required',
-            'price' => 'between:0,9999.99|nullable',
-            'weight' => 'min:0|nullable',
-            'condition' => 'required',
-            'status' => 'required',
-            'brand' => 'max:20',
-            'model' => 'max:20',
-            'cpu' => 'max:20',
-            'ram' => 'max:20',
-            'hdd' => 'max:20',
-            'odd' => 'max:20',
-            'gpu' => 'max:20',
-            'battery' => 'max:20',
-            'usb' => 'max:20',
-            'lan' => 'max:20',
-            'wlan' => 'max:20',
-            'os' => 'max:20',
-            'psu' => 'max:20',
-            'screen_size' => 'max:20',
-            'screen rez' => 'max:20',
+            'category'    => 'required',
+            'price'       => 'between:0,9999.99|nullable',
+            'weight'      => 'min:0|nullable',
+            'condition'   => 'required',
+            'status'      => 'required',
+            'brand'       => 'max:40',
+            'model'       => 'max:40',
+            'cpu'         => 'max:40',
+            'ram'         => 'max:40',
+            'hdd'         => 'max:40',
+            'odd'         => 'max:40',
+            'gpu'         => 'max:40',
+            'battery'     => 'max:40',
+            'usb'         => 'max:100',
+            'lan'         => 'max:40',
+            'wlan'        => 'max:40',
+            'os'          => 'max:40',
+            'psu'         => 'max:40',
+            'screen_size' => 'max:40',
+            'screen rez'  => 'max:40',
         ]);
 
 
@@ -180,6 +180,11 @@ class ItemsController extends Controller
     public function destroy($id)
     {
 
+        $item = Item::findOrFail($id);
+
+        $item->delete();
+
+        return redirect('/items');
     }
 
 

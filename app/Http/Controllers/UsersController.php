@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -97,13 +98,23 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //if statement to determine name change.
+        $user = User::findOrFail($id);
+
         $this->validate(request(), [
             'name'     => 'required|max:20',
-            'username' => 'required|max:20|unique:users',
+            'username' => [
+                'required',
+                Rule::unique('users')->ignore($user->id),
+            ],
             'password' => 'required|min:6|confirmed',
         ]);
 
-        User::find($id)->update($request->all());
+        //$user->update($request->all());
+
+        $user->name = request('name');
+        $user->username = request('username');
+        $user->password = bcrypt(request('password'));
+        $user->save();
 
 
         return redirect('/users');
@@ -121,5 +132,11 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect('/users');
     }
 }
