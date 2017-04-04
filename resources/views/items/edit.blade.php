@@ -285,7 +285,7 @@
         </div>
     </div>
 
-    {{ Form::submit('Add Dimensions', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Edit Item', array('class' => 'btn btn-primary')) }}
 
     {{ Form::close() }}
 @endsection
