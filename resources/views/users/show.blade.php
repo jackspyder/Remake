@@ -27,6 +27,11 @@
 
                     </div>
                     <a href="{{ route('users.edit', $user) }}" class="btn btn-primary pull-right">Edit Member</a>
+
+                    {{ Form::open(['route' => ['users.destroy', $user->id],'class' => 'pull-left']) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                    {{ Form::submit('Delete this User!',['class' => 'btn btn-danger'])}}
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>

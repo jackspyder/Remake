@@ -30,9 +30,9 @@
                     </div>
 
 
-                    {{ Form::open(['route' => ['receipts.destroy', $receipt->id],'class' => 'pull-right']) }}
+                    {{ Form::open(['route' => ['receipts.destroy', $receipt->id],'class' => 'pull-left']) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete this Receipt!',['class' => 'btn btn-warning'])}}
+                    {{ Form::submit('Delete this Receipt!',['class' => 'btn btn-danger'])}}
                     {{ Form::close() }}
                 </div>
 
