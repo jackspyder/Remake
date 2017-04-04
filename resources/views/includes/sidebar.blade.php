@@ -40,20 +40,6 @@
                 <li><a href="{{ url('/receipts') }}">View Sales</a></li>
             </ul>
 
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> Customers <span class="arrow"></span></a>
-            </li>
-            <ul class="sub-menu collapse" id="new">
-                <li><a href="{{ url('/customers') }}">Customers</a></li>
-                <li>New New 3</li>
-            </ul>
-
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-user fa-lg"></i> Profile
-                </a>
-            </li>
             <li>
                 <a href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
