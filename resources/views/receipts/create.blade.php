@@ -30,7 +30,7 @@
                             <label for="list[]" class="control-label">Items</label>
                             <select name="list[]" class="form-control select2" multiple>
                                 @foreach($items as $item)
-                                    <option value="{{$item->id}}">{{$item->id}}
+                                    <option value="{{$item->id}}">{{$item->barcode}}
                                         - {{$item->specs->brand}} {{$item->specs->model}}</option>
                                 @endforeach
                             </select>
@@ -41,7 +41,7 @@
                         <div class="form-group col-sm-12 col-md-6">
 
                             <label for="discount" class="control-label">Discount</label>
-                            <input name="discount" class="form-control">
+                            <input name="discount" class="form-control" value="0.00">
 
                             </input>
 

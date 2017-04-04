@@ -51,8 +51,9 @@ class ReceiptsController extends Controller
 
         ]);
         $rules = [
-            'id' => 'unique:receipts|min:0',
-            'payment' => 'required',
+            'id'       => 'unique:receipts|min:0',
+            'payment'  => 'required',
+            'discount' => 'between:0,9999.99|nullable',
         ];
 
         $this->validate($request, $rules);

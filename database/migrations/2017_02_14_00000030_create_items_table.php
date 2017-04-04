@@ -12,10 +12,10 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('barcode')->nullable();
-            $table->string('category', 20);
+            $table->string('category');
             $table->integer('weight')->default(0);
-            $table->string('condition', 20);
-            $table->string('status', 20);
+            $table->string('condition');
+            $table->string('status');
             $table->decimal('price', 6, 2)->default(0.00);
             $table->text('notes')->nullable();
             $table->string('furniture')->nullable();

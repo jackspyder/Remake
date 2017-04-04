@@ -15,7 +15,7 @@ class CreateReceiptsTable extends Migration
             $table->string('warranty');
             $table->string('served_by');
             $table->string('payment');
-            $table->decimal('discount')->default(0);
+            $table->decimal('discount', 6, 2)->default(0.00);
             $table->timestamps();
             $table->softDeletes();
         });
