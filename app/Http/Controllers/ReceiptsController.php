@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Receipt;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ReceiptsController extends Controller
 {
@@ -156,6 +157,17 @@ class ReceiptsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $receipt = Receipt::findOrFail($id);
+
+        foreach ($receipt->items as $item) {
+            $item->status = "For Refurbishment";
+            $item->save();
+        }
+        $receipt->delete();
+
+        return redirect('/receipts');
+
+
     }
 }

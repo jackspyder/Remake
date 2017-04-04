@@ -28,8 +28,12 @@
                         </div>
 
                     </div>
-                    <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-primary pull-right">Edit
-                        Receipt</a>
+
+
+                    {{ Form::open(['route' => ['receipts.destroy', $receipt->id],'class' => 'pull-right']) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                    {{ Form::submit('Delete this Receipt!',['class' => 'btn btn-warning'])}}
+                    {{ Form::close() }}
                 </div>
 
             </div>
