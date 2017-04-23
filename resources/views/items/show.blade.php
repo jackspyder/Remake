@@ -14,10 +14,12 @@
                                 <li><b>Barcode: </b>{{$item->barcode}}</li>
                                 <li><b>Category: </b>{{$item->category}}</li>
                                 <li><b>Brand: </b>{{$item->specs->brand}}</li>
+                                <li><b>Model: </b>{{$item->specs->model}}</li>
                                 <li><b>Weight: </b>{{$item->weight}}</li>
                                 <li><b>Condition: </b>{{$item->condition}}</li>
                                 <li><b>Price: </b>£{{$item->price}}</li>
                                 <li><b>Status: </b>{{$item->status}}</li>
+                                <li><b>C.O.A: </b>{{$item->coa}}</li>
                                 <li><b>Notes: </b>{{$item->notes}}</li>
                             </ul>
 
