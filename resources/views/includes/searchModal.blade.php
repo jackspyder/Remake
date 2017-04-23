@@ -9,35 +9,50 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="form-group col-sm-12 col-md-6">
-                            <label for="id" class="control-label">ID</label>
-                            <input name="id" class="form-control">
+                            <label for="barcode" class="control-label">Barcode</label>
+                            <input name="barcode" class="form-control">
 
                             </input>
 
                             <label for="category" class="control-label">Category</label>
-                            <select name="category" class="form-control">
-                                <option value=""></option>
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
-                            </select>
-
-                            <label for="spec_id" class="control-label">Product</label>
-                            <select name="spec_id" class="form-control">
-                                <option value=""></option>
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
-                            </select>
+                            {{ Form::select('category', [
+                            '' => '',
+                            'Furniture' => 'Furniture',
+                            'Laptops' => 'Laptops',
+                            'Desktop PCs' => 'Desktop PCs',
+                            'Printers'=>'Printers',
+                            'All in ones'=>'All in ones',
+                            'Monitors' => 'Monitors',
+                            'For Parts' => 'For Parts',
+                            'Projectors' => 'Projectors',
+                            'Smartboards'=>'Smartboards',
+                            'Keyboards'=>'Keyboards',
+                            'Mice' => 'Mice',
+                            'Speakers' => 'Speakers',
+                            'Scanners' => 'Scanners',
+                            'Peripherals'=>'Peripherals',
+                            'Smartphones'=>'Smartphones',
+                            'Tablets'=>'Tablets',
+                            'Networks' => 'Networks',
+                            'Games Consoles' => 'Games Consoles',
+                            'IT Misc' => 'IT Misc',
+                            'Servers'=>'Servers',
+                            'Electricals'=>'Electricals',
+                            ], null, array('class' => 'form-control')) }}
 
                             <label for="condition" class="control-label">Condition</label>
-                            <select name="condition" class="form-control">
-                                <option value=""></option>
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
-                                <option value="condition">condition</option>
-                            </select>
+                            {{ Form::select('condition', [
+                            '' => '',
+                            'Very Good' => 'Very Good',
+                            'Good' => 'Good',
+                            'Fair' => 'Fair',
+                            ], null, array('class' => 'form-control')) }}
+
+                            <label for="coa" class="control-label">C.O.A</label>
+                            <input name="coa" class="form-control">
+
+                            </input>
+
                         </div>
 
                         <div class="form-group col-sm-12 col-md-6">
@@ -52,13 +67,29 @@
                             </input>
 
                             <label for="status" class="control-label">Status</label>
-                            <select name="status" class="form-control">
-                                <option value=""></option>
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
-                                <option value="three">Three</option>
-                                <option value="xj9TyyFrWX"> xj9TyyFrWX</option>
-                            </select>
+                            {{ Form::select('status', [
+                            '' => '',
+                            'For Sale' => 'For Sale',
+                            'For Parts' => 'For Parts',
+                            'Storage' => 'Storage',
+                            'Sold'=>'Sold',
+                            'For Refurbishment'=>'For Refurbishment',
+                            ], null, array('class' => 'form-control')) }}
+
+                            {{ Form::label('furniture', 'Furniture Type') }}
+                            {{ Form::select('furniture', [
+                            'null' => 'N/A',
+                            'chairs' => 'Chairs',
+                            'setOfChairs' => 'Set of Chairs',
+                            'tables'=>'tables',
+                            'drawersCabinets'=>'Drawers/Cabinets',
+                            'shelves'=>'shelves',
+                            'accessories'=>'accessories',
+                            'mirrors'=>'mirrors',
+                            'frames'=>'frames',
+                            'upcycled'=>'upcycled',
+                            'crafts'=>'crafts',
+                            ], null, array('class' => 'form-control')) }}
 
                             <button class="btn btn-primary form-control form-btn" type="submit">Search Items</button>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -67,7 +98,7 @@
 
                         </form>
 
-                        <form role="form" method="POST" action="{{ url('/items/searchspecs') }}">
+                        <form role="form" method="POST" action="{{ url('/items/specs/search') }}">
 
                         <div class="form-group col-sm-12 col-md-6">
 

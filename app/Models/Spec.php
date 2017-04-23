@@ -20,6 +20,7 @@ class Spec extends Model
     protected $fillable = [
         'brand',
         'model',
+        'item_id',
         'cpu',
         'ram',
         'hdd',

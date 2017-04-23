@@ -215,12 +215,15 @@ class ItemsController extends Controller
         }
 
         $gotspecs = Spec::where($toMatch)->get();
-        $items = [];
+        $items2 = [];
         foreach ($gotspecs as $spec) {
-            foreach ($spec->items as $itemgot) {
-                $items[] = $itemgot;
-            }
+            $items2[] = $spec['item_id'];
+            //foreach ($spec->item_id as $itemgot) {
+            //    $items[] = $itemgot;
+            //}
         }
+
+        $items = Item::find($items2);
 
         return view('items.index', compact('items'), compact('specs'));
     }
