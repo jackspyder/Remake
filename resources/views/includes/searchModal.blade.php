@@ -78,6 +78,7 @@
 
                             {{ Form::label('furniture', 'Furniture Type') }}
                             {{ Form::select('furniture', [
+                            ''=>'',
                             'null' => 'N/A',
                             'chairs' => 'Chairs',
                             'setOfChairs' => 'Set of Chairs',
@@ -96,107 +97,112 @@
 
                         </div>
 
-                        </form>
+            </form>
 
-                        <form role="form" method="POST" action="{{ url('/items/specs/search') }}">
+            <form role="form" method="POST" action="{{ url('/items/specs/search') }}">
 
-                        <div class="form-group col-sm-12 col-md-6">
+                <div class="form-group col-sm-12 col-md-6">
 
-                            <label for="usb" class="control-label">USB</label>
-                            <input name="usb" class="form-control">
+                    <label for="usb" class="control-label">USB</label>
+                    <input name="usb" class="form-control">
 
-                            </input>
+                    </input>
 
-                            <label for="brand" class="control-label">Brand</label>
-                            <input name="brand" class="form-control">
+                    <label for="brand" class="control-label">Brand</label>
+                    <input name="brand" class="form-control">
 
-                            </input>
-
-
-                            <label for="model" class="control-label">Model</label>
-                            <input name="model" class="form-control">
-
-                            </input>
-
-                            <label for="cpu" class="control-label">CPU</label>
-                            <input name="cpu" class="form-control">
-
-                            </input>
-
-                            <label for="ram" class="control-label">RAM</label>
-                            <input name="ram" class="form-control">
-
-                            </input>
-
-                            <label for="hdd" class="control-label">HDD</label>
-                            <input name="hdd" class="form-control">
-
-                            </input>
-
-                            <label for="odd" class="control-label">ODD</label>
-                            {{ Form::select('odd', [
-                                'yes'=>'Yes',
-                                'no' => 'No',
-                                ], null, array('class' => 'form-control')) }}
+                    </input>
 
 
-                            <label for="gpu" class="control-label">GPU</label>
-                            <input name="gpu" class="form-control">
+                    <label for="model" class="control-label">Model</label>
+                    <input name="model" class="form-control">
 
-                            </input>
+                    </input>
 
-                        </div>
+                    <label for="cpu" class="control-label">CPU</label>
+                    <input name="cpu" class="form-control">
+
+                    </input>
+
+                    <label for="ram" class="control-label">RAM</label>
+                    <input name="ram" class="form-control">
+
+                    </input>
+
+                    <label for="hdd" class="control-label">HDD</label>
+                    <input name="hdd" class="form-control">
+
+                    </input>
+
+                    <label for="odd" class="control-label">ODD</label>
+                    {{ Form::select('odd', [
+                    ''=>'',
+                        'yes'=>'Yes',
+                        'no' => 'No',
+                        ], null, array('class' => 'form-control')) }}
 
 
-                        <div class="form-group col-sm-12 col-md-6">
+                    <label for="gpu" class="control-label">GPU</label>
+                    <input name="gpu" class="form-control">
 
-                          <label for="battery" class="control-label">Battery</label>
-                            {{ Form::select('battery', [
-                                  'yes'=>'Yes',
-                                  'no' => 'No',
-                                  ], null, array('class' => 'form-control')) }}
+                    </input>
 
-                            <label for="lan" class="control-label">LAN</label>
-                            {{ Form::select('lan', [
-                                 'yes'=>'Yes',
-                                 'no' => 'No',
-                                 ], null, array('class' => 'form-control')) }}
-
-                            <label for="wlan" class="control-label">WLAN</label>
-                            {{ Form::select('wlan', [
-                                'yes'=>'Yes',
-                                'no' => 'No',
-                                ], null, array('class' => 'form-control')) }}
-
-                            <label for="os" class="control-label">OS</label>
-                            <input name="os" class="form-control">
-
-                            </input>
-
-                            <label for="psu" class="control-label">PSU</label>
-                            {{ Form::select('psu', [
-                                'yes'=>'Yes',
-                                'no' => 'No',
-                                ], null, array('class' => 'form-control')) }}
-
-                            <label for="screen_size" class="control-label">Screen Size</label>
-                            <input name="screen_size" class="form-control">
-
-                            </input>
-
-                            <label for="screen_rez" class="control-label">Screen Resolution</label>
-                            <input name="screen_rez" class="form-control">
-
-                            </input>
-
-                            <button class="btn btn-primary form-control form-btn" type="submit">Search Specifications</button>
-
-                        </div>
-
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    </div>
                 </div>
-              </form>
+
+
+                <div class="form-group col-sm-12 col-md-6">
+
+                    <label for="battery" class="control-label">Battery</label>
+                    {{ Form::select('battery', [
+                    ''=>'',
+                          'yes'=>'Yes',
+                          'no' => 'No',
+                          ], null, array('class' => 'form-control')) }}
+
+                    <label for="lan" class="control-label">LAN</label>
+                    {{ Form::select('lan', [
+                         ''=>'',
+                         'yes'=>'Yes',
+                         'no' => 'No',
+                         ], null, array('class' => 'form-control')) }}
+
+                    <label for="wlan" class="control-label">WLAN</label>
+                    {{ Form::select('wlan', [
+                    ''=>'',
+                        'yes'=>'Yes',
+                        'no' => 'No',
+                        ], null, array('class' => 'form-control')) }}
+
+                    <label for="os" class="control-label">OS</label>
+                    <input name="os" class="form-control">
+
+                    </input>
+
+                    <label for="psu" class="control-label">PSU</label>
+                    {{ Form::select('psu', [
+                    ''=>'',
+                        'yes'=>'Yes',
+                        'no' => 'No',
+                        ], null, array('class' => 'form-control')) }}
+
+                    <label for="screen_size" class="control-label">Screen Size</label>
+                    <input name="screen_size" class="form-control">
+
+                    </input>
+
+                    <label for="screen_rez" class="control-label">Screen Resolution</label>
+                    <input name="screen_rez" class="form-control">
+
+                    </input>
+
+                    <button class="btn btn-primary form-control form-btn" type="submit">Search Specifications</button>
+
+                </div>
+
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </div>
     </div>
+    </form>
+</div>
+</div>
 </div>
