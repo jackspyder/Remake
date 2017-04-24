@@ -18,8 +18,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
+        $trashed = User::onlyTrashed()->get();
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users', 'trashed'));
     }
 
 

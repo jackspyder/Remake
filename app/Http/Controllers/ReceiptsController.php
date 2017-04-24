@@ -21,7 +21,9 @@ class ReceiptsController extends Controller
         $receipts = Receipt::all();
         $items = Item::all();
 
-        return view('receipts.index', compact('receipts', 'items'));
+        $trashed = Receipt::onlyTrashed()->get();
+
+        return view('receipts.index', compact('receipts', 'items', 'trashed'));
     }
 
 

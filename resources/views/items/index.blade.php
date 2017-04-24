@@ -61,4 +61,47 @@
         </div>
     </div>
 
+    <div class="panel panel-default">
+        <div class="panel-heading tall-header">Deleted Items
+            <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#invTrash">
+                <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
+            </button>
+
+        </div>
+        <div id="invTrash" class="panel-body collapse">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Barcode</th>
+                        <th>Category</th>
+                        {{--<th>Brand</th>--}}
+                        {{--<th>Model</th>--}}
+                        <th>Weight</th>
+                        <th>Condition</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($trashed as $trash)
+                        <tr class="clickable" onclick="location.href='/items/{{ $trash->id }}'">
+                            <td>{{$trash->barcode}}</td>
+                            <td>{{$trash->category}}</td>
+                            {{--<td>{{$trash->spec->brand}}</td>--}}
+                            {{--<td>{{$trash->spec->model}}</td>--}}
+                            <td>{{$trash->weight}}</td>
+                            <td>{{$trash->condition}}</td>
+                            <td>£{{$trash->price}}</td>
+                            <td>{{$trash->status}}</td>
+                            <td>{{$trash->notes}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 @endsection

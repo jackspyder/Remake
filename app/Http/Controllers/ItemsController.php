@@ -19,8 +19,9 @@ class ItemsController extends Controller
     public function index()
     {
         $items = Item::orderBy('barcode')->get();
+        $trashed = Item::onlyTrashed()->get();
 
-        return view('items.index', compact('items'));
+        return view('items.index', compact('items', 'trashed'));
     }
 
 
