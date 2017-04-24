@@ -41,7 +41,10 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @foreach($items as $item)
+                        @if($item->deleted_at == null)
+
                         <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
                             <td>{{$item->barcode}}</td>
                             <td>{{$item->category}}</td>
@@ -53,6 +56,7 @@
                             <td>{{$item->status}}</td>
                             <td>{{$item->notes}}</td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
@@ -85,18 +89,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($trashed as $trash)
-                        <tr class="clickable" onclick="location.href='/items/{{ $trash->id }}'">
-                            <td>{{$trash->barcode}}</td>
-                            <td>{{$trash->category}}</td>
+                    @foreach($items as $item)
+                        @if($item->deleted_at != null)
+                            <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
+                                <td>{{$item->barcode}}</td>
+                                <td>{{$item->category}}</td>
                             {{--<td>{{$trash->spec->brand}}</td>--}}
                             {{--<td>{{$trash->spec->model}}</td>--}}
-                            <td>{{$trash->weight}}</td>
-                            <td>{{$trash->condition}}</td>
-                            <td>£{{$trash->price}}</td>
-                            <td>{{$trash->status}}</td>
-                            <td>{{$trash->notes}}</td>
+                                <td>{{$item->weight}}</td>
+                                <td>{{$item->condition}}</td>
+                                <td>£{{$item->price}}</td>
+                                <td>{{$item->status}}</td>
+                                <td>{{$item->notes}}</td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

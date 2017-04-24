@@ -38,14 +38,20 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ route('items.edit', $item) }}" class="btn btn-primary pull-right">Edit
-                        Item</a>
+                    @if($item->deleted_at == null)
+                        <a href="{{ route('items.edit', $item) }}" class="btn btn-primary pull-right">Edit
+                            Item</a>
 
-                    {{ Form::open(['route' => ['items.destroy', $item->id],'class' => 'pull-left']) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete this Item!',['class' => 'btn btn-danger'])}}
-                    {{ Form::close() }}
-
+                        {{ Form::open(['route' => ['items.destroy', $item->id],'class' => 'pull-left']) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete this Item!',['class' => 'btn btn-danger'])}}
+                        {{ Form::close() }}
+                    @else
+                        {{ Form::open(['action' => ['ItemsController@restore', $item->id],'class' => 'pull-right']) }}
+                        {{ Form::hidden('_method', 'PUT') }}
+                        {{ Form::submit('Restore This Item',['class' => 'btn btn-primary'])}}
+                        {{ Form::close() }}
+                    @endif
                 </div>
             </div>
         </div>

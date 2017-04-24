@@ -9,6 +9,7 @@
         </div>
         <div id="usersPanel" class="panel-body in">
             @foreach($users as $user)
+                @if($user->deleted_at == null)
                 <div>
                     <ul class="list-group">
                         <a href="/users/{{ $user->id }}" class="list-group-item">
@@ -17,6 +18,7 @@
                         </a>
                     </ul>
                 </div>
+                @endif
             @endforeach
             <a href="{{ url('/users/create') }}" class="btn btn-primary pull-right">Add User</a>
         </div>
@@ -30,15 +32,17 @@
             </button>
         </div>
         <div id="usersTrash" class="panel-body collapse">
-            @foreach($trashed as $trash)
+            @foreach($users as $user)
+                @if($user->deleted_at != null)
                 <div>
                     <ul class="list-group">
-                        <a href="/users/{{ $trash->id }}" class="list-group-item">
+                        <a href="/users/{{ $user->id }}" class="list-group-item">
                             <h4 class="list-group-item-heading">
-                                {{ $trash->username }}</h4>
+                                {{ $user->username }}</h4>
                         </a>
                     </ul>
                 </div>
+                @endif
             @endforeach
         </div>
 

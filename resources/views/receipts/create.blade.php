@@ -28,7 +28,7 @@
                             <input name="id" class="form-control"> </input>
 
                             <label for="list[]" class="control-label">Items</label>
-                            <select name="list[]" class="form-control select2" multiple>
+                            <select name="list[]" class="form-control select2" multiple required>
                                 @foreach($items as $item)
                                     <option value="{{$item->id}}">{{$item->barcode}}
                                         - {{$item->specs->brand}} {{$item->specs->model}}</option>

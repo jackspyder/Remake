@@ -16,10 +16,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $trashed = User::onlyTrashed()->get();
+        $users = User::orderBy('id')->withTrashed()->get();
 
-        return view('users.index', compact('users', 'trashed'));
+        return view('users.index', compact('users'));
     }
 
 
@@ -66,7 +65,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::withTrashed()->findOrFail($id);
 
         return view('users.show', compact('user'));
     }
@@ -136,6 +135,14 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
+
+        return redirect('/users');
+    }
+
+
+    public function restore($id)
+    {
+        User::withTrashed()->findOrFail($id)->restore();
 
         return redirect('/users');
     }

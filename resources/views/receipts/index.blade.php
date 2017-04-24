@@ -28,11 +28,12 @@
                     </thead>
                     <tbody>
                     @foreach($receipts as $receipt)
+                        @if($receipt->deleted_at == null)
                         <tr class="clickable" onclick="location.href='/receipts/{{ $receipt->id }}'">
                             <td>{{$receipt->id}}</td>
                             <td>
                                 @foreach($receipt->items as $item)
-                                    <div>{{$item->id}}
+                                    <div>{{$item->barcode}}
                                         - {{$item->specs->brand}} {{$item->specs->model}}</div>
                                 @endforeach
                             </td>
@@ -41,6 +42,7 @@
                             <td>{{$receipt->warranty}}</td>
                             <td>{{$receipt->created_at}}</td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
@@ -70,20 +72,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($trashed as $trash)
-                        <tr class="clickable" onclick="location.href='/receipts/{{ $trash->id }}'">
-                            <td>{{$trash->id}}</td>
+                    @foreach($receipts as $receipt)
+                        @if($receipt->deleted_at != null)
+                            <tr class="clickable" onclick="location.href='/receipts/{{ $receipt->id }}'">
+                                <td>{{$receipt->id}}</td>
                             <td>
-                                @foreach($trash->items as $item)
-                                    <div>{{$item->id}}
+                                @foreach($receipt->items as $item)
+                                    <div>{{$item->barcode}}
                                         - {{$item->specs->brand}} {{$item->specs->model}}</div>
                                 @endforeach
                             </td>
-                            <td>{{$trash->served_by}}</td>
-                            <td>{{$trash->payment}}</td>
-                            <td>{{$trash->warranty}}</td>
-                            <td>{{$trash->created_at}}</td>
+                                <td>{{$receipt->served_by}}</td>
+                                <td>{{$receipt->payment}}</td>
+                                <td>{{$receipt->warranty}}</td>
+                                <td>{{$receipt->created_at}}</td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
