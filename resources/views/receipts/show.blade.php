@@ -13,10 +13,29 @@
                             <ul class="list">
                                 <li><b>Receipt ID: </b>{{$receipt->id}}</li>
                                 <li><b>Item List: </b>
-                                    @foreach($receipt->items as $item)
-                                        <div>{{$item->barcode}}
-                                            - {{$item->specs->brand}} {{$item->specs->model}} - £{{ $item->price }}</div>
-                                    @endforeach
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Brand</th>
+                                                <th>Model</th>
+                                                <th>Price</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($receipt->items as $item)
+                                                <tr class="clickable"
+                                                    onclick="location.href='/items/{{ $item->id }}'">
+                                                    <td>{{$item->barcode}}</td>
+                                                    <td>{{$item->specs->brand}}</td>
+                                                    <td>{{$item->specs->model}}</td>
+                                                    <td>£{{ $item->price }}</td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </li>
                                 <li><b>Served by: </b>{{$receipt->served_by}}</li>
                                 <li><b>Payment Type: </b>{{$receipt->payment}}</li>
