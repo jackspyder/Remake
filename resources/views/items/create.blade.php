@@ -182,8 +182,8 @@
                             <div class="form-group">
                                 {{ Form::label('odd', 'Optical Drive') }}
                                 {{ Form::select('odd', [
-                                'yes'=>'Yes',
                                 'no' => 'No',
+                                 'yes'=>'Yes',
                                 ], null, array('class' => 'form-control')) }}
                             </div>
 
@@ -195,8 +195,8 @@
                             <div class="form-group">
                                 {{ Form::label('battery', 'Battery') }}
                                 {{ Form::select('battery', [
-                                'yes'=>'Yes',
                                 'no' => 'No',
+                                 'yes'=>'Yes',
                                 ], null, array('class' => 'form-control')) }}
                             </div>
                         </div>
@@ -212,16 +212,16 @@
                             <div class="form-group">
                                 {{ Form::label('lan', 'Network Port (LAN)') }}
                                 {{ Form::select('lan', [
-                                 'yes'=>'Yes',
                                  'no' => 'No',
+                                 'yes'=>'Yes',
                                  ], null, array('class' => 'form-control')) }}
                             </div>
 
                             <div class="form-group">
                                 {{ Form::label('wlan', 'Wireless Card (WLAN)') }}
                                 {{ Form::select('wlan', [
-                                'yes'=>'Yes',
                                 'no' => 'No',
+                                 'yes'=>'Yes',
                                 ], null, array('class' => 'form-control')) }}
                             </div>
 
@@ -233,8 +233,8 @@
                             <div class="form-group">
                                 {{ Form::label('psu', 'Power Supply') }}
                                 {{ Form::select('psu', [
-                                'yes'=>'Yes',
                                 'no' => 'No',
+                                 'yes'=>'Yes',
                                 ], null, array('class' => 'form-control')) }}
                             </div>
 
