@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Receipt;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,7 +17,7 @@ class ReceiptsController extends Controller
      */
     public function index()
     {
-        $receipts = Receipt::all();
+        $receipts = Receipt::orderBy('id')->withTrashed()->get();
         $items = Item::all();
 
         return view('receipts.index', compact('receipts', 'items'));
@@ -96,7 +95,7 @@ class ReceiptsController extends Controller
      */
     public function show($id)
     {
-        $receipt = Receipt::findOrFail($id);
+        $receipt = Receipt::withTrashed()->findOrFail($id);
 
         return view('receipts.show', compact('receipt'));
     }
@@ -141,10 +140,10 @@ class ReceiptsController extends Controller
             }
         }
 
-        $receipts = Receipt::where($toMatch)->get();
+        $receipts = Receipt::where($toMatch)->withTrashed()->get();
         $items = Item::all();
 
-        return view('receipts.index', compact('receipts', 'items', 'specs'));
+        return view('receipts.index', compact('receipts', 'items'));
     }
 
 
@@ -169,5 +168,19 @@ class ReceiptsController extends Controller
         return redirect('/receipts');
 
 
+    }
+
+
+    public function restore($id)
+    {
+        $receipt = Receipt::withTrashed()->findOrFail($id);
+        $receipt->restore();
+
+        foreach ($receipt->items as $item) {
+            $item->status = "Sold";
+            $item->save();
+        }
+
+        return redirect('/receipts');
     }
 }

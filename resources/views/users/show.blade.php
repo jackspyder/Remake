@@ -26,12 +26,20 @@
                         </div>
 
                     </div>
-                    <a href="{{ route('users.edit', $user) }}" class="btn btn-primary pull-right">Edit Member</a>
+                    @if($user->deleted_at == null)
+                        <a href="{{ route('users.edit', $user) }}" class="btn btn-primary pull-right">Edit
+                            User</a>
 
-                    {{ Form::open(['route' => ['users.destroy', $user->id],'class' => 'pull-left']) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Delete this User!',['class' => 'btn btn-danger'])}}
-                    {{ Form::close() }}
+                        {{ Form::open(['route' => ['users.destroy', $user->id],'class' => 'pull-left']) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::submit('Delete this User!',['class' => 'btn btn-danger'])}}
+                        {{ Form::close() }}
+                    @else
+                        {{ Form::open(['action' => ['UsersController@restore', $user->id],'class' => 'pull-right']) }}
+                        {{ Form::hidden('_method', 'PUT') }}
+                        {{ Form::submit('Restore This User',['class' => 'btn btn-primary'])}}
+                        {{ Form::close() }}
+                    @endif
                 </div>
             </div>
         </div>

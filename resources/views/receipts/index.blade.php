@@ -5,7 +5,7 @@
     @include('includes.salesModal')
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Receipts
+        <div class="panel-heading tall-header"><b>Receipts</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#salesPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
@@ -28,11 +28,12 @@
                     </thead>
                     <tbody>
                     @foreach($receipts as $receipt)
+                        @if($receipt->deleted_at == null)
                         <tr class="clickable" onclick="location.href='/receipts/{{ $receipt->id }}'">
                             <td>{{$receipt->id}}</td>
                             <td>
                                 @foreach($receipt->items as $item)
-                                    <div>{{$item->id}}
+                                    <div>{{$item->barcode}}
                                         - {{$item->specs->brand}} {{$item->specs->model}}</div>
                                 @endforeach
                             </td>
@@ -41,11 +42,56 @@
                             <td>{{$receipt->warranty}}</td>
                             <td>{{$receipt->created_at}}</td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
             </div>
             <a href="{{ url('/receipts/create') }}" class="btn btn-primary pull-right">Add Receipt</a>
+        </div>
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading tall-header"><b>Deleted Receipts</b>
+            <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#salesTrash">
+                <span id="invCaret" class="fa fa-caret-down" aria-hidden="false"></span>
+            </button>
+        </div>
+        <div id="salesTrash" class="panel-body collapse">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Items</th>
+                        <th>Served by</th>
+                        <th>Payment type</th>
+                        <th>Warranty</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($receipts as $receipt)
+                        @if($receipt->deleted_at != null)
+                            <tr class="clickable" onclick="location.href='/receipts/{{ $receipt->id }}'">
+                                <td>{{$receipt->id}}</td>
+                            <td>
+                                @foreach($receipt->items as $item)
+                                    <div>{{$item->barcode}}
+                                        - {{$item->specs->brand}} {{$item->specs->model}}</div>
+                                @endforeach
+                            </td>
+                                <td>{{$receipt->served_by}}</td>
+                                <td>{{$receipt->payment}}</td>
+                                <td>{{$receipt->warranty}}</td>
+                                <td>{{$receipt->created_at}}</td>
+                        </tr>
+                        @endif
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>

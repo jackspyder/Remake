@@ -11,7 +11,7 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand pull-left" href="{{ url('/') }}">
                 {{ config('app.name', 'Remade') }}
             </a>
         </div>
@@ -20,48 +20,18 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Member Management <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="{{ url('/users/create') }}">Add Member</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/users') }}">View Members</a>
-                        </li>
-                    </ul>
+                <li class="button">
+                    <a href="{{ url('/users') }}">Users</a>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Database <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-
-                        <li>
-                            <a href="{{ url('/items/create') }}">Add Items</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/items') }}">View Database</a>
-                        </li>
-                    </ul>
+                <li class="button">
+                    <a href="{{ url('/items') }}">Inventory</a>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        Sales <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
 
-                        <li>
-                            <a href="{{ url('/receipts/create') }}">Add Receipt</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/receipts') }}">View Receipts</a>
-                        </li>
-                    </ul>
+                <li class="button">
+                    <a href="{{ url('/receipts') }}">Receipts</a>
                 </li>
+
             </ul>
 
 

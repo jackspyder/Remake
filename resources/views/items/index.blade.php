@@ -16,7 +16,7 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Inventory
+        <div class="panel-heading tall-header"><b>Inventory</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#invPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
@@ -41,7 +41,10 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @foreach($items as $item)
+                        @if($item->deleted_at == null)
+
                         <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
                             <td>{{$item->barcode}}</td>
                             <td>{{$item->category}}</td>
@@ -53,10 +56,56 @@
                             <td>{{$item->status}}</td>
                             <td>{{$item->notes}}</td>
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
                 <a href="{{ url('/items/create') }}" class="btn btn-primary pull-right">Add Item</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading tall-header"><b>Deleted Items</b>
+            <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#invTrash">
+                <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
+            </button>
+
+        </div>
+        <div id="invTrash" class="panel-body collapse">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Barcode</th>
+                        <th>Category</th>
+                        {{--<th>Brand</th>--}}
+                        {{--<th>Model</th>--}}
+                        <th>Weight</th>
+                        <th>Condition</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($items as $item)
+                        @if($item->deleted_at != null)
+                            <tr class="clickable" onclick="location.href='/items/{{ $item->id }}'">
+                                <td>{{$item->barcode}}</td>
+                                <td>{{$item->category}}</td>
+                            {{--<td>{{$trash->spec->brand}}</td>--}}
+                            {{--<td>{{$trash->spec->model}}</td>--}}
+                                <td>{{$item->weight}}</td>
+                                <td>{{$item->condition}}</td>
+                                <td>£{{$item->price}}</td>
+                                <td>{{$item->status}}</td>
+                                <td>{{$item->notes}}</td>
+                        </tr>
+                        @endif
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

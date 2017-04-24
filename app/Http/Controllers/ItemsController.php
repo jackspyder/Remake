@@ -6,6 +6,7 @@ use App\Models\Dimension;
 use App\Models\Item;
 use App\Models\Spec;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class ItemsController extends Controller
@@ -18,7 +19,7 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        $items = Item::orderBy('barcode')->get();
+        $items = Item::orderBy('barcode')->withTrashed()->get();
 
         return view('items.index', compact('items'));
     }
@@ -32,9 +33,10 @@ class ItemsController extends Controller
     public function create()
     {
         $items = Item::all();
-        $specs = Spec::all();
 
-        return view('items.create', compact('items', 'specs'));
+        $code = DB::table('items')->max('barcode');
+
+        return view('items.create', compact('items', 'code'));
     }
 
 
@@ -72,8 +74,8 @@ class ItemsController extends Controller
             'screen rez'  => 'max:40',
         ]);
 
-        $item = Item::create($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
-            'coa', 'notes'));
+        $item = Item::create($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status',
+            'furniture', 'coa', 'notes'));
 
         $spec = Spec::create($request->only('brand', 'model', 'cpu', 'ram', 'hdd', 'odd', 'gpu', 'battery', 'usb',
             'lan', 'wlan', 'os', 'psu', 'screen_size', 'screen rez'));
@@ -96,7 +98,7 @@ class ItemsController extends Controller
      */
     public function show($id)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::withTrashed()->findOrFail($id);
 
         return view('items.show', compact('item'));
     }
@@ -111,10 +113,11 @@ class ItemsController extends Controller
      */
     public function edit($id)
     {
-        $item = Item::findOrFail($id);
-        $spec = Spec::all();
+        $item = Item::withTrashed()->findOrFail($id);
 
-        return view('items.edit', compact('item', 'spec'));
+        //$spec = Spec::all();
+
+        return view('items.edit', compact('item'));
     }
 
 
@@ -122,13 +125,14 @@ class ItemsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  int                      $id
      *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $item = Item::findOrFail($id);
+
         $this->validate(request(), [
             'barcode'     => [
                 'required',
@@ -156,10 +160,8 @@ class ItemsController extends Controller
             'screen rez'  => 'max:40',
         ]);
 
-
-
-        $item->update($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture', 'coa',
-            'notes'));
+        $item->update($request->only('barcode', 'category', 'price', 'weight', 'condition', 'status', 'furniture',
+            'coa', 'notes'));
 
         $item->specs->update($request->only('brand', 'model', 'cpu', 'ram', 'hdd', 'odd', 'gpu', 'battery', 'usb',
             'lan', 'wlan', 'os', 'psu', 'screen_size', 'screen rez'));
@@ -188,16 +190,24 @@ class ItemsController extends Controller
     }
 
 
+    public function restore($id)
+    {
+        Item::withTrashed()->findOrFail($id)->restore();
+
+        return redirect('/items');
+    }
+
+
     public function search(Request $request)
     {
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if (!empty(trim($value)) && $key != '_token') {
+            if ( ! empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }
-        $items = Item::where($toMatch)->get();
+        $items = Item::where($toMatch)->withTrashed()->get();
 
         return view('items.index', compact('items'));
     }
@@ -209,7 +219,7 @@ class ItemsController extends Controller
         $toMatch = [];
 
         foreach ($request->all() as $key => $value) {
-            if (!empty(trim($value)) && $key != '_token') {
+            if ( ! empty(trim($value)) && $key != '_token') {
                 $toMatch[$key] = trim($value);
             }
         }

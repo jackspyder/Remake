@@ -45,26 +45,26 @@
                             {{ Form::label('category', 'Category') }}
                             {{ Form::select('category', [
                             'Furniture' => 'Furniture',
-                            'Laptops' => 'Laptops',
-                            'Desktop PCs' => 'Desktop PCs',
-                            'Printers'=>'Printers',
-                            'All in ones'=>'All in ones',
-                            'Monitors' => 'Monitors',
-                            'For Parts' => 'For Parts',
-                            'Projectors' => 'Projectors',
-                            'Smartboards'=>'Smartboards',
-                            'Keyboards'=>'Keyboards',
-                            'Mice' => 'Mice',
-                            'Speakers' => 'Speakers',
-                            'Scanners' => 'Scanners',
-                            'Peripherals'=>'Peripherals',
-                            'Smartphones'=>'Smartphones',
-                            'Tablets'=>'Tablets',
-                            'Networks' => 'Networks',
-                            'Games Consoles' => 'Games Consoles',
-                            'IT Misc' => 'IT Misc',
-                            'Servers'=>'Servers',
-                            'Electricals'=>'Electricals',
+                            '1100.Laptops' => '1100.Laptops',
+                            '1200.Desktop PCs' => '1200.Desktop PCs',
+                            '1300.Printers'=>'1300.Printers',
+                            '1400.All in ones'=>'1400.All in ones',
+                            '1500.Monitors' => '1500.Monitors',
+                            '1510.Projectors' => '1510.Projectors',
+                            '1520.Smartboards'=>'1520.Smartboards',
+                            '1600.Replacement parts' => '1600.Replacement parts',
+                            '1710.Keyboards'=>'1710.Keyboards',
+                            '1720.Mice' => '1720.Mice',
+                            '1730.Speakers' => '1730.Speakers',
+                            '1740.Scanners' => '1740.Scanners',
+                            '1750.Peripherals'=>'1750.Peripherals',
+                            '1760.Smartphones'=>'1760.Smartphones',
+                            '1770.Tablets'=>'1770.Tablets',
+                            '1780.Networks' => '1780.Networks',
+                            '1790.Games Consoles' => '1790.Games Consoles',
+                            '1800.IT Misc' => '1800.IT Misc',
+                            '1900.Servers'=>'1900.Servers',
+                            '4000.Electricals'=>'4000.Electricals',
                             ], null, array('class' => 'form-control')) }}
                         </div>
 
@@ -94,11 +94,11 @@
                         <div class="form-group">
                             {{ Form::label('status', 'Status') }}
                             {{ Form::select('status', [
+                            'For Refurbishment'=>'For Refurbishment',
+                            'Storage' => 'Storage',
                             'For Sale' => 'For Sale',
                             'For Parts' => 'For Parts',
-                            'Storage' => 'Storage',
                             'Sold'=>'Sold',
-                            'For Refurbishment'=>'For Refurbishment',
                             ], null, array('class' => 'form-control')) }}
                         </div>
 
@@ -136,13 +136,12 @@
         </div>
     </div>
 
-
-
     <div class="panel panel-default">
         {{--Panel head--}}
         <div class="panel-heading tall-header">Add Specifications
             {{--Panel minimise button--}}
-            <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#specPanel">
+            <button type="button" class="btn btn-default pull-right" data-toggle="collapse"
+                    data-target="#specPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
         </div>
@@ -183,7 +182,10 @@
 
                         <div class="form-group">
                             {{ Form::label('odd', 'Optical Drive') }}
-                            {{ Form::text('odd', null, array('class' => 'form-control')) }}
+                            {{ Form::select('odd', [
+                            'yes'=>'Yes',
+                            'no' => 'No',
+                            ], null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">
@@ -193,7 +195,10 @@
 
                         <div class="form-group">
                             {{ Form::label('battery', 'Battery') }}
-                            {{ Form::text('battery', null, array('class' => 'form-control')) }}
+                            {{ Form::select('battery', [
+                            'yes'=>'Yes',
+                            'no' => 'No',
+                            ], null, array('class' => 'form-control')) }}
                         </div>
                     </div>
 
@@ -207,12 +212,18 @@
 
                         <div class="form-group">
                             {{ Form::label('lan', 'Network Port (LAN)') }}
-                            {{ Form::text('lan', null, array('class' => 'form-control')) }}
+                            {{ Form::select('lan', [
+                             'yes'=>'Yes',
+                             'no' => 'No',
+                             ], null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('wlan', 'Wireless Card (WLAN)') }}
-                            {{ Form::text('wlan', null, array('class' => 'form-control')) }}
+                            {{ Form::select('wlan', [
+                            'yes'=>'Yes',
+                            'no' => 'No',
+                            ], null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">
@@ -222,7 +233,10 @@
 
                         <div class="form-group">
                             {{ Form::label('psu', 'Power Supply') }}
-                            {{ Form::text('psu', null, array('class' => 'form-control')) }}
+                            {{ Form::select('psu', [
+                            'yes'=>'Yes',
+                            'no' => 'No',
+                            ], null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">
