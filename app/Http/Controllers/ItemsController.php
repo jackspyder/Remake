@@ -53,8 +53,8 @@ class ItemsController extends Controller
         $this->validate(request(), [
             'barcode'     => 'unique:items|min:0|required',
             'category'    => 'required',
-            'price'       => 'between:0,9999.99|nullable',
-            'weight'      => 'min:0|nullable',
+            'price'       => 'between:0,9999.99|required',
+            'weight'      => 'min:0|required',
             'condition'   => 'required',
             'status'      => 'required',
             'brand'       => 'max:40',
