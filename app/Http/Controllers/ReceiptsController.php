@@ -143,7 +143,7 @@ class ReceiptsController extends Controller
         $receipts = Receipt::where($toMatch)->withTrashed()->get();
         $items = Item::all();
 
-        return view('receipts.index', compact('receipts', 'items', 'specs'));
+        return view('receipts.index', compact('receipts', 'items'));
     }
 
 

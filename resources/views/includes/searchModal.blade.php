@@ -18,26 +18,26 @@
                             {{ Form::select('category', [
                             '' => '',
                             'Furniture' => 'Furniture',
-                            'Laptops' => 'Laptops',
-                            'Desktop PCs' => 'Desktop PCs',
-                            'Printers'=>'Printers',
-                            'All in ones'=>'All in ones',
-                            'Monitors' => 'Monitors',
-                            'For Parts' => 'For Parts',
-                            'Projectors' => 'Projectors',
-                            'Smartboards'=>'Smartboards',
-                            'Keyboards'=>'Keyboards',
-                            'Mice' => 'Mice',
-                            'Speakers' => 'Speakers',
-                            'Scanners' => 'Scanners',
-                            'Peripherals'=>'Peripherals',
-                            'Smartphones'=>'Smartphones',
-                            'Tablets'=>'Tablets',
-                            'Networks' => 'Networks',
-                            'Games Consoles' => 'Games Consoles',
-                            'IT Misc' => 'IT Misc',
-                            'Servers'=>'Servers',
-                            'Electricals'=>'Electricals',
+                                '1100.Laptops' => '1100.Laptops',
+                                '1200.Desktop PCs' => '1200.Desktop PCs',
+                                '1300.Printers'=>'1300.Printers',
+                                '1400.All in ones'=>'1400.All in ones',
+                                '1500.Monitors' => '1500.Monitors',
+                                '1510.Projectors' => '1510.Projectors',
+                                '1520.Smartboards'=>'1520.Smartboards',
+                                '1600.Replacement parts' => '1600.Replacement parts',
+                                '1710.Keyboards'=>'1710.Keyboards',
+                                '1720.Mice' => '1720.Mice',
+                                '1730.Speakers' => '1730.Speakers',
+                                '1740.Scanners' => '1740.Scanners',
+                                '1750.Peripherals'=>'1750.Peripherals',
+                                '1760.Smartphones'=>'1760.Smartphones',
+                                '1770.Tablets'=>'1770.Tablets',
+                                '1780.Networks' => '1780.Networks',
+                                '1790.Games Consoles' => '1790.Games Consoles',
+                                '1800.IT Misc' => '1800.IT Misc',
+                                '1900.Servers'=>'1900.Servers',
+                                '4000.Electricals'=>'4000.Electricals',
                             ], null, array('class' => 'form-control')) }}
 
                             <label for="condition" class="control-label">Condition</label>
@@ -134,9 +134,11 @@
                             </input>
 
                             <label for="odd" class="control-label">ODD</label>
-                            <input name="odd" class="form-control">
+                            {{ Form::select('odd', [
+                                'yes'=>'Yes',
+                                'no' => 'No',
+                                ], null, array('class' => 'form-control')) }}
 
-                            </input>
 
                             <label for="gpu" class="control-label">GPU</label>
                             <input name="gpu" class="form-control">
@@ -149,19 +151,22 @@
                         <div class="form-group col-sm-12 col-md-6">
 
                           <label for="battery" class="control-label">Battery</label>
-                          <input name="battery" class="form-control">
-
-                          </input>
+                            {{ Form::select('battery', [
+                                  'yes'=>'Yes',
+                                  'no' => 'No',
+                                  ], null, array('class' => 'form-control')) }}
 
                             <label for="lan" class="control-label">LAN</label>
-                            <input name="lan" class="form-control">
-
-                            </input>
+                            {{ Form::select('lan', [
+                                 'yes'=>'Yes',
+                                 'no' => 'No',
+                                 ], null, array('class' => 'form-control')) }}
 
                             <label for="wlan" class="control-label">WLAN</label>
-                            <input name="wlan" class="form-control">
-
-                            </input>
+                            {{ Form::select('wlan', [
+                                'yes'=>'Yes',
+                                'no' => 'No',
+                                ], null, array('class' => 'form-control')) }}
 
                             <label for="os" class="control-label">OS</label>
                             <input name="os" class="form-control">
@@ -169,9 +174,10 @@
                             </input>
 
                             <label for="psu" class="control-label">PSU</label>
-                            <input name="psu" class="form-control">
-
-                            </input>
+                            {{ Form::select('psu', [
+                                'yes'=>'Yes',
+                                'no' => 'No',
+                                ], null, array('class' => 'form-control')) }}
 
                             <label for="screen_size" class="control-label">Screen Size</label>
                             <input name="screen_size" class="form-control">

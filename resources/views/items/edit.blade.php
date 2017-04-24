@@ -151,7 +151,7 @@
             {{--Main Panel Content--}}
             <div class="container-fluid">
                 <div class="row">
-
+                    {{  Form::setModel($item->specs)  }}
                     {{--Row Left--}}
                     <div class="form-group col-sm-12 col-md-6">
 
@@ -269,7 +269,7 @@
             {{--Main Panel Content--}}
             <div class="container-fluid">
                 <div class="row">
-
+                    {{  Form::setModel($item->dimensions)  }}
                     {{--Row Left--}}
                     <div class="form-group col-sm-12 col-md-6">
 

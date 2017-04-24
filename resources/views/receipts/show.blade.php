@@ -29,9 +29,6 @@
 
                     </div>
                     @if($receipt->deleted_at == null)
-                        <a href="{{ route('receipts.edit', $receipt) }}" class="btn btn-primary pull-right">Edit
-                            Receipt</a>
-
                         {{ Form::open(['route' => ['receipts.destroy', $receipt->id],'class' => 'pull-left']) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::submit('Delete this Receipt!',['class' => 'btn btn-danger'])}}

@@ -33,11 +33,10 @@ class ItemsController extends Controller
     public function create()
     {
         $items = Item::all();
-        $specs = Spec::all();
 
         $code = DB::table('items')->max('barcode');
 
-        return view('items.create', compact('items', 'specs', 'code'));
+        return view('items.create', compact('items', 'code'));
     }
 
 
@@ -115,9 +114,10 @@ class ItemsController extends Controller
     public function edit($id)
     {
         $item = Item::withTrashed()->findOrFail($id);
-        $spec = Spec::all();
 
-        return view('items.edit', compact('item', 'spec'));
+        //$spec = Spec::all();
+
+        return view('items.edit', compact('item'));
     }
 
 
