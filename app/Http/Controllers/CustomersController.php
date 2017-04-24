@@ -14,7 +14,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::All();
+        $customers = Customer::withTrashed()->get();
 
         return view('customers.index', compact('customers'));
     }
@@ -121,6 +121,16 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+
+        return redirect('/customers');
+    }
+
+    public function restore($id)
+    {
+        Customer::withTrashed()->findOrFail($id)->restore();
+
+        return redirect('/customers');
     }
 }
