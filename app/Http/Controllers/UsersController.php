@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use DB;
 use Illuminate\Validation\Rule;
 
 class UsersController extends Controller

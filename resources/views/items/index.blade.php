@@ -16,7 +16,7 @@
 
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Inventory
+        <div class="panel-heading tall-header"><b>Inventory</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#invPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Deleted Items
+        <div class="panel-heading tall-header"><b>Deleted Items</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#invTrash">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>

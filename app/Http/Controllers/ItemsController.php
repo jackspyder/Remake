@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\Spec;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class ItemsController extends Controller
 {
@@ -35,7 +36,9 @@ class ItemsController extends Controller
         $items = Item::all();
         $specs = Spec::all();
 
-        return view('items.create', compact('items', 'specs'));
+        $code = DB::table('items')->max('barcode');
+
+        return view('items.create', compact('items', 'specs', 'code'));
     }
 
 

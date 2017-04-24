@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Users
+        <div class="panel-heading tall-header"><b>Users</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#usersPanel">
                 <span id="invCaret" class="fa fa-caret-down"></span>
             </button>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Deleted Users
+        <div class="panel-heading tall-header"><b>Deleted Users</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#usersTrash">
                 <span id="invCaret" class="fa fa-caret-down"></span>
             </button>

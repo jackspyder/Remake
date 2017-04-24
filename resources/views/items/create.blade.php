@@ -37,7 +37,7 @@
 
                             <div class="form-group">
                                 {{ Form::label('barcode', 'Barcode') }}
-                                {{ Form::number('barcode', null, array('class' => 'form-control')) }}
+                                {{ Form::number('barcode', $code+1, array('class' => 'form-control')) }}
                             </div>
 
                             <div class="form-group">

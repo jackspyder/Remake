@@ -5,7 +5,7 @@
     @include('includes.salesModal')
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Receipts
+        <div class="panel-heading tall-header"><b>Receipts</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#salesPanel">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="true"></span>
             </button>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading tall-header">Deleted Receipts
+        <div class="panel-heading tall-header"><b>Deleted Receipts</b>
             <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#salesTrash">
                 <span id="invCaret" class="fa fa-caret-down" aria-hidden="false"></span>
             </button>
